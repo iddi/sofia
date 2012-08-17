@@ -12,6 +12,7 @@ import uuid, os, sys
 from RDFTransactionList import * #helper functions for working with triples
 import serial
 import time
+from datetime import datetime
 
 connected = False
 deviceID = "lamp1"
@@ -177,17 +178,22 @@ def main():
     
     global ts, sc
     
-    lightPort = serial.Serial("/dev/tty.ARDUINOBT-BluetoothSeri",115200)
+    # for windows
+    lightPort = serial.Serial("COM3:",115200)
     
-    try:
-        ts = TripleStore()
-        connected = True
-        
-        addEvent("ConnectEvent")
+    # for mac
+    #lightPort = serial.Serial("/dev/tty.ARDUINOBT-BluetoothSeri",115200)
 
-    except:
-        print "Cannot connect to smart space."
-        return
+    
+    #try:
+    ts = TripleStore()
+    connected = True
+        
+    addEvent("ConnectEvent")
+
+    #except:
+    #    print "Cannot connect to smart space."
+    #    return
         
     if connected:
         registerDevice()
