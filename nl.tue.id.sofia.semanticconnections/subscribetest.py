@@ -4,8 +4,8 @@
 from smart_m3 import Node
 from smart_m3.Node import TCPConnector
 
-ns = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
-ie_ns = "http://sofia.gotdns.com/ontologies/InteractionEvents.owl#"
+ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
 
 #join smart space
 node = Node.ParticipantNode("SIB Subscribe Tester")

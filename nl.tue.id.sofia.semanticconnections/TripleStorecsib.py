@@ -2,7 +2,7 @@ from smart_m3 import Node
 from smart_m3.Node import TCPConnector
 import uuid
 
-ns = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
+ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
 smartSpace = ('test', (TCPConnector, ('localhost', 10010)))
 node = Node.ParticipantNode("node"+str(uuid.uuid4()))
 

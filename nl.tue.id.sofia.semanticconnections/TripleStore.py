@@ -2,10 +2,10 @@ from smart_m3 import Node
 from smart_m3.Node import TCPConnector
 import uuid
 
-ns = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
-ie_ns = "http://sofia.gotdns.com/ontologies/InteractionEvents.owl#"
-sc_ns = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
-semint_ns = "http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
+ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+sc_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+semint_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
 sofia_ns = "http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#"
 
 # connection to SIB running on a different computer

@@ -127,11 +127,11 @@ FILTER (((?this != ?x2) && (?this != ?x3)) && (?x2 != ?x3)) .
 
 install file:/home/gerrit/code/adk-sib_tue0.2/eu.sofia.adk.sib_2.0.2.201012221549.jar
 
-http://sofia.gotdns.com/ontologies/SemanticConnections.owl#hasRFIDTag
+https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#hasRFIDTag
 
-add_ns sc http://sofia.gotdns.com/ontologies/SemanticConnections.owl
-add_ns semint http://sofia.gotdns.com/ontologies/SemanticInteraction.owl
-add_ns bd http://sofia.gotdns.com/ontologies/BondingDevice.owl
+add_ns sc https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl
+add_ns semint https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl
+add_ns bd https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl
 add_ns sofia http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl
 add_ns owl http://www.w3.org/2002/07/owl
 add_ns core http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl
@@ -152,7 +152,7 @@ WHERE {
     ?x2 sc:convertsMediaType ?x4 .
     ?this sc:connectedTo ?x3 .
     ?x3 sc:connectedTo ?x4 .
-    BIND (IRI(fn:concat("http://sofia.gotdns.com/ontologies/SemanticConnections.owl#indirectMediaPath_", afn:localname(?this), "_to_", afn:localname(?x4))) AS ?mp) .
+    BIND (IRI(fn:concat("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#indirectMediaPath_", afn:localname(?this), "_to_", afn:localname(?x4))) AS ?mp) .
 }
 
 
@@ -195,7 +195,7 @@ CONSTRUCT {
 }
 WHERE {
     ?this semint:dataValue "on" .
-    BIND (IRI(fn:concat("http://sofia.gotdns.com/ontologies/SemanticConnections.owl#event-", afn:now())) AS ?event) .
+    BIND (IRI(fn:concat("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#event-", afn:now())) AS ?event) .
 }
 
 sc:convertsMediaType(?x1, ?x2), sc:convertsMediaType(?x2, ?x3) -> mediaSourceSO(?x3, ?x2)
@@ -203,11 +203,11 @@ sc:convertsMediaType(?x1, ?x2), sc:convertsMediaType(?x2, ?x3) -> mediaSourceSO(
 semint:ofIDType(?x2, semint:RFID_Mifare), sofia:hasIdentification(?x1, ?x2), semint:idValue(?x2, ?x3) -> sc:hasRFIDTag(?x1, ?x3)
 
 
-PREFIX sc: <http://sofia.gotdns.com/ontologies/SemanticConnections.owl#>
+PREFIX sc: <https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#>
 PREFIX sofia: <http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#>
-PREFIX bd: <http://sofia.gotdns.com/ontologies/BondingDevice.owl#>
+PREFIX bd: <https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl#>
 SELECT ?name ?name2
-FROM <http://sofia.gotdns.com/ontologies/BondingDevice.owl>
+FROM <https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl>
 WHERE {
   ?name bd:mediaSourceSO ?name2 .
 }

@@ -10,7 +10,7 @@ Created on 11 October 2010
 '''
 This must be added in ssls:
 
-add_ns sc http://sofia.gotdns.com/ontologies/SemanticConnections.owl
+add_ns sc https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl
 
 rule managed_cap sc:a_e0cfb0c7-55c2-4d67-a4dc-5cd7e633101d.
 ins sc:a_e0cfb0c7-55c2-4d67-a4dc-5cd7e633101d,wp1:managed,"1"
