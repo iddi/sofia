@@ -1,0 +1,107 @@
+<?xml version='1.0'?>
+<sofia>
+<core>
+  <id>sofia-co-1.1</id>
+  <name>Sofia Core Ontology v1.1</name>
+  <description>Sofia Core Ontology</description>
+  <resource>/ontologies/core/CoreOntology-v1.1.owl</resource>
+  <icon>/img/smartapp/core.gif</icon>
+</core>
+<core>
+  <id>sofia-co-1.2</id>
+  <name>Sofia Core Ontology v1.2</name>
+  <description>Sofia Core Ontology</description>
+  <resource>/ontologies/core/CoreOntology_v1.2.owl</resource>
+  <icon>/img/smartapp/core.gif</icon>
+</core>
+<core>
+  <id>sofia-co-1.3</id>
+  <name>Sofia Core Ontology v1.3</name>
+  <description>Sofia Core Ontology</description>
+  <resource>/ontologies/core/CoreOntology_v1.3.owl</resource>
+  <icon>/img/smartapp/core.gif</icon>
+</core>
+
+<domain>
+  <id>wp1</id>
+  <name>Nomadic (WP1)</name>
+  <description>Describes a User related smart space</description>
+  <resource>/ontologies/nomadic/wp1_dolce.owl</resource>
+  <icon>/img/smartapp/nomadic.gif</icon>
+</domain>
+
+<domain>
+  <id>wp2-maintenance-v1.0</id>
+  <name>Building Maintenance Management (WP2)</name>
+  <description>Building Maintenance Management</description>
+  <resource>/ontologies/indoor/maintenance-v1.0.owl</resource>
+  <icon>/img/smartapp/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-lightsensors</id>
+  <name>Smart Lighting Management (WP2)</name>
+  <description>Smart Lighting Management</description>
+  <resource>/ontologies/indoor/LightAndSensors.owl</resource>
+  <icon>/img/smartapp/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-epm</id>
+  <name>Efficient Power Management (WP2)</name>
+  <description>Efficient Power Management</description>
+  <resource>/ontologies/indoor/EPM.owl</resource>
+  <icon>/img/smartapp/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-useractivity</id>
+  <name>Life Style and Comfort (WP2)</name>
+  <description>Life Style and Comfort</description>
+  <resource>/ontologies/indoor/UserActivity.owl</resource>
+  <icon>/img/smartapp/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-semanticconnections</id>
+  <name>Semantic Connections (WP2)</name>
+  <description>Semantic Connections</description>
+  <resource>/ontologies/indoor/SemanticConnections.owl</resource>
+  <icon>/img/smartapp/home.gif</icon>
+</domain>
+<domain>
+  <id>wp3</id>
+  <name>Smart City Ontology (WP3)</name>
+  <description>Describes a User related smart space</description>
+  <resource>/ontologies/city/wp3.owl</resource>
+  <icon>/img/smartapp/smartcity.gif</icon>
+</domain>
+
+<domain>
+  <id>test-measurement</id>
+  <name>Sensor Measurement (Test)</name>
+  <description>Sensor Measurement Example</description>
+  <resource>/ontologies/test/sensor-measurement.owl</resource>
+  <icon>/img/smartapp/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-location</id>
+  <name>Location (Test)</name>
+  <description>Result Location Example</description>
+  <resource>/ontologies/test/location.owl</resource>
+  <icon>/img/smartapp/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-smoke</id>
+  <name>Smoke Sensor (Test)</name>
+  <description>Smoke Sensor Example</description>
+  <resource>/ontologies/test/smokesensortest.owl</resource>
+  <icon>/img/smartapp/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-temperature</id>
+  <name>Temperature Result (Test)</name>
+  <description>Temperature Result Example</description>
+  <resource>/ontologies/test/tempsensor.owl</resource>
+  <icon>/img/smartapp/rdf.gif</icon>
+</domain>
+</sofia>

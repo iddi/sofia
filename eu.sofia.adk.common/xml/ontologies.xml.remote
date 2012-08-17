@@ -1,0 +1,100 @@
+<?xml version='1.0'?>
+<sofia>
+<core>
+  <id>sofia-co-1.1</id>
+  <name>Sofia Core Ontology v1.1</name>
+  <description>Sofia Core Ontology</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/core.gif</icon>
+</core>
+<core>
+  <id>sofia-co-1.2</id>
+  <name>Sofia Core Ontology v1.2</name>
+  <description>Sofia Core Ontology</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology_v1.2.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/core.gif</icon>
+</core>
+
+<domain>
+  <id>wp1</id>
+  <name>Nomadic (WP1)</name>
+  <description>Describes a User related smart space</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/nomadic/wp1_dolce.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/nomadic.gif</icon>
+</domain>
+
+<domain>
+  <id>wp2-maintenance-v1.0</id>
+  <name>Building Maintenance Management (WP2)</name>
+  <description>Building Maintenance Management</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/indoor/maintenance-v1.0.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-lightsensors</id>
+  <name>Smart Lighting Management (WP2)</name>
+  <description>Smart Lighting Management</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/indoor/LightAndSensors.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-epm</id>
+  <name>Efficient Power Management (WP2)</name>
+  <description>Efficient Power Management</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/indoor/EPM.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-useractivity</id>
+  <name>Life Style and Comfort (WP2)</name>
+  <description>Life Style and Comfort</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/indoor/UserActivity.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/home.gif</icon>
+</domain>
+<domain>
+  <id>wp2-semanticconnections</id>
+  <name>Semantic Connections (WP2)</name>
+  <description>Semantic Connections</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/indoor/SemanticConnections.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/home.gif</icon>
+</domain>
+<domain>
+  <id>wp3</id>
+  <name>Smart City Ontology (WP3)</name>
+  <description>Describes a User related smart space</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/city/wp3.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/smartcity.gif</icon>
+</domain>
+
+<domain>
+  <id>test-measurement</id>
+  <name>Sensor Meausurement (Test)</name>
+  <description>Sensor Measurement Example</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/test/sensor-measurement.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-location</id>
+  <name>Location (Test)</name>
+  <description>Result Location Example</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/test/location.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-smoke</id>
+  <name>Smoke Sensor (Test)</name>
+  <description>Smoke Sensor Example</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/test/smokesensortest.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/rdf.gif</icon>
+</domain>
+
+<domain>
+  <id>test-temperature</id>
+  <name>Temperature Result (Test)</name>
+  <description>Temperature Result Example</description>
+  <resource>http://emb1.esilab.org/sofia/ontology/1.3/test/tempsensor.owl</resource>
+  <icon>http://emb1.esilab.org/sofia/adk/img/ontology/rdf.gif</icon>
+</domain>
+</sofia>

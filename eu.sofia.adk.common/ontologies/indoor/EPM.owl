@@ -1,0 +1,1050 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY EPM "http://emb1.esilab.org/sofia/ontology/1.3/indoor/EPM.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/indoor/EPM.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/indoor/EPM.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:EPM="http://emb1.esilab.org/sofia/ontology/1.3/indoor/EPM.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;has-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;inherent-in"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-Notification-use-state -->
+
+    <owl:ObjectProperty rdf:about="#has-Notification-use-state">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-state"/>
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <owl:inverseOf rdf:resource="#is-Notification-use-state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-release-amount -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-release-amount">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-release-amount"/>
+        <rdfs:domain rdf:resource="#consumable-source-state"/>
+        <owl:inverseOf rdf:resource="#is-consumable-release-amount-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-release-metric -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-release-metric">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-release-metric"/>
+        <rdfs:domain rdf:resource="#consumable-source"/>
+        <owl:inverseOf rdf:resource="#is-consumable-release-metric-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-source-state -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-source-state">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-source"/>
+        <rdfs:range rdf:resource="#consumable-source-state"/>
+        <owl:inverseOf rdf:resource="#is-consumable-source-state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-storage-amount -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-storage-amount">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-storage-amount"/>
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <owl:inverseOf rdf:resource="#is-consumable-storage-amount-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-storage-capability -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-storage-capability">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-source"/>
+        <rdfs:range rdf:resource="#consumable-storage-capability"/>
+        <owl:inverseOf rdf:resource="#is-consumable-storage-capability-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-use-metric -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-use-metric">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-metric"/>
+        <rdfs:domain rdf:resource="#consumable-user"/>
+        <owl:inverseOf rdf:resource="#is-consumable-use-metric-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-use-state -->
+
+    <owl:ObjectProperty rdf:about="#has-consumable-use-state">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-state"/>
+        <rdfs:domain rdf:resource="#consumable-user"/>
+        <owl:inverseOf rdf:resource="#is-consumable-use-state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-contact -->
+
+    <owl:ObjectProperty rdf:about="#has-contact">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <owl:inverseOf rdf:resource="#is-contact-of"/>
+        <rdfs:range rdf:resource="#personal-contact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-notification-use-state -->
+
+    <owl:ObjectProperty rdf:about="#has-preference-notification-use-state">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-state"/>
+        <rdfs:domain rdf:resource="#consumption-notification-preference"/>
+        <owl:inverseOf rdf:resource="#is-preference-notification-use-state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-use-amount -->
+
+    <owl:ObjectProperty rdf:about="#has-preference-use-amount">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-metric"/>
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <owl:inverseOf rdf:resource="#is-preference-use-amount-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-use-amount-time -->
+
+    <owl:ObjectProperty rdf:about="#has-preference-use-amount-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <owl:inverseOf rdf:resource="#is-preference-use-amount-time-of"/>
+        <rdfs:range rdf:resource="#use-amount-time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-use-state -->
+
+    <owl:ObjectProperty rdf:about="#has-preference-use-state">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-state"/>
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <owl:inverseOf rdf:resource="#is-preference-use-state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-cost -->
+
+    <owl:ObjectProperty rdf:about="#has-release-cost">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-release-cost"/>
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+        <owl:inverseOf rdf:resource="#is-release-cost-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-state-chenge-time -->
+
+    <owl:ObjectProperty rdf:about="#has-release-state-chenge-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-source-state"/>
+        <owl:inverseOf rdf:resource="#is-release-time-of"/>
+        <rdfs:range rdf:resource="#release-time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-time -->
+
+    <owl:ObjectProperty rdf:about="#has-release-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+        <owl:inverseOf rdf:resource="#is-release-time-of"/>
+        <rdfs:range rdf:resource="#release-time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-source -->
+
+    <owl:ObjectProperty rdf:about="#has-source">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-source"/>
+        <rdfs:domain rdf:resource="#consumable-user"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-time -->
+
+    <owl:ObjectProperty rdf:about="#has-storage-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <owl:inverseOf rdf:resource="#is-storage-time-of"/>
+        <rdfs:range rdf:resource="#storage-time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-amount -->
+
+    <owl:ObjectProperty rdf:about="#has-use-amount">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#consumable-use-amount"/>
+        <rdfs:domain rdf:resource="#consumable-use-metric"/>
+        <owl:inverseOf rdf:resource="#is-consumable-use-amount-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-amount-time -->
+
+    <owl:ObjectProperty rdf:about="#has-use-amount-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#consumable-use-metric"/>
+        <owl:inverseOf rdf:resource="#is-use-amount-time-of"/>
+        <rdfs:range rdf:resource="#use-amount-time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-Notification-use-state-of -->
+
+    <owl:ObjectProperty rdf:about="#is-Notification-use-state-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-release-amount-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-release-amount-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-release-metric-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-release-metric-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-source-state-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-source-state-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-storage-amount-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-storage-amount-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-storage-capability-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-storage-capability-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-use-amount-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-use-amount-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-use-metric-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-use-metric-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-consumable-use-state-of -->
+
+    <owl:ObjectProperty rdf:about="#is-consumable-use-state-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-contact-of -->
+
+    <owl:ObjectProperty rdf:about="#is-contact-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-preference-notification-use-state-of -->
+
+    <owl:ObjectProperty rdf:about="#is-preference-notification-use-state-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-preference-use-amount-of -->
+
+    <owl:ObjectProperty rdf:about="#is-preference-use-amount-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-preference-use-amount-time-of -->
+
+    <owl:ObjectProperty rdf:about="#is-preference-use-amount-time-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-preference-use-state-of -->
+
+    <owl:ObjectProperty rdf:about="#is-preference-use-state-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-release-cost-of -->
+
+    <owl:ObjectProperty rdf:about="#is-release-cost-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-release-time-of -->
+
+    <owl:ObjectProperty rdf:about="#is-release-time-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-source-of -->
+
+    <owl:ObjectProperty rdf:about="#is-source-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-storage-time-of -->
+
+    <owl:ObjectProperty rdf:about="#is-storage-time-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#is-use-amount-time-of -->
+
+    <owl:ObjectProperty rdf:about="#is-use-amount-time-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-consumable-type -->
+
+    <owl:DatatypeProperty rdf:about="#has-consumable-type">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#consumable-source"/>
+                    <rdf:Description rdf:about="#consumable-user"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-foaf -->
+
+    <owl:DatatypeProperty rdf:about="#has-foaf">
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-error -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-error">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-error-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-error-time">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-use-amount-deviation -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-use-amount-deviation">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-use-amount-deviation-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-use-amount-deviation-time">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-use-amount-peak -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-use-amount-peak">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-use-amount-peak-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-use-amount-peak-time"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-notification-use-state-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-notification-use-state-time">
+        <rdfs:domain rdf:resource="#consumption-notification"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-notification-error -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-notification-error">
+        <rdfs:domain rdf:resource="#consumption-notification-preference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-notification-use-amount-deviation -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-notification-use-amount-deviation">
+        <rdfs:domain rdf:resource="#consumption-notification-preference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-notification-use-amount-peak -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-notification-use-amount-peak">
+        <rdfs:domain rdf:resource="#consumption-notification-preference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-release-cost-coo -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-release-cost-coo">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-release-cost-eur -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-release-cost-eur">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-release-cost-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-release-cost-time">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-preference-use-state-change-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-preference-use-state-change-time">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-accuracy -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-accuracy">
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-average -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-average">
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-cost-coo -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-cost-coo">
+        <rdfs:domain rdf:resource="#consumable-release-cost"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-cost-eur -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-cost-eur">
+        <rdfs:domain rdf:resource="#consumable-release-cost"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-cost-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-cost-time">
+        <rdfs:domain rdf:resource="#consumable-release-cost"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-peak -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-peak">
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-state -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-state">
+        <rdfs:domain rdf:resource="#consumable-source-state"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-state-change-manageability -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-state-change-manageability">
+        <rdfs:domain rdf:resource="#consumable-source-state"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-release-type -->
+
+    <owl:DatatypeProperty rdf:about="#has-release-type">
+        <rdfs:domain rdf:resource="#consumable-release-metric"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-accuracy -->
+
+    <owl:DatatypeProperty rdf:about="#has-storage-accuracy">
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-average -->
+
+    <owl:DatatypeProperty rdf:about="#has-storage-average">
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-capacity -->
+
+    <owl:DatatypeProperty rdf:about="#has-storage-capacity">
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-peack -->
+
+    <owl:DatatypeProperty rdf:about="#has-storage-peack">
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-storage-type -->
+
+    <owl:DatatypeProperty rdf:about="#has-storage-type">
+        <rdfs:domain rdf:resource="#consumable-storage-capability"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-time">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-amount-accuracy -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-amount-accuracy">
+        <rdfs:domain rdf:resource="#consumable-use-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-amount-maximum -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-amount-maximum">
+        <rdfs:domain rdf:resource="#consumable-use-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-amount-minimum -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-amount-minimum">
+        <rdfs:domain rdf:resource="#consumable-use-metric"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-efficiency -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-efficiency">
+        <rdfs:domain rdf:resource="#consumable-use-state"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-state -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-state">
+        <rdfs:domain rdf:resource="#consumable-use-state"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-state-change-manageability -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-state-change-manageability">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#consumable-use-metric"/>
+                    <rdf:Description rdf:about="#consumable-use-state"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-state-change-time -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-state-change-time">
+        <rdfs:domain rdf:resource="#consumable-use-state"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#has-use-type -->
+
+    <owl:DatatypeProperty rdf:about="#has-use-type">
+        <rdfs:domain rdf:resource="#consumable-use-state"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#preference-use-discretionary-priority -->
+
+    <owl:DatatypeProperty rdf:about="#preference-use-discretionary-priority">
+        <rdfs:domain rdf:resource="#consumption-preference"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#abstract-quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;abstract-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#abstract-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;abstract-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;non-physical-endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;temporal-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;time-interval"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/abstract-characteristic -->
+
+    <owl:Class rdf:about="#abstract-characteristic"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#person -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;person"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable -->
+
+    <owl:Class rdf:about="#consumable">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-release-amount -->
+
+    <owl:Class rdf:about="#consumable-release-amount">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-quality"/>
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-release-cost -->
+
+    <owl:Class rdf:about="#consumable-release-cost">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-release-metric -->
+
+    <owl:Class rdf:about="#consumable-release-metric">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-source -->
+
+    <owl:Class rdf:about="#consumable-source">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-source-state -->
+
+    <owl:Class rdf:about="#consumable-source-state">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-storage-amount -->
+
+    <owl:Class rdf:about="#consumable-storage-amount">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-storage-capability -->
+
+    <owl:Class rdf:about="#consumable-storage-capability">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-quality"/>
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-use-amount -->
+
+    <owl:Class rdf:about="#consumable-use-amount">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-use-metric -->
+
+    <owl:Class rdf:about="#consumable-use-metric">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-use-state -->
+
+    <owl:Class rdf:about="#consumable-use-state">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumable-user -->
+
+    <owl:Class rdf:about="#consumable-user">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumption-notification -->
+
+    <owl:Class rdf:about="#consumption-notification">
+        <rdfs:subClassOf rdf:resource="#notification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumption-notification-preference -->
+
+    <owl:Class rdf:about="#consumption-notification-preference">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;non-physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#consumption-preference -->
+
+    <owl:Class rdf:about="#consumption-preference">
+        <rdfs:subClassOf rdf:resource="#preference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#contact-region -->
+
+    <owl:Class rdf:about="#contact-region">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#notification -->
+
+    <owl:Class rdf:about="#notification">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;non-physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#personal-contact -->
+
+    <owl:Class rdf:about="#personal-contact">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#preference -->
+
+    <owl:Class rdf:about="#preference">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;non-physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#release-time -->
+
+    <owl:Class rdf:about="#release-time">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;time-interval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#storage-time -->
+
+    <owl:Class rdf:about="#storage-time">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;temporal-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/EPM.owl#use-amount-time -->
+
+    <owl:Class rdf:about="#use-amount-time">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;time-interval"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

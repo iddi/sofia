@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOFIA ADK Logging Service
+Bundle-SymbolicName: eu.sofia.adk.logging
+Bundle-Version: 2.0.6.qualifier
+Bundle-Activator: eu.sofia.adk.logging.LogServiceActivator
+Bundle-Vendor: Tecnalia Research and Innovation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework,
+ org.osgi.service.log,
+ org.osgi.util.tracker
+Bundle-ActivationPolicy: lazy
+Export-Package: eu.sofia.adk.logging;uses:="org.osgi.service.log,org.osgi.framework"

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY sofia "http://emb1.esilab.org/sofia/ontology/1.3/test/sofia#">
+  <!ENTITY dolce "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#">
+  <!ENTITY location "http://emb1.esilab.org/sofia/ontology/1.3/test/location#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF
+    xmlns="http://emb1.esilab.org/sofia/ontology/1.3/test/individual#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dolce="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sofia="http://emb1.esilab.org/sofia/ontology/1.3/test/sofia#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:location="http://emb1.esilab.org/sofia/ontology/1.3/test/location#"
+    xml:base="http://emb1.esilab.org/sofia/ontology/1.3/test/individual#">
+  
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:about="&location;Longitude"/>
+  <owl:Class rdf:about="&location;Latitude"/>
+  <owl:Class rdf:about="&sofia;Location"/>
+  <owl:Class rdf:about="&sofia;Result"/>
+  <owl:Class rdf:about="&location;DegreeCoordinate"/>
+  <owl:Class rdf:about="&location;DMSLocation">
+    <rdfs:subClassOf rdf:resource="&sofia;Location"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="&sofia;isLocatedIn">
+    <rdfs:domain rdf:resource="&sofia;Result"/>
+    <rdfs:range rdf:resource="&sofia;Location"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&location;longitude">
+    <rdfs:domain rdf:resource="&location;DMSLocation"/>
+    <rdfs:range rdf:resource="&location;Longitude"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&location;latitude">
+    <rdfs:domain rdf:resource="&location;DMSLocation"/>
+    <rdfs:range rdf:resource="&location;Latitude"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="&location;degreeCoordinates">
+    <rdfs:range rdf:resource="&location;DegreeCoordinate"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="&location;Latitude"/>
+          <owl:Class rdf:about="&location;Longitude"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="&sofia;unit">
+    <rdfs:domain rdf:resource="&sofia;Result"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&location;degrees">
+    <rdfs:range rdf:resource="&xsd;int"/>
+    <rdfs:domain rdf:resource="&location;DegreeCoordinate"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&location;latitudeDirection">
+    <rdfs:domain rdf:resource="&location;Latitude"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="&xsd;string">W</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="&xsd;string">E</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&location;seconds">
+    <rdfs:range rdf:resource="&xsd;int"/>
+    <rdfs:domain rdf:resource="&location;DegreeCoordinate"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&dolce;name">
+    <rdfs:domain rdf:resource="&sofia;Location"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&sofia;value">
+    <rdfs:range rdf:resource="&xsd;float"/>
+    <rdfs:domain rdf:resource="&sofia;Result"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&location;minutes">
+    <rdfs:domain rdf:resource="&location;DegreeCoordinate"/>
+    <rdfs:range rdf:resource="&xsd;int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="&location;longitudeDirection">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="&xsd;string"
+          >N</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="&xsd;string"
+            >S</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="&location;Longitude"/>
+  </owl:DatatypeProperty>
+</rdf:RDF>

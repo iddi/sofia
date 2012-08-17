@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY temperature "http://emb1.esilab.org/sofia/ontology/1.3/test/tempsensor.owl#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<!-- Ontology Namespace Declaration -->
+<rdf:RDF xmlns="&temperature;"
+         xmlns:temperature="&temperature;"
+         xml:base="&temperature;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:xsd="&xsd;">
+
+  <owl:Ontology rdf:about=""/>
+
+  <owl:Class rdf:ID="Result"/>
+
+  <owl:DatatypeProperty rdf:ID="hasValue">
+    <rdfs:domain rdf:resource="#Result"/>
+    <rdfs:range rdf:resource="&xsd;float"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="hasUnit">
+    <rdfs:domain rdf:resource="#Result"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+</rdf:RDF>
+

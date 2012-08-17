@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY nomadic "http://emb1.esilab.org/sofia/ontology/1.3/nomadic/wp1_dolce.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY dcs "http://ontology.ist-spice.org/mobile-ontology/1/0/dcs/0/dcs.owl#" >
+	<!ENTITY digital-doc "http://pervasive.semanticweb.org/ont/2004/06/digital-doc#" >
+	<!ENTITY mobile "http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#" >
+	<!ENTITY DOLCE-dns "http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#" >
+	<!ENTITY time "http://www.w3.org/2006/time#" >
+	<!ENTITY agent "http://pervasive.semanticweb.org/ont/2004/06/agent#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/nomadic/wp1_dolce.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/nomadic/wp1_dolce.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:nomadic="http://emb1.esilab.org/sofia/ontology/1.3/nomadic/wp1_dolce.owl#"
+	 xmlns:dcs="&dcs;"
+	 xmlns:time="&time;"
+	 xmlns:DOLCE-dns="&DOLCE-dns;"
+	 xmlns:mobile="&mobile;"
+	 xmlns:digital-doc="&digital-doc;"
+	 xmlns:agent="&agent;" >
+	
+  <owl:Ontology rdf:about="">
+	<rdfs:label>Ontology build for WP1 use cases</rdfs:label>
+	<owl:versionInfo>$Revision: 1.1 $</owl:versionInfo>
+    <rdfs:comment xml:lang="en">Here I aim to use existing ontologies as much as possible but every time when there is something not found in them, the ontological concept will be introduced here in namespace wp1.In practice, these, as well as other explicitely mentioned ontologies (the prefixes dcs,cor,owl,...) are expected  to reside in different files.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This is originally written in .N3 format which is translated to RDF/XML via cwm.</rdfs:comment>
+  </owl:Ontology>	
+	
+    <owl:Class rdf:about="#AggregateInput">
+        <rdfs:comment xml:lang="en">Superclass for both joined and separate inputs.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#AggregateOutput">
+        <rdfs:comment xml:lang="en">Superclass for both joined and separate outputs.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#AudioService">
+        <rdfs:subClassOf rdf:resource="&dcs;DcsService"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;process"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Comment_for_aggregate_capabilities">
+        <rdfs:comment xml:lang="en">There is no collection of input/output capabilities so we make up one here using the dcs ones. used to serve as domain or target</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Comment_for_aggregrates">
+        <rdfs:comment xml:lang="en">Add the notion that input (or output) may be taken and combined from several sources.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Comment_for_services">
+        <rdfs:comment xml:lang="en">Another alternative is to describe the service details ontologically, like above and publish that information to the information space.</rdfs:comment>
+        <rdfs:comment xml:lang="en">By default more than one client can use the service (this could be changed) so the same service could be accessed from the rear seat as well. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Note also that this also means that the UI of the nomadic device is not influenced by the use of this service -- it is not the case that the steering wheel controls are replicated on the phone. The UI is completely on the side of the user of the service.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The service interface (cd,ls,...) is not described here and we expect it to be available by other means. But this interface could be done as dcs:CntrolServiceSMIL (like MediaObjectControlService).</rdfs:comment>
+        <rdfs:comment xml:lang="en">This comment relates to the services</rdfs:comment>
+        <rdfs:comment xml:lang="en">Will the storage service be such that it exposes a set of primitives that allow a remote application to browse through the filesystem and display them independently? In here yes, we add a subclass to the dcs service taxonomy.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Comment_for_usecases">
+        <rdfs:comment xml:lang="en">Now we can start to discuss the use case.The situation is such that the driver sits in the car and is able to operate on both the nomadic device keypad and the steering wheel buttons. The dashboard system must however enter a state where the buttons control the browsing and selecting of files from whatever fileservices are available. After this has ended the buttons have other purposes. This control can be entirely local, so there is one application on the dashboard side that controls it.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="#Conformance">
+        <nomadic:uri rdf:resource="#uri"/>
+        <rdfs:comment xml:lang="en">Describes which ontology we are using.</rdfs:comment>
+        <owl:Ontology rdf:resource="#ont"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-characteristic"/>
+        <versionInfo rdf:resource="#vs"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#ControlContext">
+        <nomadic:aggregateinput rdf:resource="#AggregateInput"/>
+        <nomadic:aggregateoutput rdf:resource="#AggregateOutput"/>
+        <nomadic:used_input rdf:resource="#InputCapability"/>
+        <nomadic:used_output rdf:resource="#OutputCapability"/>
+        <rdfs:comment xml:lang="en">Is there an underlying idea that is similar in Spice or in any other exiting ontology? XXX</rdfs:comment>
+        <rdfs:comment xml:lang="en">The notion of used_input/used_output allows binding several capabilities that are to be used. Which are necessary and which are currently being used is not considered here. XXX Maybe it should?</rdfs:comment>
+        <rdfs:comment xml:lang="en">The notions of aggregates allow bunching together certain inputs/outputs. They are optional</rdfs:comment>
+        <rdfs:comment xml:lang="en">What we can do is to have the notion of a Control context that encapsulates the used keypad and service. This object is abstract and independent of the underlying devices and can be published as information.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+	
+	<owl:ObjectProperty rdf:about="#aggregateinput">
+		<rdfs:domain rdf:resource="#ControlContext"/>
+		<rdfs:range rdf:resource="#AggregateInput"/>
+	</owl:ObjectProperty>	
+
+    <owl:Class rdf:about="#DefaultControlContext">
+        <rdfs:comment xml:lang="en">Each device may have a default control to which it can return.</rdfs:comment>
+        <disjointWith rdf:resource="#ServiceControlContext"/>
+        <rdfs:subClassOf rdf:resource="#ControlContext"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#FileService">
+        <rdfs:subClassOf rdf:resource="&dcs;DcsService"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;process"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#InputCapability">
+        <rdfs:comment xml:lang="en">Just list everything here. This is one place where updates could be made, even dynamically at runtime. Here we count that there is a master dcs input capability class from which everything is subclassed for future-proofness. Non-dcs classes can also be here.</rdfs:comment>
+        <rdfs:comment xml:lang="en">There is no collection of input/output capabilities so we make up one here using the dcs ones. This is used to collect all the possible ranges for inputs.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;input-capability"/>
+        <owl:unionOf rdf:parseType="Collection">
+			<owl:Class>
+			  <owl:oneOf rdf:parseType="Collection">
+				<owl:Thing rdf:about="&dcs;KeypadInputCapability" />
+				<owl:Thing rdf:about="&dcs;KeyInputCapability" />
+				<owl:Thing rdf:about="&dcs;TactileInputModalityCapability" />
+				<owl:Thing rdf:about="&dcs;TouchpadInputCapability" />
+				<owl:Thing rdf:about="&dcs;MouseInputCapability" />
+				<owl:Thing rdf:about="&dcs;MotionSensorCapability" />
+				<owl:Thing rdf:about="&dcs;AcousticInputModalityCapability" />
+				<owl:Thing rdf:about="&dcs;NonSpeechInputCapability" />
+				<owl:Thing rdf:about="&dcs;SpeechInputCapability" />
+				<owl:Thing rdf:about="&dcs;DTMFInputCapability" />
+			  </owl:oneOf>
+			</owl:Class>
+        </owl:unionOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="#MultiInput">
+        <nomadic:inputSource rdf:resource="#InputCapability"/>
+        <rdfs:comment xml:lang="en">Inputs joined together. We should have a cardinality cosntraint to require at least one</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="#AggregateInput"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#MultiOutput">
+        <nomadic:inputSource rdf:resource="#OutputCapability"/>
+        <rdfs:comment xml:lang="en">Outputs overlied together. We should have a cardinality cosntraint to require at least one</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="#AggregateOutput"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#OutputCapability">
+        <rdfs:comment xml:lang="en">See comment for InputCapability</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;output-capability"/>
+        <owl:unionOf rdf:parseType="Collection">
+			<owl:Class>
+			  <owl:oneOf rdf:parseType="Collection">
+				<owl:Thing rdf:about="&dcs;TactileOutputModalityCapability" />
+				<owl:Thing rdf:about="&dcs;ForceFeedbackCapability" />
+				<owl:Thing rdf:about="&dcs;AcousticOutputModalityCapability" />
+				<owl:Thing rdf:about="&dcs;SpeechOutputCapability" />
+				<owl:Thing rdf:about="&dcs;NonSpeechOutputCapability" />
+				<owl:Thing rdf:about="&dcs;VisualOutputModalityCapability" />
+				<owl:Thing rdf:about="&dcs;ImageOutputCapability" />
+				<owl:Thing rdf:about="&dcs;VideoOutputCapability" />
+				<owl:Thing rdf:about="&dcs;TextOutputCapability" />
+			  </owl:oneOf>
+			</owl:Class>
+        </owl:unionOf>		
+    </owl:Class>
+
+    <owl:Class rdf:about="#Person">
+        <rdfs:comment xml:lang="en">Firstly we have a 'wp1:Person' whose purpose is to indicate the 'owner' of the information and the related physical resources. Currently I think this is different from foaf:Person, which includes information regarding persons names, email addresses, etc.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&agent;Agent"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#RenderContext">
+        <nomadic:content rdf:resource="&digital-doc;DigitalDocument"/>
+        <nomadic:timestamp rdf:resource="#TimeStamp"/>
+        <rdfs:comment xml:lang="en">This describes the content we are rendering and the state of the rendering.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#RenderControlContext">
+        <nomadic:req_input rdf:resource="#InputCapability"/>
+        <nomadic:req_output rdf:resource="#OutputCapability"/>
+        <nomadic:used_service rdf:resource="&dcs;DcsService"/>
+        <rdfs:comment xml:lang="en">Just like ServiceControlContext, but with document added.</rdfs:comment>
+        <disjointWith rdf:resource="#DefaultControlContext"/>
+        <rdfs:subClassOf rdf:resource="#ControlContext"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#ServiceControlContext">
+        <nomadic:req_input rdf:resource="#InputCapability"/>
+        <nomadic:req_output rdf:resource="#OutputCapability"/>
+        <nomadic:used_service rdf:resource="&dcs;DcsService"/>
+        <rdfs:comment xml:lang="en">Service control has required input and output that enable reasoning whether this context can be used or when sent to hibernation.XXX This does not feel good, maybe a cleaner solution is possible. We do have the notion of used service, but so far no notion of alternative services.</rdfs:comment>
+        <disjointWith rdf:resource="#DefaultControlContext"/>
+        <rdfs:subClassOf rdf:resource="#ControlContext"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#State">
+        <nomadic:control rdf:resource="#ControlContext"/>
+        <rdfs:comment xml:lang="en">Spice has notion of State, but it is in the sense of statemachine state. This state is the state of this Personal Space. The wp1:control expresses which context is active.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;state"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#StorageCapability">
+        <rdfs:comment xml:lang="en">Note that neither SOUPA or SPICE have the notion of a storage so we make one up here and place it within dcs hierarchy. It is mostly a placeholder for later use when other things beside the phone have the same capability. See also later on about the fileservice Service; the line drawing between these two may need iteration. </rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&dcs;DeviceCapability"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;capability"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#TimeStamp">
+        <nomadic:timestring rdf:resource="#ts"/>
+        <rdfs:comment xml:lang="en">Describes a point in time. Two possible formats: either a string or the breakdown to hour, minute, second.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;data"/>
+        <time:hour rdf:resource="#hr"/>
+        <time:minute rdf:resource="#min"/>
+        <time:second rdf:resource="#sec"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#UIButton">
+        <nomadic:map rdf:resource="#UserCommand"/>
+        <nomadic:nm rdf:resource="#nm"/>
+        <rdfs:comment xml:lang="en">Used to represent a physical UI element that can be mapped to a command.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="#UserCommand">
+        <nomadic:cmdnm rdf:resource="#nm"/>
+        <rdfs:comment xml:lang="en">Commands available to the user. May be service specific.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;event"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#VideoFile">
+        <nomadic:filesize rdf:resource="#fs"/>
+        <nomadic:sourceURL rdf:resource="#su"/>
+        <nomadic:title rdf:resource="#t"/>
+        <nomadic:unit rdf:resource="#u"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;data"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#VideoService">
+        <rdfs:subClassOf rdf:resource="&dcs;DcsService"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;process"/>
+    </owl:Class>
+
+	<owl:ObjectProperty rdf:about="#conforms_to">
+        <rdfs:comment xml:lang="en">Used to express which version of ontology we are using, can be attached to anything.</rdfs:comment>
+		<rdfs:range rdf:resource="#ontologystring"/>
+	</owl:ObjectProperty>	
+
+    <owl:Class rdf:about="#crf_car">
+        <rdfs:subClassOf rdf:resource="&mobile;Device"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-dns;smart-object"/>
+    </owl:Class>
+
+	<owl:ObjectProperty rdf:about="#exposes">
+        <rdfs:comment xml:lang="en">Used to state that a fileservice can expose documents</rdfs:comment>
+		<rdfs:domain rdf:resource="#FileService"/>
+		<rdfs:range rdf:resource="&digital-doc;DigitalDocument"/>
+	</owl:ObjectProperty>	
+
+	<owl:ObjectProperty rdf:about="#hasState">
+		<rdfs:comment xml:lang="en">Allows stating that a wp1:Person (or the personal space) in some state. We might need a cardinalty constraint, but then again, there may be several states and we could allow them, provided they are non-conflicting.</rdfs:comment>
+		<rdfs:domain rdf:resource="#Person"/>
+		<rdfs:range rdf:resource="#State"/>
+	</owl:ObjectProperty>	
+
+    <owl:Class rdf:about="#nok_nd">
+        <rdfs:comment xml:lang="en">Here we do this specialization to identify the device. We expect this device to have certain properties always available.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&mobile;Device"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-dns;smart-object"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="#nxp_rse">
+        <rdfs:subClassOf rdf:resource="&mobile;Device"/>
+        <rdfs:subClassOf rdf:resource="&DOLCE-dns;smart-object"/>
+    </owl:Class>
+
+	<owl:ObjectProperty rdf:about="#selected">
+		<rdfs:comment xml:lang="en">Keeps the latest 'choice' of the person and it can be anything. XXX Is this needed?</rdfs:comment>
+		<rdfs:domain rdf:resource="#Person"/>
+	</owl:ObjectProperty>
+
+</rdf:RDF>

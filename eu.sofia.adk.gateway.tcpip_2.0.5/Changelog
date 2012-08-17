@@ -1,0 +1,23 @@
+ 
+06/08/2011 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
+
+
+* Changed the SocketChannelAcceptor class, method initServerSocket so now it starts the listenning socket
+  in the IP stored in properties, not just in localHost address as before. Address is obtained from
+  the one selected by the user in the gateway wizard.
+  
+* Modified the getDefaultProperties method from the TCPIPGatewayConfiguration class, so it lists for 
+  the available network interfaces and the addresses attached to them and stores them in the properties
+  within the NETWORK_ADAPTER new key.
+  
+  07/01/2011 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
+
+  
+* Modified the getDefaultProperties method from the TCPIPGatewayConfiguration class, so now the IPs from the first
+  network adapter that has valids IPs are used to insert a pair ADDRESSES-ArrayList<IPs> in the properties map. This
+  was needed because if the SIB is started from the command line and no props parameter is provided indicating the
+  IPs to be used, the SIB will not start in the SocketChannelAcceptor because the properties map of the 
+  TCPIPGatewayConfiguration had no ADDRESSES key. Thus, by inserting in the inspection process this solves the issue.
+
+
+ 

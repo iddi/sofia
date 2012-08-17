@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY smokesensor "http://emb1.esilab.org/sofia/ontology/1.3/test/smokesensortest.owl#">
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF
+    xmlns:rdf="&rdf;"
+    xmlns:owl="&owl;"
+    xmlns:xsd="&xsd;"
+    xmlns:smokesensor="http://emb1.esilab.org/sofia/ontology/1.3/test/smokesensortest.owl#"
+    xmlns:rdfs="&rdfs;"
+    xml:base="http://emb1.esilab.org/sofia/ontology/1.3/test/smokesensortest.owl#"
+    xmlns="http://emb1.esilab.org/sofia/ontology/1.3/test/smokesensortest.owl#">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Event"/>
+  <owl:Class rdf:ID="RawEvent">
+    <rdfs:subClassOf rdf:resource="#Event" />
+  </owl:Class>
+  <owl:Class rdf:ID="SmokeEvent">
+    <rdfs:subClassOf rdf:resource="#RawEvent" />
+  </owl:Class>
+  <owl:Class rdf:ID="Location"/>
+  <owl:ObjectProperty rdf:ID="isLocatedIn">
+    <rdfs:range rdf:resource="#Location"/>
+    <rdfs:domain rdf:resource="#RawEvent"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="reliabilityIndex">
+    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#SmokeEvent"/>
+    <rdfs:range rdf:resource="&xsd;int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="eventId">
+    <rdfs:range rdf:resource="&xsd;string"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  
+  <owl:FunctionalProperty rdf:ID="value">
+    <rdfs:domain rdf:resource="#SmokeEvent"/>
+    <rdfs:range rdf:resource="&xsd;boolean"/>
+    <rdf:type rdf:resource="&owl;DatatypeProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->

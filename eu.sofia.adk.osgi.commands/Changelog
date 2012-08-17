@@ -1,0 +1,9 @@
+ 
+07/01/2011 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
+
+* Changed the SofiaCommandProvider::create method, so now if no -props are provided, default one will have at least the first address found
+  in the inspection process (in the TcpIPGatewayConfiguration class) will be used. Besides, if props are provided, the gw is TCP/IP and a list
+  of IPADDRESS=X pairs is passed as props, they are parsed and inserted in the TCPIPGatewayConfiguratio properties maps as ADDRESSES-ArrayList<String>.
+  Then, the SocketChannelAcceptor will start listening in the indicated IPs.
+  
+  

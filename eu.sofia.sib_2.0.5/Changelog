@@ -1,0 +1,15 @@
+ 
+06/15/2011 - Alejandro Villamarin <alejandro.villamarin@tecnalia.com>
+
+
+* Changed the JoinRequest class, method processRequest to avoid KPs not being able to reconnect when
+  connection is interrupted (unplugged or whatever the reason) and they try to re-connect 
+  It was checking if the session already existed, which it did, and thus didn't allow
+  to reconnect. Although it works, we don't recommend it since this is a very nasty
+  feature (Not removig a KP when dropped and allowing to reconnect...)
+  
+* TODO : Review this, this should be done some other way, there is very high risk of making a 
+  "rabbit" KP that only makes JOINS and could make a DOS attack to the SIB
+
+* Also changed the name of the SessionManager.addNode method name to addSession, for the shake of clarity
+

@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY maintenance-v1 "http://emb1.esilab.org/sofia/ontology/1.3/indoor/maintenance-v1.0.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY TemporalRelations "http://www.loa-cnr.it/ontologies/TemporalRelations.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >	
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/indoor/maintenance-v1.0.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/indoor/maintenance-v1.0.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:maintenance-v1="http://emb1.esilab.org/sofia/ontology/1.3/indoor/maintenance-v1.0.owl#"
+	 xmlns:TemporalRelations="http://www.loa-cnr.it/ontologies/TemporalRelations.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"/>
+    </owl:Ontology>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generic-constituent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generic-constituent-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-dependent -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generic-dependent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generically-dependent-on -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generically-dependent-on"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#part -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;part"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#part-of -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;part-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/TemporalRelations.owl#concluded-by -->
+
+    <owl:ObjectProperty rdf:about="&TemporalRelations;concluded-by"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/TemporalRelations.owl#started-by -->
+
+    <owl:ObjectProperty rdf:about="&TemporalRelations;started-by"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/TemporalRelations.owl#starts -->
+
+    <owl:ObjectProperty rdf:about="&TemporalRelations;starts"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#has-data-value -->
+
+    <owl:ObjectProperty rdf:about="&CoreOntology-v1;has-data-value"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#performed-by -->
+
+    <owl:ObjectProperty rdf:about="&CoreOntology-v1;performed-by"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#producer -->
+
+    <owl:ObjectProperty rdf:about="&CoreOntology-v1;producer">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property links the producer of data to its produced data. The producer (i.e., the domain of the property) can be either a human person, or a device ( a sensor platform) or any other thing that can be subclassed from physical object.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#state-of -->
+
+    <owl:ObjectProperty rdf:about="&CoreOntology-v1;state-of"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#associated-fault -->
+
+    <owl:ObjectProperty rdf:about="#associated-fault">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property associates a maintenance parameter with (a set of) potential faults. It is the inverse of #associated-maintenance-parameter: as such, it states that unusual values of a specific parameter might determine a state of fault of a #physical-object. It is not required that each parameter is associated to a fault.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:range rdf:resource="#fault"/>
+        <rdfs:domain rdf:resource="#maintenance-parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#associated-maintenance-parameter -->
+
+    <owl:ObjectProperty rdf:about="#associated-maintenance-parameter">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property provides the association between a fault and the maintenance parameter (simple or composite) it depends on. The state of fault is in fact recognized based on one or more maintenance parameters, whose values are not in the allowed range (with range having a very loose meaning here). Each fault should be associated to at least one maintenance parameter.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <owl:inverseOf rdf:resource="#associated-fault"/>
+        <rdfs:domain rdf:resource="#fault"/>
+        <rdfs:range rdf:resource="#maintenance-parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#detected-fault -->
+
+    <owl:ObjectProperty rdf:about="#detected-fault">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property associates a #fault-detection event with the fault it has discovered. Note that this is not a temporal dependency, although it is clear that the fault detection happens before the state of fault becomes true. However, the temporal (and causal) dependency is modeled between #failure and #fault, and represented via the #started-by property. The fault detection event is modeled mainly for application purposes since we cannot assume that the failure will be discovered as soon as it happens (thus causing the physical object to enter the state of fault). If the failure is immediately detected, then #failure and #fault-detection might take place at the same time (but they are still separate events).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:range rdf:resource="#fault"/>
+        <rdfs:domain rdf:resource="#fault-detection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#has-allowed-max -->
+
+    <owl:ObjectProperty rdf:about="#has-allowed-max">
+        <rdfs:subPropertyOf rdf:resource="#has-allowed-value"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#has-allowed-min -->
+
+    <owl:ObjectProperty rdf:about="#has-allowed-min">
+        <rdfs:subPropertyOf rdf:resource="#has-allowed-value"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#has-allowed-value -->
+
+    <owl:ObjectProperty rdf:about="#has-allowed-value">
+        <rdfs:subPropertyOf rdf:resource="&CoreOntology-v1;has-data-value"/>
+        <rdfs:domain rdf:resource="#maintenance-parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#required-repair-time -->
+
+    <owl:ObjectProperty rdf:about="#required-repair-time">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The required time specifies the maximum time interval (e.g. 2 hours, 1 day) between fault detection and fault repair (i.e. re-establishing of the element function). This time is fixed in the maintenance specifications defined by client and adopted in the maintenance plan.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;time-interval"/>
+        <rdfs:domain rdf:resource="#fault"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#target-fault -->
+
+    <owl:ObjectProperty rdf:about="#target-fault">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class associates a #corrective-maintenance-intervention with the #fault that should be fixed by the intervention. For generality it has not been set to functional, but a restriction imposes that at least one fault is targeted by an instance of intervention.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <rdfs:domain rdf:resource="#corrective-intervention"/>
+        <rdfs:range rdf:resource="#fault"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#textual-description -->
+
+    <owl:DatatypeProperty rdf:about="&CoreOntology-v1;textual-description"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#evaluating-expression -->
+
+    <owl:DatatypeProperty rdf:about="#evaluating-expression">
+        <rdfs:comment rdf:datatype="&xsd;string">This property provides a mathematical expression that combines the single parameters constituting the composite parameter to obtain a value. Single parameters are identified via their URI, e.g., &quot;&lt;temperature-uri&gt;*&lt;relative humidity-uri&gt;&quot;. The KP will retrieve this expression, identify needed parameters via their URI, retrieve their current values and calculate the value for the composite parameter.</rdfs:comment>
+        <rdfs:domain rdf:resource="#composite-maintenance-parameter"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#reference-manual -->
+
+    <owl:DatatypeProperty rdf:about="#reference-manual">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This information is a reference to technical instructions intended to preserve an item/element in, or restore it to, a state in which it can perform a required function. It could be applied in case of a maintenance intervention, for instance.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&CoreOntology-v1;textual-description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#urgency-level -->
+
+    <owl:DatatypeProperty rdf:about="#urgency-level">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The requested or predefined level of urgency (according to the specific fault type) of the repair/maintenance intervention necessary to re-enable the expected function. Generally, it refers to a predefined scale of values.</rdfs:comment>
+        <rdfs:domain rdf:resource="#fault"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#accomplishment -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;accomplishment"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;achievement"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#event -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;event"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-object">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;part-of"/>
+                <owl:someValuesFrom rdf:resource="#construction-element"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;part"/>
+                <owl:someValuesFrom rdf:resource="#item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+	
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;space-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#state -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;state"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#time-interval -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;time-interval"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#characteristic -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;characteristic"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#person -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;person"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#automatic-fault-detection -->
+
+    <owl:Class rdf:about="#automatic-fault-detection">
+        <rdfs:subClassOf rdf:resource="#fault-detection"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >For example, faults discovered by systems that are able to monitor their conditions and launch alarms. The property #performed-by should be used to associate the detection with the physical object that performed it.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#building -->
+
+    <owl:Class rdf:about="#building">
+        <rdfs:subClassOf rdf:resource="#construction-entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A building represents a construction element that provides shelter (i.e., the specific function of a building) for its occupants or contents and stands in one place.    
+A building is (if specified) associated to a site. Composite buildings may consist of an articulated collection of buildings included in a site (as inherited by the Construction Element class). 
+A building can also be decomposed in (vertical) parts, where each part defines a building section.
+
+The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#building-element -->
+
+    <owl:Class rdf:about="#building-element">
+        <rdfs:subClassOf rdf:resource="#construction-element"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Examples of building elements are walls, beams, or doors, they are all physically existent and tangible things.
+They are separated from other elements, since they are dealt with in separate AEC (Architecture, Engineering and Construction) processes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#composite-maintenance-parameter -->
+
+    <owl:Class rdf:about="#composite-maintenance-parameter">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;generic-constituent"/>
+                <owl:someValuesFrom rdf:resource="#simple-maintenance-parameter"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#maintenance-parameter"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents the combination of two or more single parameters. It might be needed when a fault state is identified by evaluating a combined expression of single parameters, such as temperature and humidity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#construction-element -->
+
+    <owl:Class rdf:about="#construction-element">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;part"/>
+                <owl:someValuesFrom rdf:resource="#item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Construction entity part which, in itself or in combination with other such parts, fulfils a predominant function of the construction entity. For example, in a building elements are: lighting system, HVAC system, and wall.    
+Elements are physically existent objects, although they might be void elements, such as holes. Elements either remain permanently in the Construction Entity, or only temporarily. Elements can be either assembled on site or pre-manufactured and built in on site.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#construction-entity -->
+
+    <owl:Class rdf:about="#construction-entity">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;generic-constituent-of"/>
+                <owl:someValuesFrom rdf:resource="#construction-entity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;generic-constituent"/>
+                <owl:someValuesFrom rdf:resource="#construction-entity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Physically independent material construction result of significant scale serving at least one user activity or function (e.g. Building, bridge, road, dam, tower, sewer, museum (if a single structure), sports field, sewage settlement tank, cycleway) (ISO 12006-2) 
+A Construction Entity is situated in one place, i.e., its site (location).
+
+NOTE: A construction entity is the basic unit of the built environment. It is recognizable as a physically independent construction even though a number of construction entities might be built as parts of a particular composite construction. Ancillary works such as access roads, landscaping, service connections, may be regarded as part of a construction entity. Conversely, when ancillary works are of sufficient scale, they may often be regarded as construction entities in their own right.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#corrective-intervention -->
+
+    <owl:Class rdf:about="#corrective-intervention">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#target-fault"/>
+                <owl:onClass rdf:resource="#corrective-intervention"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#maintenance-intervention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#electrical-element -->
+
+    <owl:Class rdf:about="#electrical-element">
+        <rdfs:subClassOf rdf:resource="#construction-element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#end-of-intervention -->
+
+    <owl:Class rdf:about="#end-of-intervention">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;achievement"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents an atomic event corresponding to the end of a maintenance intervention. To each instance of this class several pieces of information useful for maintenance can be further associated (e.g., comments of the operator, future indications, date and time, cost of the operation, and so on). The end (and start) of a maintenance intervention are also relevant for the management of work orders.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#failure -->
+
+    <owl:Class rdf:about="#failure">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&TemporalRelations;starts"/>
+                <owl:someValuesFrom rdf:resource="#fault"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;event"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A failure is the event that makes a physical object moving into a state of fault. For example, whenever the temperature of the room rises over a certain threshold (failure event), the room is in state of &quot;discomfort&quot; (fault state). It is worth noting that the failure starting a fault state does not necessarily coincides with the event of discovering the fault state, unless the system is able to monitor itself and launch events in case of failure. For example, the operator might find out that the room is in state of &quot;discomfort&quot; only when the room inhabitant complains (e.g., by pressing a button omn his device) or upon a periodical check. Therefore, we model another event called fault-detection, which represents the event of discovering that the object is in fault state.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Property core-ontology;happens-at should be used to define the instant when the failure occurs. For application purposes the datatype property core-ontology;timestamp can also be used here.</rdfs:comment>
+    </owl:Class>
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#fault -->
+
+    <owl:Class rdf:about="#fault">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&CoreOntology-v1;state-of"/>
+                <owl:someValuesFrom rdf:resource="#construction-element"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&CoreOntology-v1;state-of"/>
+                <owl:someValuesFrom rdf:resource="#item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&TemporalRelations;started-by"/>
+                <owl:onClass rdf:resource="#failure"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&CoreOntology-v1;state-of"/>
+                <owl:someValuesFrom rdf:resource="#indoor-space"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;state"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Examples of possible instances: temperature-out-of-range, water-on-floor, discomfort, humidity-out-of-range</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >ISO 13306:State of an item/building element characterized by its inability to perform a required function. 
+It could refer also to a &#8220;perceived&#8221; inability of a &#8220;space&#8221; (e.g. &#8220;an office too cold&#8221;) if compared with what expected by end-users (e.g. tenants/occupants)</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The property core-ontology;state-duration should be used to define the duration of the fault state.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#fault-detection -->
+
+    <owl:Class rdf:about="#fault-detection">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;event"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The event of detecting a fault in a #construction-element/item or #indoor-space. It might be useful to define this class for two main reasons: 1) to associate it with the physical object who detected the fault state 2) to distinguish the event of failure (i.e., fault actual starting time) from fault detection time. This class represents the event of discovering the fault, not the fault itself nor the event starting the fault state (called &quot;failure&quot;). The fault detection event is modeled mainly for application purposes since we cannot assume that the failure will be discovered as soon as it happens (thus causing the physical object to enter the state of fault). If the failure is immediately detected, then #failure and #fault-detection might take place at the same time (but they are still separate events): this could be represented using the temporal-relations;temporally-coincides.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#furnishing-element -->
+
+    <owl:Class rdf:about="#furnishing-element">
+        <rdfs:subClassOf rdf:resource="#construction-element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#hvac-element -->
+
+    <owl:Class rdf:about="#hvac-element">
+        <rdfs:subClassOf rdf:resource="#construction-element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#indoor-space -->
+
+    <owl:Class rdf:about="#indoor-space">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;space-region"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >IFC: A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#item -->
+
+    <owl:Class rdf:about="#item">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Each part, component, device, sub-system, functional unity, equipment or system that could be individually considered. 
+In this model we consider items as parts of Construction Elements. For example, a switch is part of the Electrical Element.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#maintenance-intervention -->
+
+    <owl:Class rdf:about="#maintenance-intervention">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&CoreOntology-v1;performed-by"/>
+                <owl:onClass rdf:resource="#maintenance-operator"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&TemporalRelations;started-by"/>
+                <owl:onClass rdf:resource="#start-of-intervention"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&TemporalRelations;concluded-by"/>
+                <owl:onClass rdf:resource="#end-of-intervention"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;accomplishment"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A sequence of (intentional) events taking place in a building with the intent of maintaining element.
+A maintenance intervention is carried out when a work order is emitted by the maintenance company following a fault detection (corrective maintenance) or according to a maintenance plan (preventive maintenance). An intervention can comprise one or multiple simple tasks to be carried out.
+Basically we consider any instance of this class as a maintenance intervention record.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The property #textual-description can be used to provide any further description of the intervention targeted to human consumption. The property core-ontology;duration can be used to describe the duration of the intervention. Other properties for time to be further explored.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#maintenance-operator -->
+
+    <owl:Class rdf:about="#maintenance-operator">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#maintenance-parameter -->
+
+    <owl:Class rdf:about="#maintenance-parameter">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;characteristic"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Each element &#8211;according to its type- has a standard set of parameters/properties which have to be evaluated and respected for maintenance purposes and -in particular- parameters/properties which have to be considered in order to identify a fault state. A standard range of properties/parameters with known value might be defined for each element.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#manual-fault-detection -->
+
+    <owl:Class rdf:about="#manual-fault-detection">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&CoreOntology-v1;performed-by"/>
+                <owl:someValuesFrom rdf:resource="&CoreOntology-v1;person"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#fault-detection"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >For example, a human operator pressing a button.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#preventive-intervention -->
+
+    <owl:Class rdf:about="#preventive-intervention">
+        <rdfs:subClassOf rdf:resource="#maintenance-intervention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#simple-maintenance-parameter -->
+
+    <owl:Class rdf:about="#simple-maintenance-parameter">
+        <rdfs:subClassOf rdf:resource="#maintenance-parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/maintenance-v1.0.owl#start-of-intervention -->
+
+    <owl:Class rdf:about="#start-of-intervention">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;achievement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">See the comment for end-of-intervention. This class represents an atomic event corresponding to the starting of a maintenance intervention.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

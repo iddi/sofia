@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY UserActivity "http://emb1.esilab.org/sofia/ontology/1.3/indoor/UserActivity.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/indoor/UserActivity.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/indoor/UserActivity.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:UserActivity="http://emb1.esilab.org/sofia/ontology/1.3/indoor/UserActivity.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;has-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;inherent-in"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#has-availability-vector -->
+
+    <owl:ObjectProperty rdf:about="#has-availability-vector">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#availability"/>
+        <rdfs:range rdf:resource="#availability-vector"/>
+        <owl:inverseOf rdf:resource="#is-availability-vector-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#has-probability-vector -->
+
+    <owl:ObjectProperty rdf:about="#has-probability-vector">
+        <rdfs:comment
+            >it is useful to represent the vector as a formatted string associated to the Quale Vector with the property textual description. The separator could be &quot;;&quot; in example</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#activity"/>
+        <owl:inverseOf rdf:resource="#is-probability-vector-of"/>
+        <rdfs:range rdf:resource="#probability-vector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#is-availability-vector-of -->
+
+    <owl:ObjectProperty rdf:about="#is-availability-vector-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#is-probability-vector-of -->
+
+    <owl:ObjectProperty rdf:about="#is-probability-vector-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#has-confidence -->
+
+    <owl:DatatypeProperty rdf:about="#has-confidence">
+        <rdfs:domain rdf:resource="#current-activity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#x-coordinate -->
+
+    <owl:DatatypeProperty rdf:about="#x-coordinate">
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#y-coordinate -->
+
+    <owl:DatatypeProperty rdf:about="#y-coordinate">
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#abstract-quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;abstract-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#event -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;event"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#process -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;process"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;quality"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#abstract-characteristic -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;abstract-characteristic"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#measure-region -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;measure-region"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#person -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;person"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#activity -->
+
+    <owl:Class rdf:about="#activity">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#activity-location -->
+
+    <owl:Class rdf:about="#activity-location">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#availability -->
+
+    <owl:Class rdf:about="#availability">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;abstract-characteristic"/>
+        <rdfs:comment
+            >is a temporal property (or a function) between a user, an activity and location which determines to what extent a user is available for a communicatoin activity, availability is by its datatype coupled to the current activity and a given user.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#availability-vector -->
+
+    <owl:Class rdf:about="#availability-vector">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-quality"/>
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#building -->
+
+    <owl:Class rdf:about="#building">
+        <rdfs:subClassOf rdf:resource="#construction-entity"/>
+        <rdfs:comment
+            >A building represents a construction element that provides shelter (i.e., the specific function of a building) for its occupants or contents and stands in one place. A building is (if specified) associated to a site. Composite buildings may consist of an articulated collection of buildings included in a site (as inherited by the Construction Element class). A building can also be decomposed in (vertical) parts, where each part defines a building section. The building is also used to provide a basic element within the spatial structure hierarchy for the components of a building project (together with site, storey, and space).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#construction-entity -->
+
+    <owl:Class rdf:about="#construction-entity">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#current-activity -->
+
+    <owl:Class rdf:about="#current-activity">
+        <rdfs:subClassOf rdf:resource="#activity"/>
+        <rdfs:comment
+            >an activity in which a user or a number of users might be involved</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#probability-vector -->
+
+    <owl:Class rdf:about="#probability-vector">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;quality"/>
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#spatial-event -->
+
+    <owl:Class rdf:about="#spatial-event">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#vector -->
+
+    <owl:Class rdf:about="#vector">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;measure-region"/>
+        <rdfs:comment
+            >The Class vector is a proposal. It is used  to share vectorial data without expressing in a semantic way each ordered element. The textual description of a quale which has reference-system Vector, will be interpreted correctly by kps as a set of values</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/UserActivity.owl#vector-double -->
+
+    <owl:Class rdf:about="#vector-double">
+        <rdfs:subClassOf rdf:resource="#vector"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

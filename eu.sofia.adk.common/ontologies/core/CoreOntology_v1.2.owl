@@ -1,0 +1,1048 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY sofia "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology_v1.2.owl#">
+  <!ENTITY dolite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#">
+  <!ENTITY dul "http://www.loa-cnr.it/ontologies/DUL.owl#">
+  <!ENTITY dolce-spatial "http://www.loa-cnr.it/ontologies/SpatialRelations.owl#">
+  <!ENTITY dolce-temporal "http://www.loa-cnr.it/ontologies/TemporalRelations.owl#">
+  <!ENTITY dns "http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#">
+  <!ENTITY mobile "http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#">
+  <!ENTITY dcs "http://ontology.ist-spice.org/mobile-ontology/1/0/dcs/0/dcs.owl#">
+  <!ENTITY dc "http://purl.org/dc/elements/1.1/#">
+  <!ENTITY dcterms "http://purl.org/dc/terms/#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<!-- Ontology Namespace Declaration -->
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology_v1.2.owl#"
+         xmlns:sofia="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology_v1.2.owl#"
+         xml:base="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology_v1.2.owl#"
+         xmlns:dolite="&dolite;"
+         xmlns:dul="&dul;"
+         xmlns:dolce-spatial="&dolce-spatial;"
+         xmlns:dolce-temporal="&dolce-temporal;"
+		 xmlns:dns="&dns;"
+		 xmlns:mobile="&mobile;"
+		 xmlns:dcs="&dcs;"
+         xmlns:owl="&owl;"
+         xmlns:dc="&dc;"
+         xmlns:dcterms="&dcterms;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:xsd="&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="">
+    <rdfs:label>SOFIA Core Ontology</rdfs:label>
+    <owl:versionInfo>v1.2 2010/06/02 12:00:00</owl:versionInfo>    
+    <rdfs:comment xml:lang="en">Created by the European Software Institute based on the joint information about the modeling process carried away
+		by the vertical partners and the Core Ontology provided by Alessandra Toninelli (Unibo) -named CO1.1-.</rdfs:comment>
+	<rdfs:comment xml:lang="en">This Core Ontology models the Smart Applications domain, make 'information' in the physical world available for 
+		smart services - connecting physical world with information world-.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Updated with the repository new URL</rdfs:comment>
+    <owl:priorVersion rdf:resource="http://emb1.esilab.org/sofia/ontology/1.2/core/CoreOntology_v1.2.owl"/>    
+    <owl:backwardCompatibleWith rdf:resource="http://emb1.esilab.org/sofia/ontology/1.2/core/CoreOntology_v1.2.owl"/>    
+	<dc:title>SOFIA Core Ontology</dc:title>
+    <dc:subject>Smart Environments ontology</dc:subject>
+    <dc:description>some description here</dc:description>
+    <dc:creator>Alessandra, Unibo</dc:creator>
+    <dc:creator>Jon Duran, ESI</dc:creator>
+    <dc:creator>Fran Ruiz, ESI</dc:creator>
+    <dc:creator>Vesa Luukkala, Nokia Research</dc:creator>
+    <dc:date>2010-01-20 12:00:00</dc:date>
+    <dcterms:created>2010-01-10T12:00:00Z</dcterms:created>
+    <dcterms:modified>2010-01-20T12:00:00Z</dcterms:modified>
+    <dcterms:dateCopyrighted>2010</dcterms:dateCopyrighted>
+    <dcterms:audience>Smart Applications Developers</dcterms:audience>
+  </owl:Ontology>
+
+<!-- Classes -->
+  <owl:Class rdf:about="#AbstractCharacteristic">
+    <!-- DEFINITION TAKEN FROM THE DOLCE-LITE:ABSTRACT-QUALITY -->
+    <rdfs:comment xml:lang="en">A quality inherent in a non-physical endurant.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#Characteristic"/>
+    <owl:equivalentClass rdf:resource="&dolite;abstract-quality"/>
+	<!-- IN PROPERTY HAS-ABSTRACT-CHARACTERISTIC IT HAS THE ABSTRACT CHARACTERISTIC AS RANGE -->
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasAbstractCharacteristic"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#AbstractCharacteristic"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Accuracy">
+    <rdfs:comment xml:lang="en">This concept defines the accuracy for a measurement process.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityIndicator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#AccuracyRegion"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#accuracyRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#AccuracyDataValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#accuracyValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#AccuracyRegion">
+    <rdfs:comment xml:lang="en">This concept determines the measurement unit for accuracy.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityMeasurementRegion"/>
+  </owl:Class>
+
+  <!-- TO BE DISCUSSED: IN WHAT IS MEASURED THE QUALITY DATA PARAMETERS? -->
+  <owl:Class rdf:about="#AccuracyDataValue">
+    <rdfs:subClassOf rdf:resource="#QualityDataValue"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Capability">
+    <rdfs:comment xml:lang="en">This class represents a generic capability. Capabilities might be abstract (e.g., properties of the software), physical (e.g., having a keyboard as input) or temporal (e.g., being available in a certain time-slot).
+We do not constrain capabilities to be either abstract or physical or temporal, but leave to the developer the choice of defining a specific capability as the intersection of capability and abstract/physical/temporal characteristic.
+Example of definition for a capability:
+InputKeyboardCapability = intersection of capability and physical characteristic.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This class represents characteristics of smart object instances.</rdfs:comment>
+    <!-- <rdfs:subClassOf rdf:resource="#Characteristic"/> MODIFICATION: THE CAPABILITY IS NO LONGER A SUBCLASS OF CHARACTERISITIC. -->
+	<rdfs:subClassOf rdf:resource="&dolite;feature" />
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasCapability"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Capability"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Certainty">
+    <rdfs:comment xml:lang="en">This concept defines the certainty for a measurement process.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityIndicator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#CertaintyRegion"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#certaintyRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#CertaintyDataValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#certaintyValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CertaintyRegion">
+    <rdfs:comment xml:lang="en">This concept determines the measurement unit for certainty.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityMeasurementRegion"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#CertaintyDataValue">
+    <rdfs:subClassOf rdf:resource="#QualityDataValue"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Characteristic">
+    <rdfs:comment xml:lang="en">Specific characteristics inherent to places or people can be subclassed here, e.g., temperature, heart rate and so on. 
+Possibly via grouping subclasses, e.g., ennvironmental-characteristic, personal-characteristic, etc.</rdfs:comment>
+    <!-- CHARACTERISTIC CAN BE ONLY ASSOCIATED TO TEMPORAL-QUALITIES AND PHYSICAL-QUALITIES. THE ABSTRACT-QUALITIES ARE NOT ALLOWED AS CHARACTERISTICS -->
+	<!--<owl:equivalentClass rdf:resource="&dolite;quality"/>-->
+	<!-- IN PROPERTY HAS-CHARACTERISTIC IT HAS THE ABSTRACT CHARACTERISTIC AS RANGE -->
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasCharacteristic"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Characteristic"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+
+  <!-- NOTE: CODING-SYSTEM AND IDENTIFICATION SYSTEM ARE NECESSARY IN THE SMART ENVIRONMENT, BUT AT THE MOMENT WE DO NOT HAVE ANY -->
+  <!--       ADDITIONAL INFORMATION ABOUT WHAT REQUIREMENTS ARE NEEDED TO CODE THIS. NOT ALL THINGS ARE LIKELY TO HAVE AN IDENTIFICATION DATA -->
+  <!--       TO BE DISCUSSED IN COMMON WITH ALL WORK PACKAGES -->
+  <!--<owl:Class rdf:about="#Code"> -->
+  <!--  <rdfs:comment xml:lang="en">A code defined according to a coding system, e.g., RFID tag or IP address</rdfs:comment> -->
+  <!--  <rdfs:comment>Analogous to name (see comment)</rdfs:comment> -->
+  <!--  <rdfs:subClassOf rdf:resource="&dolite;quale"/> -->
+  <!--</owl:Class> -->
+
+  <!--<owl:Class rdf:about="#CodeSystem"> -->
+  <!--  <rdfs:comment xml:lang="en">A code defined according to a coding system, e.g., RFID tag or IP address</rdfs:comment> -->
+  <!--  <rdfs:subClassOf rdf:resource="#identification-region"/> -->
+  <!--</owl:Class> -->
+
+  <owl:Class rdf:about="#ConnectionEvent">
+    <!--<rdfs:subClassOf rdf:resource="&dolite;event"/> More refined in v1.0 -->
+    <rdfs:subClassOf rdf:resource="&dolite;event"/>
+    <rdfs:comment xml:lang="en">This class represents events that are related to connectivity such as the connection of a smartuser or smartobject into the smart space.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Data">
+    <rdfs:subClassOf rdf:resource="&dns;information-object"/>
+    <rdfs:comment xml:lang="en">Data can be considered as a special kind of InformationObject. The difference to Software is twofold: First,
+		Data is realized-by a ComputationalObject that participates-in in Computational-Activities. This is intuitively clear as Data acts
+		as input or output to ComputationalActivities such as calculating the sum of two integers. Second, we can further distinguish
+		between concrete Data that can be computed as such by the programs (e.g., a number 30 can be equivalent to the computation result of
+		3*10) and AbstractData that is invariant across the computational domain and whose lifecycle depends on entities that are not
+		computed because they are external to the computational domain.
+		AbstractData is simply Data that identifies something different from itself. An example for AbstractData might be a user in a Unix
+		operating system who cannot be computed but has a physical counterpart in the real world. AbstractData thus is about a DOLCE:Particular 
+		(a natural person, a company, a physical object).
+	</rdfs:comment>
+    <rdfs:comment xml:lang="en">Obtained from the Core Ontologies of Software/Software Components/Services</rdfs:comment>
+	<!-- TBD: DIFFERENT TYPES OF DATA THAT CAN BE DEFINED FOR SMART APPLICATIONS -->
+  </owl:Class>  
+
+  <owl:Class rdf:about="#DataValue">
+    <!-- NOTE: WE ARE NOT SURE IF THE DATAVALUE IS JUST DEFINING THIS -->
+	<rdfs:comment xml:lang="en">The measured value of the characteristic measured by the data.</rdfs:comment>
+	<rdfs:comment xml:lang="en">The numeric or literal value associated to measure.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&dolite;quale"/>
+	<owl:disjointWith rdf:resource="#TimeValue"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasValue"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#DataValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>		
+  </owl:Class>
+
+  <owl:Class rdf:about="#Device">
+    <rdfs:comment xml:lang="en">This class will represent all the different devices of the environment</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#System"/>
+	<rdfs:subClassOf rdf:resource="&dns;non-agentive-physical-object" />
+	<owl:equivalentClass rdf:resource="&mobile;Device" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#FailureEvent">
+    <rdfs:comment xml:lang="en">This class represents events that are related to events caused due to a failure.</rdfs:comment>
+    <!--<rdfs:subClassOf rdf:resource="&dolite;event"/> More refined in v1.0 -->
+    <rdfs:subClassOf rdf:resource="&dolite;event"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Freshness">
+    <rdfs:comment xml:lang="en">This concept defines the freshness rate for data quality purposes.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityIndicator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#FreshnessRegion"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#freshnessRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#FreshnessDataValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#freshnessValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FreshnessRegion">
+    <rdfs:comment xml:lang="en">This concept determines the measurement unit for freshness.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityMeasurementRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#FreshnessDataValue">
+    <rdfs:subClassOf rdf:resource="#QualityDataValue"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Identification">
+    <rdfs:comment xml:lang="en">This abstract characteristic represents everything concerning the identification of a particular. 
+It is a characteristic since it described the particular and the identification of a particular exists only as long as that particular exists.
+Similarly to any characteristic (==DOLite:quality), identification maps onto a measure space, i.e, the identification-region (see the corresponding class).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#AbstractCharacteristic"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isIdentifiedBy"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Identification"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+
+  <!-- TO BE DISCUSSED: WE DO NOT KNOW AT CORE ONTOLOGY LEVEL WHAT DATA IS NECESSARY TO IDENTIFY PEOPLE OR DEVICES. -->
+  <!--<owl:Class rdf:about="#IdentificationData"> -->
+  <!--  <rdfs:comment>Data used to identify (physical) objects, e.g., persons or devices.</rdfs:comment> -->
+  <!--  <rdfs:subClassOf rdf:resource="#Data"/> -->
+  <!--</owl:Class> -->
+
+  <!-- THE MODEL DATA:REGION (VALUE:UNIT) IS NO LONGER VALID FOR IDENTIFICATION. AT THE MOMENT, THIS CLASS IS OUTSIDE THE APPROACH -->
+  <!--<owl:Class rdf:about="#IdentificationRegion">-->
+  <!--  <rdfs:comment xml:lang="en">The "mapping-space" property should be used to associate a particular identification instance (subclass of DOLite:quale) to the identification-region that contains it. -->
+  <!--For example, suppose that a device is identified via its MAC address. One can create a subclass of code, called mac-address. Then create an instance of code-system called mac-address-system. Then each mac-address instance (corresponding to an object) has mac-address-system as value for the property "mapping-space". This allows to explictly describe the identification system used.</rdfs:comment>-->
+  <!--  <rdfs:subClassOf rdf:resource="&dolite;abstract-region"/>-->
+  <!--</owl:Class>-->
+
+  <owl:Class rdf:about="#InputCapability">
+    <rdfs:comment xml:lang="en">This class will hold all the capabilities that are related to provide input information to the environment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Capability"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasInputCapability"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#InputCapability"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+
+  <!-- NOTHING TO DO WITH THIS CLASS AT THIS MOMENT. POSSIBLE ASSOCIATIONS ARE TO SMARTSPACEAPPLICATION AND/OR DEVICE -->
+  <owl:Class rdf:about="#KnowledgeProcessor">
+    <rdfs:subClassOf rdf:resource="&dolite;non-physical-object"/>
+    <rdfs:comment xml:lang="en">This class represents the knowledge processor that are part of the smartObjects available in the environment.</rdfs:comment>
+  </owl:Class>
+
+  <!-- IF WE MEASURE SOMETHING, IT IS NECESSARY TO ASSOCIATE INHERENT PROPERTIES TO THE MEASURE. E.G. ON-DEMAND, PERIODICAL, ... -->
+  <!-- THIS CLASS ONLY REPRESENTS THE EVENT, BUT NOT THE RESULT OF THE MEASUREMENT PROCESS. IT WOULD BE NECESSARY TO DEFINE THIS -->
+  <owl:Class rdf:about="#MeasureEvent">
+    <rdfs:comment xml:lang="en">This class represents the result of a measuring process, that is, we represent the measure process as a particular output process.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#OutputEvent"/>
+  </owl:Class>
+
+  <!-- TO BE DISCUSSED: MEASUREMENT REGION/UNIT IS THE SET OF UNITS THAT CAN BE USED FOR MEASUREMENTS/OBSERVATIONS -->
+  <owl:Class rdf:about="#MeasurementRegion">
+    <rdfs:comment xml:lang="en">Proposed subclasses mainly refer to the conceptual/mathematical structure of the system rather than the purpose.
+It is possible to define combinations of subclasses of region, when needed. For example, freshness might be measured based on a discrete-scale (e.g, time steps)</rdfs:comment>
+    <rdfs:comment xml:lang="en">The space used to map values measured by sensors. Examples of subclasses are: linear scale (with some measure unit), discrete intervals, taxonomies, etc.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&dolite;abstract-region"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#MeasurementResult">
+    <rdfs:comment xml:lang="en">The result of a measurement process.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#Result"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#MentalObject">
+    <rdfs:subClassOf rdf:resource="&dolite;non-physical-object"/>
+    <owl:disjointWith rdf:resource="#SocialObject"/>
+    <rdfs:comment xml:lang="en">This class represents endurants that are produced by a single agent, not for a community of them. In this class feelings or thoughts could fit.</rdfs:comment>
+  </owl:Class>
+  
+  <!-- TO BE DISCUSSED: THE METRIC (MEASURE) CONCEPT IS ASSOCIATED TO OBSERVATIONS OVER PROPERTIES. THE QUALITY METRICS ARE ALREADY DEFINED BELLOW -->
+  <owl:Class rdf:about="#Metric">
+    <rdfs:subClassOf rdf:resource="#AbstractCharacteristic"/>
+    <rdfs:comment xml:lang="en">This class defines which is the measurement metric of the quality constraint.</rdfs:comment>
+  </owl:Class>
+	
+  <!-- THIS CLASS CAN NOT BE ASSOCIATED TO NOTHING, IN THE SENSE THAT NAMING RULES IS DIFFERENT FOR DIFFERENT ENTITIES. -->
+  <!-- E.G. A PERSON NAME IS HIS FIRST NAME, BUT FOR ONE DEVICE IS THE USER GIVEN NAME (PUBLISHED NAME) -->
+  <!-- IF EXISTS, IT HAS BE TO ASSOCIATE TO PHYSICAL-OBJECTS -->
+  <!--<owl:Class rdf:about="#Name">-->
+  <!--  <rdfs:comment>A name defined according to some naming convention/system</rdfs:comment>-->
+  <!--  <rdfs:comment xml:lang="en">Atomic value within a name-system, i.e., the specific name of an object with respect to a naming system (the region containing it)</rdfs:comment>-->
+  <!--  <rdfs:comment xml:lang="en">Example: a device has-quality identification; identification q-location name-system; identification has-quale &lt;name-of-device></rdfs:comment>-->
+  <!--  <rdfs:subClassOf rdf:resource="&dolite;quale"/> -->
+  <!--</owl:Class> -->
+
+  <!--<owl:Class rdf:about="#NameSystem">-->
+  <!--  <rdfs:comment>A name defined according to some naming convention/system</rdfs:comment>-->
+  <!--  <rdfs:subClassOf rdf:resource="#IdentificationRegion"/>-->
+  <!--</owl:Class>-->
+
+  <owl:Class rdf:about="#OutputCapability">
+    <rdfs:subClassOf rdf:resource="#Capability"/>
+    <rdfs:comment xml:lang="en">This class will hold all the capabilities that are related to interact with the user, change the state of the environment.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasOutputCapability"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#OutputCapability"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+  
+  <owl:Class rdf:about="#OutputEvent">
+    <rdfs:comment xml:lang="en">This class represents the result of a device producing any output.</rdfs:comment>
+    <!--<rdfs:subClassOf rdf:resource="&dolite;event"/> More refined in v1.0 -->
+    <rdfs:subClassOf rdf:resource="&dolite;event"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Observation">
+    <rdfs:comment xml:lang="en">The act of observing a phenomenon, with the goal of producing an estimate of the value of the characteristic.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="#MeasureEvent"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Person">
+    <rdfs:comment xml:lang="en">This class contains all the information related to a person, name, address, etc. It does not refer to the person as a physical object, just his/her data.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SocialAgent"/>
+	<owl:equivalentClass rdf:resource="&mobile;Person" />
+	<!-- TODO: ASSOCIATED DATA OF A PERSON CAN BE TAKEN FROM FOAF ONTOLOGY -->
+  </owl:Class>
+
+  <owl:Class rdf:about="#PhysicalCharacteristic">
+    <owl:equivalentClass rdf:resource="&dolite;physical-quality"/>
+	<rdfs:subClassOf rdf:resource="#Characteristic" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Platform">
+    <rdfs:comment xml:lang="en">The platform is the set of components that can be taken as a whole in a smart environment.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#Device"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPlatformComponents"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#System"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+  
+  <owl:Class rdf:about="#QualityDataValue">
+    <rdfs:subClassOf rdf:resource="#DataValue"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#QualityIndicator">
+    <!-- IN CO1.0, QUALITY-PARAMETER -->
+    <rdfs:comment xml:lang="en">This class represents any parameter, here called indicator, that provides information about the "quality" of information/service. 
+Note that this notion of quality is *different" from the meaning of DOLite:quality. This one represents quality in the meaning of "goodness", as shown by its subclasses.</rdfs:comment>
+    <rdfs:comment xml:lang="en">These concepts [3] will be used to measure the real quality of the data. Due to highly dynamic nature of this kind of systems, data will change constantly and some inconsistencies could happen because of the imperfect sensing technologies. Imagine two location detection technologies, RFID and BT, RFID is more reliable than BT so, in case of inconsistencies the RFID data will be use. For this kind of situations this quality parameter is useful.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#AbstractCharacteristic"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasQualityIndicator"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#QualityIndicator"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#QualityMeasurementRegion">
+    <rdfs:comment xml:lang="en">Each quality indicator has its own space of measure, that is, a particular reference system/scale/method used to associate it to values. 
+For example, freshness can be measured according to a time notion. These regions should be specialized to describe specific quality indicators, possibly by intersecting them with spatio or temporal regions.</rdfs:comment>
+    <rdfs:comment>The space where quality indicators (e.g., freshness, resolution) are measured.</rdfs:comment>
+    <rdfs:comment xml:lang="en">These subclasses (accuracy-region, etc.) stand mostly as a placeholder right now.</rdfs:comment>
+    <!-- REFINEMENT OF THE ABSTRACT-REGION WITH MEASUREMENT UNIT -->
+	<!--<rdfs:subClassOf rdf:resource="&dolite;abstract-region"/>-->
+	<rdfs:subClassOf rdf:resource="#MeasurementRegion"/>
+  </owl:Class>
+
+  <!-- TO BE DISCUSSED: RESULT HERE IS DEFINED TO DEFINE THE MEASUREMENT RESULT -->
+  <owl:Class rdf:about="#Result">
+    <rdfs:comment xml:lang="en">It is the information object that contains a result.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&dns;information-object"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Resolution">
+    <rdfs:comment xml:lang="en">This concept defines the resolution rate for data quality purposes.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityIndicator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#ResolutionRegion"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#resolutionRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#ResolutionDataValue"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#resolutionValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ResolutionRegion">
+    <rdfs:comment xml:lang="en">This concept determines the measurement unit for resolution.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#QualityMeasurementRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ResolutionDataValue">
+    <rdfs:subClassOf rdf:resource="#QualityDataValue"/>
+  </owl:Class>
+  
+  <!-- FOR THE CONCEPTUALIZATION OF SENSOR, WE WILL USE THE CSIRO SSN ONTOLOGY. SEE http://www.w3.org/2005/Incubator/ssn/wiki/Key_Sensor_Concepts -->
+  <owl:Class rdf:about="#Sensor">
+    <rdfs:comment xml:lang="en">An entity capable of observin a phenomenon and returning an observed value.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SensorData">
+    <rdfs:comment>Data produced by sensors/sensor platforms.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Note that we can define "sensor" with a loose meaning, i.e., any programmatic interface that when queried returns a value. 
+This definition would allow to use this class to describe data computed by software applications instead of directly produced by sensor devices.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Data"/>
+  </owl:Class>
+
+  <!-- TO BE DISCUSSED: SENSOR PLATFORM IS ONE OF THE DIFFERENT TYPES OF SYSTEMS THAT CAN BE AVAILABLE IN A SMARTSPACE, BUT NOT THE ONLY ONES -->
+  <!-- POSSIBLY SUBCLASSING OR EQUIVALENCE CAN BE FOUND TO DEFINE WHAT A SENSORPLATFORM AND SENSORNETWORK IS -->
+  <!--<owl:Class rdf:about="#SensorPlatform">-->
+  <!--  <rdfs:subClassOf rdf:resource="#Device"/>-->
+  <!--  <owl:intersectionOf rdf:parseType="Collection">-->
+  <!--    <owl:Restriction>-->
+  <!--      <owl:onProperty rdf:resource="&dolite;part"/>-->
+  <!--      <owl:someValuesFrom rdf:resource="#Sensor"/>-->
+  <!--    </owl:Restriction>-->
+  <!--  </owl:intersectionOf>-->
+  <!--</owl:Class>-->
+
+  <owl:Class rdf:about="#SmartSpaceApplication">
+    <rdfs:comment xml:lang="en">This class contains the description of the smart user roles inside the smart environment. For example, tenant, visitor, rescuer, public authority, ...</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&dns;agentive-social-object"/>
+    <owl:disjointWith rdf:resource="#Society"/>
+    <owl:disjointWith rdf:resource="#SocialAgent"/>
+	<owl:disjointWith rdf:resource="#SmartUserRole"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SmartData">
+    <rdfs:subClassOf rdf:resource="#Data"/>
+    <rdfs:comment xml:lang="en">This concept will be a key concept in the SOFIA ontology. Most of the real-time data should pend from this concept.</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SmartObject">
+    <rdfs:subClassOf rdf:resource="&dns;agentive-physical-object"/>
+    <rdfs:comment xml:lang="en">In terms of SOFIA this means a device with capabilities to interact with a semantic information broker (SIB). The software agents that run on these special devices have the capability to change, read or update the information included in the SIB.</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SmartObjectRelatedEvent">
+    <rdfs:subClassOf rdf:resource="#SpatialEvent"/>
+	<owl:disjointWith rdf:resource="#SmartUserRelatedEvent"/>
+    <rdfs:comment xml:lang="en">This class represents events related to motion of object location.</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SmartUser">
+    <rdfs:subClassOf rdf:resource="&dns;agentive-physical-object"/>
+    <rdfs:comment xml:lang="en">This class represents the user which have the possibility to interactuate with the environment. In this class personal information is not specified (there is another class for that).</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SmartUserRelatedEvent">
+    <rdfs:subClassOf rdf:resource="#SpatialEvent"/>
+	<owl:disjointWith rdf:resource="#SmartObjectRelatedEvent"/>
+    <rdfs:comment xml:lang="en">This class represents events related to motion of user location.</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SmartUserRole">
+    <rdfs:subClassOf rdf:resource="&dns;agentive-social-object"/>
+    <owl:disjointWith rdf:resource="#Society"/>
+    <owl:disjointWith rdf:resource="#SocialAgent"/>
+	<owl:disjointWith rdf:resource="#SmartSpaceApplication" />
+    <rdfs:comment xml:lang="en">This class contains the description of the smart user roles inside the smart environment. For example, tenant, visitor, rescuer, public authority, ...</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SocialAgent">
+    <rdfs:comment xml:lang="en">This contains the description of an agent which is member of a society.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&dns;agentive-social-object"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SocialObject">
+    <rdfs:subClassOf rdf:resource="&dolite;non-physical-object"/>
+    <rdfs:comment xml:lang="en">This class represents endurant characteristics that are important for a set of agents.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Society">
+    <rdfs:comment xml:lang="en">This class contains the information which belongs to a society active entity that gather together many different social agents.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="&dns;agentive-social-object"/>
+  </owl:Class>
+	
+  <owl:Class rdf:about="#SpatialEvent">
+    <rdfs:subClassOf rdf:resource="&dolite;event"/>
+    <rdfs:comment xml:lang="en">This class represents events related with location. For example, a user has moved to another location, a device is in another place, etc.</rdfs:comment>
+  </owl:Class>
+	
+  <!-- TO BE DISCUSSED: THE SYSTEM TERMINOLOGY IS VALID FOR ALL SMART ENVIRONMENTS, BECAUSE THE RELATIONS IS-COMPRISED-OF OR HAS-SYSTEM-COMPONENTS -->
+  <!--                  ARE AGREED TO BE AN IMPORTANT COMPOSITE STRUCTURE TO DEFINE PHYSICAL-SMART-OBJECTS IN SOFIA -->
+  <owl:Class rdf:about="#System">
+    <rdfs:comment xml:lang="en">*** TBD ***</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#SmartObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasSystemComponents"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#SystemComponent"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>	
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SensorPlatform">
+    <rdfs:comment xml:lang="en">The sensor platform is the set of components that can be taken as a whole in a smart environment.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#Platform"/>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SystemComponent">
+    <rdfs:comment xml:lang="en">The set of components that are part of the system. The system itself is a system.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="#System"/>
+	
+  </owl:Class>
+  
+  <owl:Class rdf:about="#TemporalCharacteristic">
+    <owl:equivalentClass rdf:resource="&dolite;temporal-quality"/>
+	<rdfs:subClassOf rdf:resource="#Characteristic" />	
+  </owl:Class>
+
+  <owl:Class rdf:about="#TimeValue">
+    <rdfs:subClassOf rdf:resource="&dolite;quale"/>
+  </owl:Class>
+  
+  <!-- DOLCE EXTENDED DESCRIPTIONS AND SITUATIONS REFERENCE -->
+  <owl:Class rdf:about="&dns;agentive-physical-object">
+    <owl:disjointWith rdf:resource="&dns;non-agentive-physical-object" />
+  </owl:Class>
+  
+  <owl:Class rdf:about="&dns;information-object">
+    <rdfs:subClassOf rdf:resource="&dolite;non-physical-object" />
+  </owl:Class>
+  
+  <owl:Class rdf:about="&dcs;Capability"/>
+
+  <owl:Class rdf:about="&dcs;AcousticInputCapability">
+    <rdfs:subClassOf rdf:resource="#InputCapability"/>
+  </owl:Class>  
+  
+  <owl:Class rdf:about="&dcs;TactileInputModalityCapability">
+    <rdfs:subClassOf rdf:resource="#InputCapability"/>
+  </owl:Class>  
+  
+  <owl:Class rdf:about="&dcs;VisualInputModalityCapability">
+    <rdfs:subClassOf rdf:resource="#InputCapability"/>
+  </owl:Class>  
+
+  <owl:Class rdf:about="&dcs;AcousticOutputCapability">
+    <rdfs:subClassOf rdf:resource="#OutputCapability"/>
+  </owl:Class>  
+  
+  <owl:Class rdf:about="&dcs;TactileOutputModalityCapability">
+    <rdfs:subClassOf rdf:resource="#OutputCapability"/>
+  </owl:Class>  
+  
+  <owl:Class rdf:about="&dcs;VisualOutputModalityCapability">
+    <rdfs:subClassOf rdf:resource="#OutputCapability"/>
+  </owl:Class>  
+  
+<!-- Datatypes -->
+  <rdfs:Datatype rdf:about="&xsd;dateTime"/>
+  <rdfs:Datatype rdf:about="&xsd;string"/>
+
+<!-- Annotation Properties -->
+  <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+  <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+  <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+
+<!-- Datatype Properties -->
+  <!-- THE DATATYPE VALUE IS NOW AN OBJECT PROPERTY -->
+  <!--<owl:DatatypeProperty rdf:about="#datatypeValue"/>-->
+  
+  <!-- THE MEASURE UNIT HAS TO BE ASSOCIATED TO SOMETHING. METERS CAN NOT BE A MEASURE FOR TEMPERATURE -->
+  <!--<owl:DatatypeProperty rdf:about="#measureUnit">-->
+  <!--  <rdfs:subPropertyOf rdf:resource="#datatypeValue"/>-->
+  <!--</owl:DatatypeProperty>-->
+
+  <!--<owl:DatatypeProperty rdf:about="#sofiaTimestamp">-->
+  <!--  <rdfs:domain rdf:resource="&dolite;spatio-temporal-particular"/>-->
+  <!--  <rdfs:range rdf:resource="&xsd;dateTime"/>-->
+  <!--</owl:DatatypeProperty>-->
+
+  <owl:DatatypeProperty rdf:about="#textualDescription">
+    <rdfs:comment>Names and codes can be described by means of datatypes, e.g., string or integers</rdfs:comment>
+    <rdfs:domain rdf:resource="&dolite;quale"/>
+    <rdfs:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+<!-- Object Properties -->
+  <owl:FunctionalProperty rdf:about="#accuracyRegion">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The region or units of measurement in what accuracy is defined.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityMeasurementRegion" />
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#accuracyValue">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The value for measuring accuracy.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityDataValue" />
+  </owl:FunctionalProperty>
+  
+  <owl:FunctionalProperty rdf:about="#certaintyRegion">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The region or units of measurement in what certainty is defined.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityMeasurementRegion" />
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#certaintyValue">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The value for measuring certainty.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityDataValue" />
+  </owl:FunctionalProperty>
+  
+  <owl:ObjectProperty rdf:about="#characteristicOf">
+    <rdfs:comment xml:lang="en">Inverse of has-characteristic, again introduced to avoid lexical confusion</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;immediate-relation"/>
+    <owl:equivalentProperty rdf:resource="&dolite;inherent-in"/>
+	<owl:inverseOf rdf:resource="#hasCharacteristic"/>	
+  </owl:ObjectProperty>
+
+  <!-- AVOID THE USAGE OF CODEOF WHILE IT IS NOT DEFINED -->
+  <!--<owl:ObjectProperty rdf:about="#codeOf">-->
+  <!--  <rdfs:subPropertyOf rdf:resource="&dolite;quale-of"/>-->
+  <!--  <owl:inverseOf rdf:resource="#hasCode"/>-->
+  <!--</owl:ObjectProperty>-->
+
+  <owl:ObjectProperty rdf:about="#dataValueOf">
+    <rdfs:subPropertyOf rdf:resource="&dolite;quale-of"/>
+    <owl:inverseOf rdf:resource="#hasDataValue"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#describedByData">
+    <rdfs:subPropertyOf rdf:resource="&dolce-spatial;descriptive-place"/>
+    <owl:inverseOf rdf:resource="#descriptiveDataOf"/>
+  </owl:ObjectProperty>
+
+  <owl:FunctionalProperty rdf:about="#descriptiveDataOf">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Property that links a data to the physical object it describes (via its characterstics). Subproperty of descriptive-place-of because it represents the (abstract) place where a physical object is described in terms of its characteristics.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Examples: the temperature of a room, the heart rate of a person). Functional property to allow the retrieval of the physical object based on a given data instance. Inverse described-by-data is not functional.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Data"/>
+    <rdfs:subPropertyOf rdf:resource="&dolce-spatial;descriptive-place-of"/>
+    <owl:inverseOf rdf:resource="#describedByData"/>	
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#freshnessRegion">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The region or units of measurement in what freshness is defined.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityMeasurementRegion" />
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#freshnessValue">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The value for measuring freshness.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityDataValue" />
+  </owl:FunctionalProperty>
+  
+  <owl:ObjectProperty rdf:about="#hasCapability">
+    <rdfs:comment xml:lang="en">This property specifies which the capabilities of an existent device of the environment are.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#hasCharacteristic"/>
+	<rdfs:subPropertyOf rdf:resource="#specificallyConstantlyDependentOn"/>
+    <owl:inverseOf rdf:resource="#isCapabilityOf"/>
+	<!-- TODO: DEFINE IF THE INVERSE FINAL NAME -->
+    <rdfs:domain rdf:resource="#SmartObject"/>
+    <rdfs:range rdf:resource="#Capability"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasCharacteristic">
+    <rdfs:comment xml:lang="en">Equivalent property to DOLite:has-quality needed to avoid confusion about the term "quality" in SOFIA</rdfs:comment>
+    <rdfs:comment xml:lang="en">It is the immediate relation holding for qualities and entities. It will specify which are the characteristics related with every kind of entity of the ontology.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;immediate-relation-i"/>
+	<owl:inverseOf rdf:resource="#characteristicOf"/>	
+    <owl:equivalentProperty rdf:resource="&dolite;has-quality"/>
+    <rdfs:range rdf:resource="#Characteristic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasCode">
+    <rdfs:comment xml:lang="en">*** TBD -- Need to add restriction on property range: code ***</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;has-quale"/>
+    <owl:inverseOf rdf:resource="#codeOf"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasDataValue">
+    <rdfs:comment xml:lang="en">*** TBD -- Need to add restriction on property range: data-value ***</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property is not set to functional because the same instance of characteristic measured-by an instance of data might correspond to different values based on different reference-systems.</rdfs:comment>
+    <rdfs:range rdf:resource="#DataValue"/>
+    <rdfs:subPropertyOf rdf:resource="&dolite;has-quale"/>
+    <owl:inverseOf rdf:resource="#dataValueOf"/>
+  </owl:ObjectProperty>
+
+  <owl:FunctionalProperty rdf:about="#hasIdentification">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:comment xml:lang="en">*** TBD -- Need to add restriction to property range ***</rdfs:comment>
+    <rdfs:comment xml:lang="en">Range should be identification class</rdfs:comment>
+    <rdfs:range rdf:resource="#Identification"/>
+    <rdfs:subPropertyOf rdf:resource="#hasCharacteristic"/>
+    <owl:inverseOf rdf:resource="#identificationOf"/>	
+  </owl:FunctionalProperty>
+
+  <owl:ObjectProperty rdf:about="#hasName">
+    <rdfs:comment xml:lang="en">*** TBD -- Need to add restriction on property range: name ***</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;has-quale"/>
+    <owl:inverseOf rdf:resource="#nameOf"/>	
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasMeasurement">
+    <rdfs:comment xml:lang="en">This property is related with data quality. The purpose of this property is to identify the metrics the quality can be measured with.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#specificallyConstantlyDependentOn"/>
+    <!-- TODO: THE DEFINITION OF METRIC AS A QUALITY PARAMETER IS NOT CORRECT. METRIC IS MORE RELATED WITH OBSERVED PROPERTY ASSOCIATED TO SOME -->
+	<!--       SENSOR. THE QUALITY OF MEASUREMENTS ARE RESTRICTED TO QUALITY CONSTRAINTS -->
+	<owl:inverseOf rdf:resource="#isMetricOf"/>
+    <!--<rdfs:domain rdf:resource="#QualityParameter"/>-->
+    <rdfs:domain rdf:resource="#Observation"/>
+    <rdfs:range rdf:resource="#MeasurementResult"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="#hasMeasurementRegion">
+	<rdfs:comment xml:lang="en">It associates to each characteristic the measure space(s) where it can be mapped. For example, location can be mapped onto: relative coord. system, absolute coordinates, building plan and so on. This property has in general multiple values: single values must be linked to their respective measure space (== regions) via the property reference-system (functional property).</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasRegion" />
+	<rdfs:range rdf:resource="#MeasurementRegion"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasRegion">
+	<owl:equivalentProperty rdf:resource="&dolite;q-location" />
+	<rdfs:range rdf:resource="&dolite;abstract-region"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasParameter">
+	<rdfs:comment xml:lang="en">This property will link the quality constraint with the kind of parameter it is using for defining that quality.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#specificallyConstantlyDependentOn"/>
+	<!--TODO: THE QUALITY CONSTRAINT IS NO LONGER ASSOCIATED TO THE HASPARAMETER OBJECT PROPERTY. -->
+	<!--<rdfs:domain rdf:resource="#QualityConstraint"/>-->
+	<rdfs:range rdf:resource="#AbstractCharacteristic"/>
+  </owl:ObjectProperty>
+  
+  <owl:FunctionalProperty rdf:about="#hasQualityDataValue">
+    <rdfs:comment xml:lang="en">The data value associated to quality measurements.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#hasDataValue"/>
+    <rdfs:range rdf:resource="#QualityDataValue"/>
+  </owl:FunctionalProperty>
+
+  <owl:ObjectProperty rdf:about="#hasQualityIndicator">
+	<rdfs:comment xml:lang="en">This property is related to the quality parameters for data obtained from a physical source.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasParameter" />
+	<rdfs:domain rdf:resource="#Result"/>
+	<rdfs:range rdf:resource="#QualityIndicator"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#hasQualityMeasurementRegion">
+	<rdfs:subPropertyOf rdf:resource="#hasMeasurementRegion" />
+	<rdfs:range rdf:resource="#QualityMeasurementRegion"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#identificationOf">
+    <rdfs:domain rdf:resource="#Identification"/>
+    <rdfs:subPropertyOf rdf:resource="#characteristicOf"/>
+    <owl:inverseOf rdf:resource="#hasIdentification"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#isCapabilityOf">
+	<rdfs:comment xml:lang="en">This property is to link a capability with the smart objects that has the capability where this property is hosted.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#specificConstantDependent"/>
+    <owl:inverseOf rdf:resource="#hasCapability"/>
+	<rdfs:domain rdf:resource="#Capability"/>
+	<rdfs:range rdf:resource="#SmartObject"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#isInProcess">
+	<rdfs:comment xml:lang="en">This property indicates in which process an active physical object is involved.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#participantIn"/>
+	<owl:inverseOf rdf:resource="#processParticipant"/>
+	<rdfs:domain rdf:resource="&dns;agentive-physical-object"/>
+	<rdfs:range rdf:resource="&dolite;process"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#isInState">
+	<rdfs:comment xml:lang="en">This property links the participant with the state. That is, it will specify which the state of each physical object is.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#participantIn"/>
+	<owl:inverseOf rdf:resource="#stateParticipant"/>
+	<rdfs:domain rdf:resource="&dns;agentive-physical-object"/>
+	<rdfs:range rdf:resource="&dolite;state"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#isMetricOf">
+	<rdfs:comment xml:lang="en">This property is related with data quality. The quality can be measured with different kind of metrics. In this case the property &#8220;Is Metric Of&#8221; specifies which the qualities that the metric where this property is located are.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#specificConstantDependent"/>
+	<rdfs:domain rdf:resource="#Metric"/>
+	<rdfs:range rdf:resource="#QualityIndicator"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#isParameterOf">
+	<rdfs:comment xml:lang="en">This property link the parameter with the quality constraint where it is used.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#specificConstantDependent"/>
+	<owl:inverseOf rdf:resource="#hasParameter"/>
+	<rdfs:domain rdf:resource="#QualityParameter"/>
+	<rdfs:range rdf:resource="#QualityConstraint"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#launchedBy">
+    <rdfs:comment xml:lang="en">This property links the event with the active physical object that has launched that event.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#participant"/>
+    <owl:inverseOf rdf:resource="#launchesEvent"/>
+    <rdfs:domain rdf:resource="&dolite;event"/>
+    <rdfs:range rdf:resource="&dns;agentive-physical-object"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="#launchesEvent">
+    <rdfs:comment xml:lang="en">This property specifies the events that an active physical object has launched.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#participantIn"/>
+    <owl:inverseOf rdf:resource="#launchedBy"/>
+    <rdfs:domain rdf:resource="&dns;agentive-physical-object"/>
+    <rdfs:range rdf:resource="&dolite;event"/>
+  </owl:ObjectProperty>  
+	
+  <owl:FunctionalProperty rdf:about="#measurand">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Data"/>
+    <rdfs:range rdf:resource="#Characteristic"/>
+    <rdfs:subPropertyOf rdf:resource="&dolite;generic-dependent"/>
+    <owl:inverseOf rdf:resource="#measuredBy"/>	
+  </owl:FunctionalProperty>
+
+  <!-- TO BE DISCUSSED: THE MEASURAND IS A NAME, WHILE DE-FACTO STANDARDS STABLISH THAT NOUN ARE LIKELY TO BE CLASSES AND VERBS LIKELY TO BE PROPERTIES -->
+  <!--                  ADDITIONAL TO THIS, THE MEASUREMENT IS NOT DONE BY DATA, BUT BY SYSTEMS, DEVICES, SENSOR PLATFORMS OR SENSORS -->
+  <!--                  THE FUNCTIONAL HAS NO SENSE BECAUSE INSTRUMENTS (TBD) CAN OBSERVE MORE THAN ONE PROPERTY -->
+  <owl:ObjectProperty rdf:about="#measures">
+    <rdfs:comment xml:lang="en">This property associates each data instance with the particular characteristic instance it measures.
+		It is functional since each data measures a specific instance of a characteristic. This 1-1 correspondence ensures that it there is at least and only *one* instance of characteristic corresponding to a data instance.
+		Therefore, the properties has-quale (or better its subproperty has-data-value) and reference-system bind each data instance to a value and a measure unit via the characteristic instance the data measures.
+		Example: &lt;data123, measurand, temp-x>, &lt;temp-x, inherent-in, roomA>, &lt;temp-x, has-data-value, data-valueZ>,
+		&lt;data-valueZ, textual-description, "28">, &lt;data-valueZ, reference-system, Celsius-scale></rdfs:comment>
+    <owl:inverseOf rdf:resource="#measuredBy"/>	
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Characteristic"/>
+  </owl:ObjectProperty>
+  
+  <!-- REDEFINED AS HAS-MEASUREMENT-REGION -->
+  <!--<owl:ObjectProperty rdf:about="#measureSpace">-->
+  <!--  <rdfs:comment xml:lang="en">It associates to each characteristic the measure space(s) where it can be mapped. For example, location can be mapped onto: relative coord. system, absolute coordinates, building plan and so on. This property has in general multiple values: single values must be linked to their respective measure space (== regions) via the property reference-system (functional property).</rdfs:comment>-->
+  <!--  <rdfs:subPropertyOf rdf:resource="&dolite;q-location"/>-->
+  <!--</owl:ObjectProperty>-->
+
+  <owl:ObjectProperty rdf:about="#measuredBy">
+    <rdfs:subPropertyOf rdf:resource="&dolite;generically-dependent-on"/>
+    <owl:inverseOf rdf:resource="#measurand"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#nameOf">
+    <rdfs:subPropertyOf rdf:resource="&dolite;quale-of"/>
+    <owl:inverseOf rdf:resource="#hasName"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#observedCharacteristic">
+    <rdfs:comment xml:lang="en">The characteristic of a phenomenon subject to observation.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Observation"/>
+    <rdfs:range rdf:resource="#Characteristic"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="#ownedBy">
+    <rdfs:comment xml:lang="en">This property is to identify who is the owner of a smart object of the smart environment.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#specificallyConstantlyDependentOn"/>
+    <owl:inverseOf rdf:resource="#owns"/>
+    <rdfs:domain rdf:resource="#SmartObject"/>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#owns">
+    <rdfs:comment xml:lang="en">This property is used for specifying which smart object of the environment the user owns, which means that only he or she could use it.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#specificConstantDependent"/>
+    <owl:inverseOf rdf:resource="#ownedBy"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#SmartObject"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#processParticipant">
+	<rdfs:comment xml:lang="en">This property links the process with the active physical object that is participating in this process.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#participant"/>
+	<rdfs:domain rdf:resource="&dolite;process"/>
+	<rdfs:range rdf:resource="&dns;agentive-physical-object"/>
+  </owl:ObjectProperty>
+	
+  <owl:FunctionalProperty rdf:about="#producedBy">
+	<rdfs:comment xml:lang="en">This property is used to identify which is the physical object that is producing each instance of data included in the ontology.</rdfs:comment>
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="&dolite;generically-dependent-on"/>
+    <owl:inverseOf rdf:resource="#producer"/>
+    <rdfs:domain rdf:resource="#Data"/>
+    <rdfs:range rdf:resource="&dolite;physical-object"/>
+  </owl:FunctionalProperty>
+
+  <owl:ObjectProperty rdf:about="#producer">
+	<rdfs:comment xml:lang="en">This property is used to identify which is the data that each physical object included in the ontology is producing.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;generic-dependent"/>
+    <owl:inverseOf rdf:resource="#producedBy"/>
+    <rdfs:domain rdf:resource="&dolite;physical-object"/>
+    <rdfs:range rdf:resource="#Data"/>
+  </owl:ObjectProperty>
+
+  <owl:FunctionalProperty rdf:about="#referenceSystem">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Note that this property is functional, i.e., each value can only be mapped onto a single reference system</rdfs:comment>
+    <rdfs:comment xml:lang="en">This property links the atomic value of a characteristic (e.g., identification, space location, quality-indicator, etc.) to the particular region where this characteristic is measured. Examples: a name has as reference-system a name-system; an IP address has as reference-system the IP-addess-system; a room has as reference-system a building-map-system, ... 
+This is a key property to model any characteristic inherent to any object (particular).</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;r-location"/>
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#resoultionRegion">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The region or units of measurement in what resolution is defined.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityMeasurementRegion" />
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:about="#resolutionValue">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+	<rdfs:comment xml:lang="en">The value for measuring resolution.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="#hasQualityDataValue" />
+  </owl:FunctionalProperty>
+  
+  <owl:ObjectProperty rdf:about="#specificConstantDependent">
+	<rdfs:comment xml:lang="en">This abstract property is to define constant dependencies between two individuals. In other words, dependencies that are permanent along time.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&dolite;immediate-relation"/>
+	<owl:inverseOf rdf:resource="#specificallyConstantlyDependentOn"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#specificallyConstantlyDependentOn">
+	<rdfs:comment xml:lang="en">This abstract object property is the inverse of the class Specific Constant Dependent. It has the same property definition but has been created to maintain the same structure for the inverse properties located in Immediate Relation.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&dolite;immediate-relation-i"/>
+	<owl:inverseOf rdf:resource="#specificConstantDependent"/>
+  </owl:ObjectProperty>  
+  
+  <owl:ObjectProperty rdf:about="#stateParticipant">
+	<rdfs:comment xml:lang="en">This property links the state with the participant. That is, it will specify which objects are in each specific state.</rdfs:comment>
+	<owl:inverseOf rdf:resource="#isInState"/>
+	<rdfs:subPropertyOf rdf:resource="#participant"/>
+	<rdfs:domain rdf:resource="&dolite;state"/>
+	<rdfs:range rdf:resource="&dns;agentive-physical-object"/>
+  </owl:ObjectProperty>
+	
+  <owl:ObjectProperty rdf:about="#usedBy">
+    <rdfs:subPropertyOf rdf:resource="&dolite;generically-dependent-on"/>
+    <owl:inverseOf rdf:resource="#uses"/>
+    <rdfs:domain rdf:resource="&dolite;physical-object"/>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#uses">
+    <rdfs:comment xml:lang="en">This property specifies which physical objects of the environment the user is using.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="&dolite;generic-dependent"/>
+    <owl:inverseOf rdf:resource="#usedBy"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range rdf:resource="#Device"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&dolite;generic-dependent"/>
+  <owl:ObjectProperty rdf:about="&dolite;generically-dependent-on"/>
+  <owl:ObjectProperty rdf:about="&dolite;has-quale"/>
+  <owl:ObjectProperty rdf:about="&dolite;has-quality">
+    <owl:equivalentProperty rdf:resource="#hasCharacteristic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="&dolite;immediate-relation"/>
+  <owl:ObjectProperty rdf:about="&dolite;immediate-relation-i"/>
+
+  <owl:ObjectProperty rdf:about="&dolite;part"/>
+  <owl:ObjectProperty rdf:about="&dolite;q-location"/>
+  <owl:ObjectProperty rdf:about="&dolite;quale-of"/>
+  <owl:ObjectProperty rdf:about="&dolite;r-location"/>
+  <owl:ObjectProperty rdf:about="&dolce-spatial;descriptive-place"/>
+  <owl:ObjectProperty rdf:about="&dolce-spatial;descriptive-place-of"/>
+
+</rdf:RDF>

@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://pervasive.semanticweb.org/ont/2004/06/digital-doc#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:doc="http://pervasive.semanticweb.org/ont/2004/06/document#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://pervasive.semanticweb.org/ont/2004/06/digital-doc">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cvs:$Revision: 1.1 $, $Date: 2004/05/15 18:55:08 $</owl:versionInfo>
+    <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/document"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SOUPA Digital Document Ontology</rdfs:label>
+  </owl:Ontology>
+  <owl:Class rdf:ID="FileSizeDescription">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeDescription</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="size"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FileSizeUnit">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <FileSizeUnit rdf:ID="Bytes"/>
+          <FileSizeUnit rdf:ID="KBytes"/>
+          <FileSizeUnit rdf:ID="MBytes"/>
+          <FileSizeUnit rdf:ID="GBytes"/>
+          <FileSizeUnit rdf:ID="TBytes"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeUnit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="AudioFile">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DigitalDocument"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="VideoFile"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AudioFile</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#VideoFile">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DigitalDocument"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VideoFile</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ImageFile">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DigitalDocument"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#VideoFile"/>
+    <owl:disjointWith rdf:resource="#AudioFile"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ImageFile</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#DigitalDocument">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ImageFile"/>
+          <owl:Class rdf:about="#VideoFile"/>
+          <owl:Class rdf:about="#AudioFile"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/document#Document"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="fileSize"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DigitalDocument</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#fileSize">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fileSize</rdfs:label>
+    <rdfs:range rdf:resource="#FileSizeDescription"/>
+    <rdfs:domain rdf:resource="#DigitalDocument"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="sourceURL">
+    <rdfs:domain rdf:resource="#DigitalDocument"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#unit">
+    <rdfs:domain rdf:resource="#FileSizeDescription"/>
+    <rdfs:range rdf:resource="#FileSizeUnit"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >unit</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#size">
+    <rdfs:domain rdf:resource="#FileSizeDescription"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >size</rdfs:label>
+  </owl:DatatypeProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 533)  http://protege.stanford.edu -->

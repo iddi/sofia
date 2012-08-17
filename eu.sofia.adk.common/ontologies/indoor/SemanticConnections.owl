@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY SemanticConnections "http://emb1.esilab.org/sofia/ontology/1.3/indoor/SemanticConnections.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/indoor/SemanticConnections.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/indoor/SemanticConnections.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:SemanticConnections="http://emb1.esilab.org/sofia/ontology/1.3/indoor/SemanticConnections.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"/>
+    </owl:Ontology>
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#immediate-relation -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;immediate-relation">
+        <owl:inverseOf rdf:resource="#is-realized-by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#immediate-relation-i -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;immediate-relation-i"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#belong-to-music-collection -->
+
+    <owl:ObjectProperty rdf:about="#belong-to-music-collection">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#connected-to-smart-object -->
+
+    <owl:ObjectProperty rdf:about="#connected-to-smart-object">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#smart-object"/>
+        <rdfs:domain rdf:resource="#smart-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="#describes">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="&CoreOntology-v1;device"/>
+        <owl:inverseOf rdf:resource="#is-described-by"/>
+        <rdfs:domain rdf:resource="#modality-capability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#describes-smart-oject -->
+
+    <owl:ObjectProperty rdf:about="#describes-smart-oject">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <owl:inverseOf rdf:resource="#is-descried-by-capability"/>
+        <rdfs:domain rdf:resource="#media-format-capability"/>
+        <rdfs:range rdf:resource="#smart-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#has-audio-format -->
+
+    <owl:ObjectProperty rdf:about="#has-audio-format">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#audio-format"/>
+        <owl:inverseOf rdf:resource="#is-audioformat-of"/>
+        <rdfs:domain rdf:resource="#media-format-capability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#has-input-from -->
+
+    <owl:ObjectProperty rdf:about="#has-input-from">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;physical-object"/>
+        <owl:inverseOf rdf:resource="#is-input-of-connection"/>
+        <rdfs:domain rdf:resource="#phisical-connection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#has-network-characteristic -->
+
+    <owl:ObjectProperty rdf:about="#has-network-characteristic">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#context-network-entity"/>
+        <owl:inverseOf rdf:resource="#is-network-characteristic-of"/>
+        <rdfs:domain rdf:resource="#networking-capability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#has-output-to -->
+
+    <owl:ObjectProperty rdf:about="#has-output-to">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;physical-object"/>
+        <owl:inverseOf rdf:resource="#is-output-of-connection"/>
+        <rdfs:domain rdf:resource="#phisical-connection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#has-track -->
+
+    <owl:ObjectProperty rdf:about="#has-track">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#audio-data"/>
+        <owl:inverseOf rdf:resource="#belong-to-music-collection"/>
+        <rdfs:domain rdf:resource="#music-collection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#interacting-with -->
+
+    <owl:ObjectProperty rdf:about="#interacting-with">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="#smart-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-audioformat-of -->
+
+    <owl:ObjectProperty rdf:about="#is-audioformat-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-described-by -->
+
+    <owl:ObjectProperty rdf:about="#is-described-by">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-descried-by-capability -->
+
+    <owl:ObjectProperty rdf:about="#is-descried-by-capability">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-input-of-connection -->
+
+    <owl:ObjectProperty rdf:about="#is-input-of-connection">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-network-characteristic-of -->
+
+    <owl:ObjectProperty rdf:about="#is-network-characteristic-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-output-of-connection -->
+
+    <owl:ObjectProperty rdf:about="#is-output-of-connection">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-realized-by -->
+
+    <owl:ObjectProperty rdf:about="#is-realized-by">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#network-connection-used-by -->
+
+    <owl:ObjectProperty rdf:about="#network-connection-used-by">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#played-by-user -->
+
+    <owl:ObjectProperty rdf:about="#played-by-user">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#plays-music-collection -->
+
+    <owl:ObjectProperty rdf:about="#plays-music-collection">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="#music-collection"/>
+        <owl:inverseOf rdf:resource="#played-by-user"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#realizes -->
+
+    <owl:ObjectProperty rdf:about="#realizes">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="&CoreOntology-v1;information-object"/>
+        <rdfs:domain rdf:resource="#information-realization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#similar-to -->
+
+    <owl:ObjectProperty rdf:about="#similar-to">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#mental-connection"/>
+        <rdfs:domain rdf:resource="#phisical-connection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#using-network-connection -->
+
+    <owl:ObjectProperty rdf:about="#using-network-connection">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+        <rdfs:range rdf:resource="#network-connection"/>
+        <rdfs:domain rdf:resource="#smart-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#is-connected -->
+
+    <owl:DatatypeProperty rdf:about="#is-connected">
+        <rdfs:domain rdf:resource="#connected"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#plays-channel-role -->
+
+    <owl:DatatypeProperty rdf:about="#plays-channel-role">
+        <rdfs:domain rdf:resource="#network-connection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#plays-interpreter-role -->
+
+    <owl:DatatypeProperty rdf:about="#plays-interpreter-role">
+        <rdfs:domain rdf:resource="&CoreOntology-v1;person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#plays-message-role -->
+
+    <owl:DatatypeProperty rdf:about="#plays-message-role">
+        <rdfs:domain rdf:resource="#message"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#set -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;set"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;space-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporal-particular -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;spatio-temporal-particular"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#stative -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;stative"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#capability -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;capability"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#data -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;data"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#device -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;device"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#information-object -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;information-object"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#person -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;person"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#activity -->
+
+    <owl:Class rdf:about="#activity">
+        <rdfs:subClassOf rdf:resource="#context-entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#application -->
+
+    <owl:Class rdf:about="#application">
+        <rdfs:subClassOf rdf:resource="#comp-entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#audio-data -->
+
+    <owl:Class rdf:about="#audio-data">
+        <rdfs:subClassOf rdf:resource="#multimedia-data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#audio-format -->
+
+    <owl:Class rdf:about="#audio-format">
+        <rdfs:subClassOf rdf:resource="#delivery-context-format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#comp-entity -->
+
+    <owl:Class rdf:about="#comp-entity">
+        <rdfs:subClassOf rdf:resource="#context-entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#connected -->
+
+    <owl:Class rdf:about="#connected">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;stative"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#context-entity -->
+
+    <owl:Class rdf:about="#context-entity">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#context-network-entity -->
+
+    <owl:Class rdf:about="#context-network-entity">
+        <rdfs:subClassOf rdf:resource="#context-entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#deduced-activity -->
+
+    <owl:Class rdf:about="#deduced-activity">
+        <rdfs:subClassOf rdf:resource="#activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#delivery-context-format -->
+
+    <owl:Class rdf:about="#delivery-context-format">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#image-data -->
+
+    <owl:Class rdf:about="#image-data">
+        <rdfs:subClassOf rdf:resource="#multimedia-data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#image-format -->
+
+    <owl:Class rdf:about="#image-format">
+        <rdfs:subClassOf rdf:resource="#delivery-context-format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#indoor-space -->
+
+    <owl:Class rdf:about="#indoor-space">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;space-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#information-realization -->
+
+    <owl:Class rdf:about="#information-realization">
+        <rdfs:subClassOf rdf:resource="#physical-realization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#media -->
+
+    <owl:Class rdf:about="#media">
+        <rdfs:subClassOf rdf:resource="#information-realization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#media-format-capability -->
+
+    <owl:Class rdf:about="#media-format-capability">
+        <rdfs:subClassOf rdf:resource="#capability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#mental-connection -->
+
+    <owl:Class rdf:about="#mental-connection">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#message -->
+
+    <owl:Class rdf:about="#message">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#modality-capability -->
+
+    <owl:Class rdf:about="#modality-capability">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;capability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#multimedia-data -->
+
+    <owl:Class rdf:about="#multimedia-data">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#music-collection -->
+
+    <owl:Class rdf:about="#music-collection">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;set"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#network-connection -->
+
+    <owl:Class rdf:about="#network-connection">
+        <rdfs:subClassOf rdf:resource="#phisical-connection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#networking-capability -->
+
+    <owl:Class rdf:about="#networking-capability">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;capability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#outdoor-space -->
+
+    <owl:Class rdf:about="#outdoor-space">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;space-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#phisical-connection -->
+
+    <owl:Class rdf:about="#phisical-connection">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#physical-realization -->
+
+    <owl:Class rdf:about="#physical-realization">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;spatio-temporal-particular"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#scheduled-activity -->
+
+    <owl:Class rdf:about="#scheduled-activity">
+        <rdfs:subClassOf rdf:resource="#activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#service -->
+
+    <owl:Class rdf:about="#service">
+        <rdfs:subClassOf rdf:resource="#comp-entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#smart-object -->
+
+    <owl:Class rdf:about="#smart-object">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#smart-space -->
+
+    <owl:Class rdf:about="#smart-space">
+        <rdfs:subClassOf rdf:resource="#indoor-space"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#video-data -->
+
+    <owl:Class rdf:about="#video-data">
+        <rdfs:subClassOf rdf:resource="#multimedia-data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/SemanticConnections.owl#video-format -->
+
+    <owl:Class rdf:about="#video-format">
+        <rdfs:subClassOf rdf:resource="#delivery-context-format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/capability -->
+
+    <owl:Class rdf:about="#capability"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

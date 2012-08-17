@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOFIA ADK TCPIP Gateway
+Bundle-SymbolicName: eu.sofia.adk.gateway.tcpip
+Bundle-Version: 2.0.4.qualifier
+Bundle-Activator: eu.sofia.adk.gateway.tcpip.Activator
+Bundle-Vendor: Tecnalia Research and Innovation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: eu.sofia.adk.gateway,
+ eu.sofia.adk.gateway.connector.impl,
+ eu.sofia.adk.gateway.exception,
+ eu.sofia.adk.gateway.service,
+ eu.sofia.adk.gateway.session.impl,
+ eu.sofia.adk.sib.exception,
+ eu.sofia.adk.sib.service,
+ eu.sofia.adk.ssapmessage
+Bundle-ClassPath: .,
+ lib/xalan-2.6.0.jar,
+ lib/xercesImpl-2.7.1.jar
+Export-Package: eu.sofia.adk.gateway.tcpip.core,
+ eu.sofia.adk.gateway.tcpip.listener,
+ eu.sofia.adk.gateway.tcpip.parser
+Require-Bundle: org.eclipse.core.runtime

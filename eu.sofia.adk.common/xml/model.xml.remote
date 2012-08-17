@@ -1,0 +1,19 @@
+<?xml version='1.0'?>
+<models>
+  <model>
+    <name>Smart Model</name>
+    <descriptor>smart</descriptor>
+    <default>true</default>
+    <resources>
+      <resource>http://emb1.esilab.org/sofia/adk/lib/j2se/2.0/model/smart/eu.sofia.kpi.model.smart_2.0.8_20111223.jar</resource>
+    </resources>
+  </model>
+  <model>
+    <name>Direct Model</name>
+    <descriptor>direct</descriptor>
+    <default>false</default>
+    <resources>
+      <resource>http://emb1.esilab.org/sofia/adk/lib/j2se/2.0/model/direct/eu.sofia.kpi.model.direct_2.0.8_20111223.jar</resource>
+    </resources>
+  </model>
+</models>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOFIA ADK Command-based SIB
+Bundle-SymbolicName: eu.sofia.adk.osgi.commands
+Bundle-Version: 2.0.8.qualifier
+Bundle-Activator: eu.sofia.adk.osgi.commands.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: eu.sofia.adk.gateway.exception,
+ eu.sofia.adk.gateway.service,
+ eu.sofia.adk.sib.data,
+ eu.sofia.adk.sib.exception,
+ eu.sofia.adk.sib.service
+Bundle-Vendor: Tecnalia Research and Innovation

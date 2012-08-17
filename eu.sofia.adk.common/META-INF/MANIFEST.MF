@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOFIA ADK Common Plugin
+Bundle-SymbolicName: eu.sofia.adk.common
+Bundle-Version: 2.0.8.qualifier
+Bundle-Activator: eu.sofia.adk.common.CommonActivator
+Bundle-Vendor: Tecnalia Research and Innovation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.osgi.util,
+ org.osgi.framework
+Export-Package: eu.sofia.adk.common.naming,
+ eu.sofia.adk.common.nls,
+ eu.sofia.adk.common.properties,
+ eu.sofia.adk.common.sax,
+ eu.sofia.adk.common.xsd
+Bundle-ClassPath: .,
+ lib/commons-lang-2.4.jar,
+ lib/xercesImpl-2.7.1.jar
+

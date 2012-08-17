@@ -1,0 +1,1776 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY LightAndSensors "http://emb1.esilab.org/sofia/ontology/1.3/indoor/LightAndSensors.owl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/indoor/LightAndSensors.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/indoor/LightAndSensors.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:LightAndSensors="http://emb1.esilab.org/sofia/ontology/1.3/indoor/LightAndSensors.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;has-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;inherent-in"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-age -->
+
+    <owl:ObjectProperty rdf:about="#has-age">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <rdfs:range rdf:resource="#age"/>
+        <owl:inverseOf rdf:resource="#is-radius-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-ambient-intensity -->
+
+    <owl:ObjectProperty rdf:about="#has-ambient-intensity">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#ambient-intensity"/>
+        <owl:inverseOf rdf:resource="#is-ambient-intensity-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-beam-width-angle -->
+
+    <owl:ObjectProperty rdf:about="#has-beam-width-angle">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#beam-width-angle"/>
+        <owl:inverseOf rdf:resource="#is-beam-width-angle-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-color-appearance -->
+
+    <owl:ObjectProperty rdf:about="#has-color-appearance">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#color-appearance"/>
+        <owl:inverseOf rdf:resource="#is-color-appearance-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-color-temperature -->
+
+    <owl:ObjectProperty rdf:about="#has-color-temperature">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-color-temperature-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-color-temperature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-communication -->
+
+    <owl:ObjectProperty rdf:about="#has-communication">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <rdfs:range rdf:resource="#communication"/>
+        <owl:inverseOf rdf:resource="#is-communication-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-communication-data-type -->
+
+    <owl:ObjectProperty rdf:about="#has-communication-data-type">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#communication"/>
+        <rdfs:range rdf:resource="#data-type"/>
+        <owl:inverseOf rdf:resource="#is-communication-data-type-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-communication-type -->
+
+    <owl:ObjectProperty rdf:about="#has-communication-type">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#communication"/>
+        <rdfs:range rdf:resource="#communication-type"/>
+        <owl:inverseOf rdf:resource="#is-communication-type-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-communication-update-frequency -->
+
+    <owl:ObjectProperty rdf:about="#has-communication-update-frequency">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="#communication"/>
+        <owl:inverseOf rdf:resource="#is-update-frequency-of"/>
+        <rdfs:range rdf:resource="#update-frequency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-concentration-exponent -->
+
+    <owl:ObjectProperty rdf:about="#has-concentration-exponent">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#concentration-exponent"/>
+        <owl:inverseOf rdf:resource="#is-concentration-exponent-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-constant-attenuation -->
+
+    <owl:ObjectProperty rdf:about="#has-constant-attenuation">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#constant-attenuation"/>
+        <owl:inverseOf rdf:resource="#is-constant-attenuation-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-distance-attenuation -->
+
+    <owl:ObjectProperty rdf:about="#has-distance-attenuation">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#distance-attenuation"/>
+        <owl:inverseOf rdf:resource="#is-distance-attenuation-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-encryption -->
+
+    <owl:ObjectProperty rdf:about="#has-encryption">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#encryption-mode"/>
+        <owl:inverseOf rdf:resource="#is-encryption-of"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-energy-consumption -->
+
+    <owl:ObjectProperty rdf:about="#has-energy-consumption">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <rdfs:range rdf:resource="#energy-consumption"/>
+        <owl:inverseOf rdf:resource="#is-energy-consumption-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-format -->
+
+    <owl:ObjectProperty rdf:about="#has-format">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#format"/>
+        <owl:inverseOf rdf:resource="#is-format-of"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-intensity -->
+
+    <owl:ObjectProperty rdf:about="#has-intensity">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-intensity-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-intensity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-color -->
+
+    <owl:ObjectProperty rdf:about="#has-light-color">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <owl:inverseOf rdf:resource="#is-light-color-of"/>
+        <rdfs:range rdf:resource="#light-color"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-distribution-curve -->
+
+    <owl:ObjectProperty rdf:about="#has-light-distribution-curve">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-distribution-curve-of"/>
+        <rdfs:range rdf:resource="#light-distribution-curve"/>
+        <rdfs:domain rdf:resource="#light-intensity-distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-distribution-data -->
+
+    <owl:ObjectProperty rdf:about="#has-light-distribution-data">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-distribution-data-of"/>
+        <rdfs:range rdf:resource="#light-distribution-data"/>
+        <rdfs:domain rdf:resource="#light-intensity-distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-emission-source -->
+
+    <owl:ObjectProperty rdf:about="#has-light-emission-source">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-emission-source-of"/>
+        <rdfs:range rdf:resource="#light-emission-source"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-intensity-distribution -->
+
+    <owl:ObjectProperty rdf:about="#has-light-intensity-distribution">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-intensity-distribution-of"/>
+        <rdfs:range rdf:resource="#light-intensity-distribution"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-source-function -->
+
+    <owl:ObjectProperty rdf:about="#has-light-source-function">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-source-function-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-light-source-type -->
+
+    <owl:ObjectProperty rdf:about="#has-light-source-type">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-light-source-type-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-luminous-flux -->
+
+    <owl:ObjectProperty rdf:about="#has-luminous-flux">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-luminous-flux-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#luminous-flux"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-luminous-intensity -->
+
+    <owl:ObjectProperty rdf:about="#has-luminous-intensity">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-luminous-intensity-of"/>
+        <rdfs:domain rdf:resource="#light-distribution-data"/>
+        <rdfs:range rdf:resource="#luminous-intensity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-mainplane-angle -->
+
+    <owl:ObjectProperty rdf:about="#has-mainplane-angle">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-mainplane-angle-of"/>
+        <rdfs:domain rdf:resource="#light-distribution-data"/>
+        <rdfs:range rdf:resource="#mainplane-angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-mobility -->
+
+    <owl:ObjectProperty rdf:about="#has-mobility">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-mobility-of"/>
+        <rdfs:range rdf:resource="#mobility"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-orientation -->
+
+    <owl:ObjectProperty rdf:about="#has-orientation">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-orientation-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-orientation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-position -->
+
+    <owl:ObjectProperty rdf:about="#has-position">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <owl:inverseOf rdf:resource="#is-position-of"/>
+        <rdfs:range rdf:resource="#position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-power -->
+
+    <owl:ObjectProperty rdf:about="#has-power">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-power-of"/>
+        <rdfs:range rdf:resource="#power"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-quadric-attenuation -->
+
+    <owl:ObjectProperty rdf:about="#has-quadric-attenuation">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-quadric-attenuation-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#quadric-attenuation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-radius -->
+
+    <owl:ObjectProperty rdf:about="#has-radius">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <owl:inverseOf rdf:resource="#is-radius-of"/>
+        <rdfs:range rdf:resource="#radius"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-range -->
+
+    <owl:ObjectProperty rdf:about="#has-range">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-range-of"/>
+        <rdfs:range rdf:resource="#sensor-range"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-resolution -->
+
+    <owl:ObjectProperty rdf:about="#has-resolution">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-resolution-of"/>
+        <rdfs:range rdf:resource="#resolution"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-rise-time -->
+
+    <owl:ObjectProperty rdf:about="#has-rise-time">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-rise-time-of"/>
+        <rdfs:range rdf:resource="#rise-time"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-secondary-plane-angle -->
+
+    <owl:ObjectProperty rdf:about="#has-secondary-plane-angle">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-secondary-plane-angle-of"/>
+        <rdfs:domain rdf:resource="#light-distribution-data"/>
+        <rdfs:range rdf:resource="#secondary-plane-angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensing-measurement -->
+
+    <owl:ObjectProperty rdf:about="#has-sensing-measurement">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensing-measurement-of"/>
+        <rdfs:range rdf:resource="#sensing-measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensing-mechanism -->
+
+    <owl:ObjectProperty rdf:about="#has-sensing-mechanism">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensing-mechanism-of"/>
+        <rdfs:range rdf:resource="#sensing-mechanism"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensing-mode -->
+
+    <owl:ObjectProperty rdf:about="#has-sensing-mode">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensing-mode-of"/>
+        <rdfs:range rdf:resource="#sensing-mode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensitivity -->
+
+    <owl:ObjectProperty rdf:about="#has-sensitivity">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-sensitivity-of"/>
+        <rdfs:range rdf:resource="#sensitivity"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensor-contact-data -->
+
+    <owl:ObjectProperty rdf:about="#has-sensor-contact-data">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensor-contact-data-of"/>
+        <rdfs:range rdf:resource="#sensor-contact-data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensor-data -->
+
+    <owl:ObjectProperty rdf:about="#has-sensor-data">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <rdfs:range rdf:resource="&CoreOntology-v1;sensor-data"/>
+        <owl:inverseOf rdf:resource="#is-sensor-data-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensor-location -->
+
+    <owl:ObjectProperty rdf:about="#has-sensor-location">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;physical-endurant"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-location-of-sensor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensor-specification -->
+
+    <owl:ObjectProperty rdf:about="#has-sensor-specification">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensor-specification-of"/>
+        <rdfs:range rdf:resource="#sensor-specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-sensor-type -->
+
+    <owl:ObjectProperty rdf:about="#has-sensor-type">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-sensor-type-of"/>
+        <rdfs:range rdf:resource="#sensor-type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-spectral-range -->
+
+    <owl:ObjectProperty rdf:about="#has-spectral-range">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-spectral-range-of"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+        <rdfs:range rdf:resource="#spectral-range"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-spread-angle -->
+
+    <owl:ObjectProperty rdf:about="#has-spread-angle">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-spread-angle-of"/>
+        <rdfs:domain rdf:resource="#light-source"/>
+        <rdfs:range rdf:resource="#light-source-spread-angle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-trigger-mode -->
+
+    <owl:ObjectProperty rdf:about="#has-trigger-mode">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:domain rdf:resource="&CoreOntology-v1;sensor"/>
+        <owl:inverseOf rdf:resource="#is-trigger-mode-of"/>
+        <rdfs:range rdf:resource="#trigger-mode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#has-wavelength -->
+
+    <owl:ObjectProperty rdf:about="#has-wavelength">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <owl:inverseOf rdf:resource="#is-wavelength-of"/>
+        <rdfs:domain rdf:resource="#sensor-specification"/>
+        <rdfs:range rdf:resource="#wavelength"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-age-of -->
+
+    <owl:ObjectProperty rdf:about="#is-age-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-ambient-intensity-of -->
+
+    <owl:ObjectProperty rdf:about="#is-ambient-intensity-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-beam-width-angle-of -->
+
+    <owl:ObjectProperty rdf:about="#is-beam-width-angle-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-color-appearance-of -->
+
+    <owl:ObjectProperty rdf:about="#is-color-appearance-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-color-temperature-of -->
+
+    <owl:ObjectProperty rdf:about="#is-color-temperature-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-communication-data-type-of -->
+
+    <owl:ObjectProperty rdf:about="#is-communication-data-type-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-communication-of -->
+
+    <owl:ObjectProperty rdf:about="#is-communication-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-communication-type-of -->
+
+    <owl:ObjectProperty rdf:about="#is-communication-type-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-concentration-exponent-of -->
+
+    <owl:ObjectProperty rdf:about="#is-concentration-exponent-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-constant-attenuation-of -->
+
+    <owl:ObjectProperty rdf:about="#is-constant-attenuation-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-distance-attenuation-of -->
+
+    <owl:ObjectProperty rdf:about="#is-distance-attenuation-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-encryption-of -->
+
+    <owl:ObjectProperty rdf:about="#is-encryption-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-energy-consumption-of -->
+
+    <owl:ObjectProperty rdf:about="#is-energy-consumption-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-format-of -->
+
+    <owl:ObjectProperty rdf:about="#is-format-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-intensity-of -->
+
+    <owl:ObjectProperty rdf:about="#is-intensity-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-color-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-color-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-distribution-curve-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-distribution-curve-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-distribution-data-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-distribution-data-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-emission-source-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-emission-source-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-intensity-distribution-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-intensity-distribution-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-source-function-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-source-function-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-light-source-type-of -->
+
+    <owl:ObjectProperty rdf:about="#is-light-source-type-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-location-of-sensor -->
+
+    <owl:ObjectProperty rdf:about="#is-location-of-sensor">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-luminous-flux-of -->
+
+    <owl:ObjectProperty rdf:about="#is-luminous-flux-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-luminous-intensity-of -->
+
+    <owl:ObjectProperty rdf:about="#is-luminous-intensity-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-mainplane-angle-of -->
+
+    <owl:ObjectProperty rdf:about="#is-mainplane-angle-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-mobility-of -->
+
+    <owl:ObjectProperty rdf:about="#is-mobility-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-orientation-of -->
+
+    <owl:ObjectProperty rdf:about="#is-orientation-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-position-of -->
+
+    <owl:ObjectProperty rdf:about="#is-position-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-power-of -->
+
+    <owl:ObjectProperty rdf:about="#is-power-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-quadric-attenuation-of -->
+
+    <owl:ObjectProperty rdf:about="#is-quadric-attenuation-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-radius-of -->
+
+    <owl:ObjectProperty rdf:about="#is-radius-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-range-of -->
+
+    <owl:ObjectProperty rdf:about="#is-range-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-resolution-of -->
+
+    <owl:ObjectProperty rdf:about="#is-resolution-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-rise-time-of -->
+
+    <owl:ObjectProperty rdf:about="#is-rise-time-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-secondary-plane-angle-of -->
+
+    <owl:ObjectProperty rdf:about="#is-secondary-plane-angle-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensing-measurement-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensing-measurement-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensing-mechanism-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensing-mechanism-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensing-mode-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensing-mode-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensitivity-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensitivity-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensor-contact-data-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensor-contact-data-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensor-data-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensor-data-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensor-specification-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensor-specification-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-sensor-type-of -->
+
+    <owl:ObjectProperty rdf:about="#is-sensor-type-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-spectral-range-of -->
+
+    <owl:ObjectProperty rdf:about="#is-spectral-range-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-spread-angle-of -->
+
+    <owl:ObjectProperty rdf:about="#is-spread-angle-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-trigger-mode-of -->
+
+    <owl:ObjectProperty rdf:about="#is-trigger-mode-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-update-frequency-of -->
+
+    <owl:ObjectProperty rdf:about="#is-update-frequency-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#is-wavelength-of -->
+
+    <owl:ObjectProperty rdf:about="#is-wavelength-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-endurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-endurant"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/abstract-characteristic -->
+
+    <owl:Class rdf:about="#abstract-characteristic"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#measure-region -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;measure-region"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#sensor -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;sensor"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/CoreOntology-v1.1.owl#sensor-data -->
+
+    <owl:Class rdf:about="&CoreOntology-v1;sensor-data"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#active-sensing -->
+
+    <owl:Class rdf:about="#active-sensing">
+        <rdfs:subClassOf rdf:resource="#sensing-mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#age -->
+
+    <owl:Class rdf:about="#age">
+        <rdfs:subClassOf rdf:resource="#temporal-characteristic"/>
+        <rdfs:comment
+            >age of a physical endurant</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#ambient-intensity -->
+
+    <owl:Class rdf:about="#ambient-intensity">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The ambientIntensity specifies the intensity of the ambient emission from the light. Light intensity may range from 0.0 (no light emission) to 1.0 (full intensity).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#ambient-light-source-type -->
+
+    <owl:Class rdf:about="#ambient-light-source-type">
+        <rdfs:subClassOf rdf:resource="#light-source-type"/>
+        <rdfs:comment
+            >Definition from IFC: Light source ambient lights a surface independent of the surface&#39;s orientation and position.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#beam-width-angle -->
+
+    <owl:Class rdf:about="#beam-width-angle">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#biological -->
+
+    <owl:Class rdf:about="#biological">
+        <rdfs:subClassOf rdf:resource="#sensing-mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#chemical -->
+
+    <owl:Class rdf:about="#chemical">
+        <rdfs:subClassOf rdf:resource="#sensing-mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#color-appearance -->
+
+    <owl:Class rdf:about="#color-appearance">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: Artificial light sources are classified in terms of their color appearance. To the human eye they all appear to be white; the difference can only be detected by direct comparison. Visual performance is not directly affected by differences in color appearance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#communication -->
+
+    <owl:Class rdf:about="#communication">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Description of communication that lighting can have with other devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#communication-type -->
+
+    <owl:Class rdf:about="#communication-type">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Type of communication between lighting and other devices.General concept needs merging.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#compcat-fluorescent -->
+
+    <owl:Class rdf:about="#compcat-fluorescent">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#concentration-exponent -->
+
+    <owl:Class rdf:about="#concentration-exponent">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: This real is the exponent on the cosine of the angle between the line that starts at the position of the spot light source and is in the direction of the orientation of the spot light source and a line that starts at the position of the spot light source and goes through a point on the surface being shaded.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#constant-attenuation -->
+
+    <owl:Class rdf:about="#constant-attenuation">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: This real indicates the value of the attenuation in the lighting equation that is constant.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#data-type -->
+
+    <owl:Class rdf:about="#data-type">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Type of data sent by light to other devices</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#directional-light-source-type -->
+
+    <owl:Class rdf:about="#directional-light-source-type">
+        <rdfs:subClassOf rdf:resource="#light-source-type"/>
+        <rdfs:comment
+            >Directional light type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#distance-attenuation -->
+
+    <owl:Class rdf:about="#distance-attenuation">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: This real indicates the value of the attenuation in the lighting equation that proportional to the distance from the light source.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#electrical -->
+
+    <owl:Class rdf:about="#electrical">
+        <rdfs:subClassOf rdf:resource="#sensing-mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#encryption-mode -->
+
+    <owl:Class rdf:about="#encryption-mode">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#energy-consumption -->
+
+    <owl:Class rdf:about="#energy-consumption">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#fluorescent -->
+
+    <owl:Class rdf:about="#fluorescent">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#format -->
+
+    <owl:Class rdf:about="#format">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#frequency -->
+
+    <owl:Class rdf:about="#frequency">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#high-pressure-mercury -->
+
+    <owl:Class rdf:about="#high-pressure-mercury">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#humidity -->
+
+    <owl:Class rdf:about="#humidity">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+        <rdfs:comment
+            >the amount of water vapour in the air can be calculated by humidity sensor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-color -->
+
+    <owl:Class rdf:about="#light-color">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The color field specifies the spectral color properties of both the direct and ambient light emission as an RGB value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-distribution-curve -->
+
+    <owl:Class rdf:about="#light-distribution-curve">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-distribution-curve-type-A -->
+
+    <owl:Class rdf:about="#light-distribution-curve-type-A">
+        <rdfs:subClassOf rdf:resource="#light-distribution-curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-distribution-curve-type-B -->
+
+    <owl:Class rdf:about="#light-distribution-curve-type-B">
+        <rdfs:subClassOf rdf:resource="#light-distribution-curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-distribution-curve-type-C -->
+
+    <owl:Class rdf:about="#light-distribution-curve-type-C">
+        <rdfs:subClassOf rdf:resource="#light-distribution-curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-distribution-data -->
+
+    <owl:Class rdf:about="#light-distribution-data">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The class defines the luminous intensity of a light source given at a particular main plane angle.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-emission-source -->
+
+    <owl:Class rdf:about="#light-emission-source">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: Identifies the types of light emitter from which the type required may be set.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-emitting-diode -->
+
+    <owl:Class rdf:about="#light-emitting-diode">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-intensity-distribution -->
+
+    <owl:Class rdf:about="#light-intensity-distribution">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The class defines the the luminous intensity of a light source that changes according to the direction of the ray.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source -->
+
+    <owl:Class rdf:about="#light-source">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-endurant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-color-temperature -->
+
+    <owl:Class rdf:about="#light-source-color-temperature">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The color temperature of any source of radiation is defined as the temperature (in Kelvin) of a black-body or Planckian radiator whose radiation has the same chromaticity as the source of radiation. Often the values are only approximate color temperatures as the black-body radiator cannot emit radiation of every chromaticity value. The color temperatures of the commonest artificial light sources range from less than 3000K (warm white) to 4000K (intermediate) and over 5000K (daylight).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-function -->
+
+    <owl:Class rdf:about="#light-source-function">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The function of the lighting is used, e.g. ambience, environmental illumination etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-intensity -->
+
+    <owl:Class rdf:about="#light-source-intensity">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The intensity field specifies the brightness of the direct emission from the ligth. Light intensity may range from 0.0 (no light emission) to 1.0 (full intensity).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-orientation -->
+
+    <owl:Class rdf:about="#light-source-orientation">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The direction of the light source.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-spread-angle -->
+
+    <owl:Class rdf:about="#light-source-spread-angle">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: This planar angle measure is the angle between the line that starts at the position of the spot light source and is in the direction of the spot light source and any line on the boundary of the cone of influence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#light-source-type -->
+
+    <owl:Class rdf:about="#light-source-type">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#low-pressure-sodium -->
+
+    <owl:Class rdf:about="#low-pressure-sodium">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#low-voltage-halogen -->
+
+    <owl:Class rdf:about="#low-voltage-halogen">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#luminous-flux -->
+
+    <owl:Class rdf:about="#luminous-flux">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC:  Luminous flux is a photometric measure of radiant flux, i.e. the volume of light emitted from a light source. Luminous flux is measured either for the interior as a whole or for a part of the interior (partial luminous flux for a solid angle). All other photometric parameters are derivatives of luminous flux. Luminous flux is measured in lumens (lm). The luminous flux is given as a nominal value for each lamp.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#luminous-intensity -->
+
+    <owl:Class rdf:about="#luminous-intensity">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#main-voltage-halogen -->
+
+    <owl:Class rdf:about="#main-voltage-halogen">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#mainplane-angle -->
+
+    <owl:Class rdf:about="#mainplane-angle">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#mechanical-vibration -->
+
+    <owl:Class rdf:about="#mechanical-vibration">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#metal-halide -->
+
+    <owl:Class rdf:about="#metal-halide">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#mobility -->
+
+    <owl:Class rdf:about="#mobility">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Mobility is the state of being in motion, sensor can freely move.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#optical -->
+
+    <owl:Class rdf:about="#optical">
+        <rdfs:subClassOf rdf:resource="#sensing-mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#passive-sensing -->
+
+    <owl:Class rdf:about="#passive-sensing">
+        <rdfs:subClassOf rdf:resource="#sensing-mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#position -->
+
+    <owl:Class rdf:about="#position">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The Cartesian point indicates the position of the light source. If we want to consider this concept more generically in other domain the definition need to be changed (not only position of the light source) and it is necessary to consider if in the other domains the Cartesian point is alwaymeaningful for example the position of a user. If we want this concept separated from the others a more specific name need to be chosen
+SOFIA Core Ontology will have at least a base class for location. We can develop a Cartesian model for position and share it within WP2 (I would keep it outside the core ontology).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#positionmeasurament -->
+
+    <owl:Class rdf:about="#positionmeasurament">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#power -->
+
+    <owl:Class rdf:about="#power">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The energy or motive force by which a physical system or sensor is operated.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#pressure -->
+
+    <owl:Class rdf:about="#pressure">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+        <rdfs:comment
+            >A pressure sensor measures pressure, typically of gases or liquids. Pressure is an expression of the force required to stop a fluid from expanding, and is usually stated in terms of force per unit area. A pressure sensor usually acts as a transducer; it generates a signal as a function of the pressure imposed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#quadric-attenuation -->
+
+    <owl:Class rdf:about="#quadric-attenuation">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: This real indicates the value of the attenuation in the lighting equation that proportional to the square value of the distance from the light source.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#radiation -->
+
+    <owl:Class rdf:about="#radiation">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#radioactive -->
+
+    <owl:Class rdf:about="#radioactive">
+        <rdfs:subClassOf rdf:resource="#sensing-mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#radius -->
+
+    <owl:Class rdf:about="#radius">
+        <rdfs:subClassOf rdf:resource="#physical-characteristic"/>
+        <rdfs:comment
+            >Definition from IFC: The maximum distance from the light source for a surface still to be illuminated.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#resolution -->
+
+    <owl:Class rdf:about="#resolution">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The resolution of a sensor is the smallest change it can detect in the quantity that it is measuring. Often in a digital display, the least significant digit will fluctuate, indicating that changes of that magnitude are only just resolved. The resolution is related to the precision with which the measurement is made.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#rise-time -->
+
+    <owl:Class rdf:about="#rise-time">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Time required for the output waveform</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#secondary-plane-angle -->
+
+    <owl:Class rdf:about="#secondary-plane-angle">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensing-measurement -->
+
+    <owl:Class rdf:about="#sensing-measurement">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensing-mechanism -->
+
+    <owl:Class rdf:about="#sensing-mechanism">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Sensing mechanism of sensors</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensing-mode -->
+
+    <owl:Class rdf:about="#sensing-mode">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Sensing mode of sensor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensitivity -->
+
+    <owl:Class rdf:about="#sensitivity">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensor-contact-data -->
+
+    <owl:Class rdf:about="#sensor-contact-data">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Contact data of sensor manufacturer</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensor-range -->
+
+    <owl:Class rdf:about="#sensor-range">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensor-specification -->
+
+    <owl:Class rdf:about="#sensor-specification">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >A detailed, exact statement of sensors, especially a statement prescribing materials, dimensions, and quality of work for something to be built, installed, or manufactured.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sensor-type -->
+
+    <owl:Class rdf:about="#sensor-type">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment>Types of Sensor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#sound-intensity -->
+
+    <owl:Class rdf:about="#sound-intensity">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#spectral-range -->
+
+    <owl:Class rdf:about="#spectral-range">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The human eye can see light with wavelengths from 380 nm to 780 nm.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#spot-light-source-type -->
+
+    <owl:Class rdf:about="#spot-light-source-type">
+        <rdfs:subClassOf rdf:resource="#light-source-type"/>
+        <rdfs:comment>Spot light type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#thermal -->
+
+    <owl:Class rdf:about="#thermal">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+        <rdfs:comment
+            >Although all thermal sensors measure changes in temperature, there are a variety of types of thermal sensors, each with specific uses, temperature ranges, and accuracies. Some types of thermal sensors include: Thermometers, Thermocouples, Thermistors,Bi-metal thermometers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#trigger -->
+
+    <owl:Class rdf:about="#trigger">
+        <rdfs:subClassOf rdf:resource="#trigger-mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#trigger-mode -->
+
+    <owl:Class rdf:about="#trigger-mode">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >Trigger mode of sensor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#tungsten-filament -->
+
+    <owl:Class rdf:about="#tungsten-filament">
+        <rdfs:subClassOf rdf:resource="#light-emission-source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#unit-of-measure -->
+
+    <owl:Class rdf:about="#unit-of-measure">
+        <rdfs:subClassOf rdf:resource="&CoreOntology-v1;measure-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#untrigger -->
+
+    <owl:Class rdf:about="#untrigger">
+        <rdfs:subClassOf rdf:resource="#trigger-mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#update-frequency -->
+
+    <owl:Class rdf:about="#update-frequency">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The frequency of comunication between light and other devices. General concept needs merging.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#wavelength -->
+
+    <owl:Class rdf:about="#wavelength">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment
+            >The wavelength of light at which sensitivity is at its maximum.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/ontologies/wp2/LightAndSensors.owl#wind-speed -->
+
+    <owl:Class rdf:about="#wind-speed">
+        <rdfs:subClassOf rdf:resource="#sensing-measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/physical-characteristic -->
+
+    <owl:Class rdf:about="#physical-characteristic"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/temporal-characteristic -->
+
+    <owl:Class rdf:about="#temporal-characteristic"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

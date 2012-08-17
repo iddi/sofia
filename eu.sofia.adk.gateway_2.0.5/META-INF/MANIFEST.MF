@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOFIA ADK Generic OSGi Gateway
+Bundle-SymbolicName: eu.sofia.adk.gateway
+Bundle-Version: 2.0.4.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: eu.sofia.adk.sib.exception,
+ eu.sofia.adk.sib.service,
+ eu.sofia.adk.ssapmessage,
+ eu.sofia.adk.ssapmessage.parameter,
+ eu.sofia.adk.ssapmessage.proxy
+Require-Bundle: org.eclipse.core.runtime,
+ eu.sofia.sib.osgi
+Export-Package: eu.sofia.adk.gateway,
+ eu.sofia.adk.gateway.connector,
+ eu.sofia.adk.gateway.connector.impl,
+ eu.sofia.adk.gateway.exception,
+ eu.sofia.adk.gateway.parser,
+ eu.sofia.adk.gateway.service,
+ eu.sofia.adk.gateway.session,
+ eu.sofia.adk.gateway.session.impl
+Bundle-Vendor: Tecnalia Research and Innovation
+Bundle-ClassPath: lib/xalan-2.6.0.jar,
+ lib/xercesImpl-2.7.1.jar,
+ .

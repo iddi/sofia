@@ -1,0 +1,943 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DOLCE-Lite "http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#" >
+    <!ENTITY CoreOntology-v1 "http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#" >
+    <!ENTITY SpatialRelations "http://www.loa-cnr.it/ontologies/SpatialRelations.owl#" >
+    <!ENTITY TemporalRelations "http://www.loa-cnr.it/ontologies/TemporalRelations.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xml:base="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:CoreOntology-v1="http://emb1.esilab.org/sofia/ontology/1.3/core/CoreOntology-v1.1.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:SpatialRelations="http://www.loa-cnr.it/ontologies/SpatialRelations.owl#"
+     xmlns:TemporalRelations="http://www.loa-cnr.it/ontologies/TemporalRelations.owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label
+            >(en) SOFIA Core Ontology v1.1</rdfs:label>
+        <owl:versionInfo
+            >SOFIA Core Ontology v1.1</owl:versionInfo>
+        <rdfs:comment xml:lang="en">Created by Alessandra Toninelli based on the SOFIA Core Ontology v1.0 provided by ESI. Properties defined in DOLCE Lite were removed from CoreOntology.owl and imported from DOLCE-Lite.owl for improved interoperability. Imported additional modules that integrate with DOLCE Lite to support more advanced modeling: 1) Spatial Relations 2) Temporal Relations.
+Some proposed changes to the Core Ontology v1.0 are tracked in a separate rtf file</rdfs:comment>
+        <rdfs:comment xml:lang="en">Updated with the repository new URL</rdfs:comment>
+        <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/SpatialRelations.owl"/>
+        <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/TemporalRelations.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-dependent -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generic-dependent"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generically-dependent-on -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;generically-dependent-on">
+        <rdfs:range rdf:resource="&DOLCE-Lite;particular"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quale -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;has-quale"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;has-quality">
+        <owl:equivalentProperty rdf:resource="#has-characteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#immediate-relation -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;immediate-relation"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#immediate-relation-i -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;immediate-relation-i"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#inherent-in -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;inherent-in">
+        <owl:equivalentProperty rdf:resource="#characteristic-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#part -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;part"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#q-location -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;q-location"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale-of -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;quale-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#r-location -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;r-location"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#total-temporary-participant -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;total-temporary-participant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#total-temporary-participant-in -->
+
+    <owl:ObjectProperty rdf:about="&DOLCE-Lite;total-temporary-participant-in"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/SpatialRelations.owl#descriptive-place -->
+
+    <owl:ObjectProperty rdf:about="&SpatialRelations;descriptive-place"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/SpatialRelations.owl#descriptive-place-of -->
+
+    <owl:ObjectProperty rdf:about="&SpatialRelations;descriptive-place-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/TemporalRelations.owl#temporal-location -->
+
+    <owl:ObjectProperty rdf:about="&TemporalRelations;temporal-location"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#capability-of -->
+
+    <owl:ObjectProperty rdf:about="#capability-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;inherent-in"/>
+        <rdfs:domain rdf:resource="#capability"/>
+        <rdfs:subPropertyOf rdf:resource="#characteristic-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#characteristic-of -->
+
+    <owl:ObjectProperty rdf:about="#characteristic-of">
+        <rdfs:comment
+            >Inverse of has-characteristic, again introduced to avoid lexical confusion</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#code-of -->
+
+    <owl:ObjectProperty rdf:about="#code-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;quale-of"/>
+        <owl:inverseOf rdf:resource="#has-code"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#data-value-of -->
+
+    <owl:ObjectProperty rdf:about="#data-value-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;quale-of"/>
+        <owl:inverseOf rdf:resource="#has-data-value"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#described-by-data -->
+
+    <owl:ObjectProperty rdf:about="#described-by-data">
+        <rdfs:subPropertyOf rdf:resource="&SpatialRelations;descriptive-place"/>
+        <owl:inverseOf rdf:resource="#descriptive-data-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#descriptive-data-of -->
+
+    <owl:ObjectProperty rdf:about="#descriptive-data-of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Examples: the temperature of a room, the heart rate of a person). Functional property to allow the retrieval of the physical object based on a given data instance. Inverse described-by-data is not functional.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Property that links a data to the physical object it describes (via its characterstics). Subproperty of descriptive-place-of because it represents the (abstract) place where a physical object is described in terms of its characteristics.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&SpatialRelations;descriptive-place-of"/>
+        <rdfs:domain rdf:resource="#data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#duration -->
+
+    <owl:ObjectProperty rdf:about="#duration">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialization of #temporal-location describing the concept of duration. It can be applied to states and processes (dolce-lite;stative), but also to dolce-lite;accomplishments. Generically speaking, it is for endurants that are not atomic, but imply a concept of duration over time.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&TemporalRelations;temporal-location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#happens-at -->
+
+    <owl:ObjectProperty rdf:about="#happens-at">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialization of #temporal-location for events.</rdfs:comment>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;event"/>
+        <rdfs:subPropertyOf rdf:resource="&TemporalRelations;temporal-location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-capability -->
+
+    <owl:ObjectProperty rdf:about="#has-capability">
+        <rdfs:comment xml:lang="en"
+            >*** TBD -- Need to add restrictions on property range ***</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quality"/>
+        <rdfs:range rdf:resource="#capability"/>
+        <owl:inverseOf rdf:resource="#capability-of"/>
+        <rdfs:subPropertyOf rdf:resource="#has-characteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-characteristic -->
+
+    <owl:ObjectProperty rdf:about="#has-characteristic">
+        <rdfs:comment
+            >Equivalent property to DOLite:has-quality needed to avoid confusion about the term &quot;quality&quot; in SOFIA</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;immediate-relation-i"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-code -->
+
+    <owl:ObjectProperty rdf:about="#has-code">
+        <rdfs:comment xml:lang="en"
+            >*** TBD -- Need to add restriction on property range: code ***&#160;</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-data-value -->
+
+    <owl:ObjectProperty rdf:about="#has-data-value">
+        <rdfs:comment xml:lang="en"
+            >*** TBD -- Need to add restriction on property range: data-value ***&#160;</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >This property is not set to functional because the same instance of characteristic measured-by an instance of data might correspond to different values based on different reference-systems.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quale"/>
+        <rdfs:range rdf:resource="#data-value"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-identification -->
+
+    <owl:ObjectProperty rdf:about="#has-identification">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >*** TBD -- Need to add restriction to property range ***</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Range should be identification class</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#has-characteristic"/>
+        <rdfs:range rdf:resource="#identification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-name -->
+
+    <owl:ObjectProperty rdf:about="#has-name">
+        <rdfs:comment xml:lang="en"
+            >*** TBD -- Need to add restriction on property range: name ***</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;has-quale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#has-state -->
+
+    <owl:ObjectProperty rdf:about="#has-state">
+        <rdfs:range rdf:resource="&DOLCE-Lite;state"/>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;total-temporary-participant-in"/>
+        <owl:inverseOf rdf:resource="#state-of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#identification-of -->
+
+    <owl:ObjectProperty rdf:about="#identification-of">
+        <rdfs:subPropertyOf rdf:resource="#characteristic-of"/>
+        <owl:inverseOf rdf:resource="#has-identification"/>
+        <rdfs:domain rdf:resource="#identification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measurand -->
+
+    <owl:ObjectProperty rdf:about="#measurand">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >This property associates each data instance with the particular characteristic instance it measures.
+It is functional since each data measures a specific instance of a characteristic. This 1-1 correspondence ensures that it there is at least and only *one* instance of characteristic corresponding to a data instance.
+Therefore, the properties has-quale (or better its subproperty has-data-value) and reference-system bind each data instance to a value and a measure unit via the characteristic instance the data measures.
+Example: &lt;data123, measurand, temp-x&gt;, &lt;temp-x, inherent-in, roomA&gt;, &lt;temp-x, has-data-value, data-valueZ&gt;,
+&lt;data-valueZ, textual-description, &quot;28&quot;&gt;, &lt;data-valueZ, reference-system, Celsius-scale&gt;</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:range rdf:resource="#characteristic"/>
+        <rdfs:domain rdf:resource="#data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measure-space -->
+
+    <owl:ObjectProperty rdf:about="#measure-space">
+        <rdfs:comment xml:lang="en"
+            >It associates to each characteristic the measure space(s) where it can be mapped. For example, location can be mapped onto: relative coord. system, absolute coordinates, building plan and so on. This property has in general multiple values: single values must be linked to their respective measure space (== regions) via the property reference-system (functional property).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;q-location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measured-by -->
+
+    <owl:ObjectProperty rdf:about="#measured-by">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <rdfs:domain rdf:resource="#characteristic"/>
+        <rdfs:range rdf:resource="#data"/>
+        <owl:inverseOf rdf:resource="#measurand"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#name-of -->
+
+    <owl:ObjectProperty rdf:about="#name-of">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;quale-of"/>
+        <owl:inverseOf rdf:resource="#has-name"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#performed-by -->
+
+    <owl:ObjectProperty rdf:about="#performed-by">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property applies to situation when a physical object (e.g., a person) with an agentive nature performs some kind of action/activity. In WP2 we apply it to fault detection. It might need further refinement to represent the concepts of agent and activity.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;perdurant"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;physical-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#produced-by -->
+
+    <owl:ObjectProperty rdf:about="#produced-by">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <rdfs:range rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:domain rdf:resource="#information-object"/>
+        <owl:inverseOf rdf:resource="#producer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#producer -->
+
+    <owl:ObjectProperty rdf:about="#producer">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property states that x has produced or produces data y. The producer can be either a human or a device (e.g., a sensor platform) or any other thing that can be subclassed from physical object.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:range rdf:resource="#information-object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#reference-system -->
+
+    <owl:ObjectProperty rdf:about="#reference-system">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Note that this property is functional, i.e., each value can only be mapped onto a single reference system</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >This property links the atomic value of a characteristic (e.g., identification, space location, quality-indicator, etc.) to the particular region where this characteristic is measured. Examples: a name has as reference-system a name-system; an IP address has as reference-system the IP-addess-system; a room has as reference-system a building-map-system, ... 
+This is a key property to model any characteristic inherent to any object (particular).&#160;</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;r-location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#state-of -->
+
+    <owl:ObjectProperty rdf:about="#state-of">
+        <rdfs:domain rdf:resource="&DOLCE-Lite;state"/>
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;total-temporary-participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#used-by -->
+
+    <owl:ObjectProperty rdf:about="#used-by">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generically-dependent-on"/>
+        <rdfs:domain rdf:resource="#device"/>
+        <rdfs:range rdf:resource="#person"/>
+        <owl:inverseOf rdf:resource="#user"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#user -->
+
+    <owl:ObjectProperty rdf:about="#user">
+        <rdfs:subPropertyOf rdf:resource="&DOLCE-Lite;generic-dependent"/>
+        <rdfs:range rdf:resource="#device"/>
+        <rdfs:domain rdf:resource="#person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#datatype-value -->
+
+    <owl:DatatypeProperty rdf:about="#datatype-value"/>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measure-unit -->
+
+    <owl:DatatypeProperty rdf:about="#measure-unit">
+        <rdfs:subPropertyOf rdf:resource="#datatype-value"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#sofia-timestamp -->
+
+    <owl:DatatypeProperty rdf:about="#sofia-timestamp">
+        <rdfs:domain rdf:resource="&DOLCE-Lite;spatio-temporal-particular"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#textual-description -->
+
+    <owl:DatatypeProperty rdf:about="#textual-description">
+        <rdfs:comment
+            >Names and codes can be described by means of datatypes, e.g., string or integers</rdfs:comment>
+        <rdfs:domain rdf:resource="&DOLCE-Lite;quale"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#abstract-quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;abstract-quality">
+        <owl:equivalentClass rdf:resource="#abstract-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#abstract-region -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;abstract-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#event -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;event"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;non-physical-object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#particular -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;particular"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#perdurant -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;perdurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-object">
+        <rdfs:comment xml:lang="en"
+            >Any physical object in SOFIA must be identified (e.g., a device or a person).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;physical-quality">
+        <owl:equivalentClass rdf:resource="#physical-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;quale"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;quality">
+        <owl:equivalentClass rdf:resource="#characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporal-particular -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;spatio-temporal-particular"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#state -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;state"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-quality -->
+
+    <owl:Class rdf:about="&DOLCE-Lite;temporal-quality">
+        <owl:equivalentClass rdf:resource="#temporal-characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#accuracy -->
+
+    <owl:Class rdf:about="#accuracy">
+        <rdfs:subClassOf rdf:resource="#quality-indicator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#accuracy-region -->
+
+    <owl:Class rdf:about="#accuracy-region">
+        <rdfs:subClassOf rdf:resource="#quality-indicator-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#capability -->
+
+    <owl:Class rdf:about="#capability">
+        <rdfs:subClassOf rdf:resource="#characteristic"/>
+        <rdfs:comment xml:lang="en"
+            >This class represents a generic capability. Capabilities might be abstract (e.g., properties of the software), physical (e.g., having a keyboard as input) or temporal (e.g., being available in a certain time-slot).
+We do not constrain capabilities to be either abstract or physical or temporal, but leave to the developer the choice of defining a specific capability as the intersection of capability and abstract/physical/temporal characteristic.
+Example of definition for a capability:
+InputKeyboardCapability = intersection of capability and physical characteristic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#characteristic -->
+
+    <owl:Class rdf:about="#characteristic">
+        <rdfs:comment xml:lang="en"
+            >Specific characteristics inherent to places or people can be subclassed here, e.g., temperature, heart rate and so on. 
+Possibly via grouping subclasses, e.g., ennvironmental-characteristic, persoanal-characteristic, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#code -->
+
+    <owl:Class rdf:about="#code">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;quale"/>
+        <rdfs:comment xml:lang="en"
+            >A code defined according to a coding system, e.g., RFID tag or IP address</rdfs:comment>
+        <rdfs:comment
+            >Analogous to name (see comment)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#code-system -->
+
+    <owl:Class rdf:about="#code-system">
+        <rdfs:subClassOf rdf:resource="#identification-region"/>
+        <rdfs:comment xml:lang="en"
+            >A code defined according to a coding system, e.g., RFID tag or IP address</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#data -->
+
+    <owl:Class rdf:about="#data">
+        <rdfs:subClassOf rdf:resource="#information-object"/>
+        <rdfs:comment xml:lang="en"
+            >*** TBD ***
+Properties needed to associate to each instance of data the type of data, its value and possibly measure unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#data-value -->
+
+    <owl:Class rdf:about="#data-value">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;quale"/>
+        <rdfs:comment xml:lang="en"
+            >The measured value of the characteristic measured by the data</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#device -->
+
+    <owl:Class rdf:about="#device">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#discrete-scale -->
+
+    <owl:Class rdf:about="#discrete-scale">
+        <rdfs:subClassOf rdf:resource="#measure-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#freshness -->
+
+    <owl:Class rdf:about="#freshness">
+        <rdfs:subClassOf rdf:resource="#quality-indicator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#freshness-region -->
+
+    <owl:Class rdf:about="#freshness-region">
+        <rdfs:subClassOf rdf:resource="#quality-indicator-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#identification -->
+
+    <owl:Class rdf:about="#identification">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment xml:lang="en"
+            >This abstract characteristic represents everything concerning the identification of a particular. 
+It is a characteristic since it described the particular and the identification of a particular exists only as long as that particular exists.
+Similarly to any characteristic (==DOLite:quality), identification maps onto a measure space, i.e, the identification-region (see the corresponding class).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#identification-data -->
+
+    <owl:Class rdf:about="#identification-data">
+        <rdfs:subClassOf rdf:resource="#data"/>
+        <rdfs:comment
+            >Data used to identify (physical) objects, e.g., persons or devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#identification-region -->
+
+    <owl:Class rdf:about="#identification-region">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-region"/>
+        <rdfs:comment xml:lang="en"
+            >The &quot;mapping-space&quot; property should be used to associate a particular identification instance (subclass of DOLite:quale) to the identification-region that contains it. 
+For example, suppose that a device is identified via its MAC address. One can create a subclass of code, called mac-address. Then create an instance of code-system called mac-address-system. Then each mac-address instance (corresponding to an object) has mac-address-system as value for the property &quot;mapping-space&quot;. This allows to explictly describe the identification system used.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#information-object -->
+
+    <owl:Class rdf:about="#information-object">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;non-physical-object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#linear-scale -->
+
+    <owl:Class rdf:about="#linear-scale">
+        <rdfs:subClassOf rdf:resource="#measure-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measure-event -->
+
+    <owl:Class rdf:about="#measure-event">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#measure-region -->
+
+    <owl:Class rdf:about="#measure-region">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-region"/>
+        <rdfs:comment xml:lang="en"
+            >Proposed subclasses mainly refer to the conceptual/mathematical structure of the system rather than the purpose.
+It is possible to define combinations of subclasses of region, when needed. For example, freshness might be measured based on a discrete-scale (e.g, time steps)</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >The space used to map values measured by sensors. Examples of subclasses are: linear scale (with some measure unit), discrete intervals, taxonomies, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#name -->
+
+    <owl:Class rdf:about="#name">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;quale"/>
+        <rdfs:comment
+            >A name defined according to some naming convention/system</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Atomic value within a name-system, i.e., the specific name of an object with respect to a naming system (the region containing it)&#160;</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Example: a device has-quality identification; identification q-location name-system; identification has-quale &lt;name-of-device&gt;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#name-system -->
+
+    <owl:Class rdf:about="#name-system">
+        <rdfs:subClassOf rdf:resource="#identification-region"/>
+        <rdfs:comment
+            >A name defined according to some naming convention/system</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#person -->
+
+    <owl:Class rdf:about="#person">
+        <rdfs:label>(en) person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;physical-object"/>
+        <rdfs:comment xml:lang="en"
+            >This class represents the physical presence of a person, i.e., not his/her role or possibly agent nature. It simply refers to a person. As such, it has identification properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#quality-indicator -->
+
+    <owl:Class rdf:about="#quality-indicator">
+        <rdfs:subClassOf rdf:resource="#abstract-characteristic"/>
+        <rdfs:comment xml:lang="en"
+            >This class represents any parameter, here called indicator, that provides information about the &quot;quality&quot; of information/service. 
+Note that this notion of quality is *different&quot; from the meaning of DOLite:quality. This one represents quality in the meaning of &quot;goodness&quot;, as shown by its subclasses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#quality-indicator-region -->
+
+    <owl:Class rdf:about="#quality-indicator-region">
+        <rdfs:subClassOf rdf:resource="&DOLCE-Lite;abstract-region"/>
+        <rdfs:comment xml:lang="en"
+            >Each quality indicator has its own space of measure, that is, a particular reference system/scale/method used to associate it to values. 
+For example, freshness can be measured according to a time notion. These regions should be specialized to describe specific quality indicators, possibly by intersecting them with spatio or temporal regions.</rdfs:comment>
+        <rdfs:comment
+            >The space where quality indicators (e.g., freshness, resolution) are measured.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >These subclasses (accuracy-region, etc.) stand mostly as a placeholder right now.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#resolution -->
+
+    <owl:Class rdf:about="#resolution">
+        <rdfs:subClassOf rdf:resource="#quality-indicator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#resolution-region -->
+
+    <owl:Class rdf:about="#resolution-region">
+        <rdfs:subClassOf rdf:resource="#quality-indicator-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#sensor -->
+
+    <owl:Class rdf:about="#sensor">
+        <rdfs:subClassOf rdf:resource="#device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#sensor-data -->
+
+    <owl:Class rdf:about="#sensor-data">
+        <rdfs:subClassOf rdf:resource="#data"/>
+        <rdfs:comment
+            >Data produced by sensors/sensor platforms.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Note that we can define &quot;sensor&quot; with a loose meaning, i.e., any programmatic interface that when queried returns a value. 
+This definition would allow to use this class to describe data computed by software applications instead of directly produced by sensor devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#sensor-platform -->
+
+    <owl:Class rdf:about="#sensor-platform">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&DOLCE-Lite;part"/>
+                <owl:someValuesFrom rdf:resource="#sensor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/CoreOntology-v1.1.owl#taxonomy -->
+
+    <owl:Class rdf:about="#taxonomy">
+        <rdfs:subClassOf rdf:resource="#measure-region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/abstract-characteristic -->
+
+    <owl:Class rdf:about="#abstract-characteristic">
+        <rdfs:subClassOf rdf:resource="#characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/physical-characteristic -->
+
+    <owl:Class rdf:about="#physical-characteristic">
+        <rdfs:subClassOf rdf:resource="#characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.sofia-project-eu/temporal-characteristic -->
+
+    <owl:Class rdf:about="#temporal-characteristic">
+        <rdfs:subClassOf rdf:resource="#characteristic"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

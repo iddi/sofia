@@ -1,0 +1,85 @@
+<?xml version='1.0'?>
+<platforms>
+  <platform>
+    <name>Java 2(TM) Platform, Standard Edition</name>
+    <description>The Java2 SE bundle</description>
+    <icon>/img/platform/java.gif</icon>
+    <descriptor>j2se</descriptor>
+    <resources>
+      <resource>/repository/j2se/eu.sofia.kpi.common_2.0.8_20111223.jar</resource>
+      <resource>/repository/j2se/eu.sofia.kpi.connector_2.0.8_20111223.jar</resource>
+      <resource>/repository/j2se/eu.sofia.kpi.model_2.0.8_20111223.jar</resource>
+      <resource>/repository/j2se/eu.sofia.kpi.ssap_2.0.8_20111223.jar</resource>
+      <resource>/repository/j2se/jsr173_api.jar</resource>
+      <resource>/repository/j2se/sjsxp.jar</resource>
+      <resource>/repository/j2se/commons-lang.jar</resource>
+    </resources>
+    <connections>
+      <connection>
+        <name>TCP/IP</name>
+        <icon>/img/connector/tcpip.gif</icon>
+        <description>TCP/IP Connector</description>
+        <resources>
+          <resource>/repository/j2se/eu.sofia.kpi.connector.tcpip_2.0.8_20111223.jar</resource>
+        </resources>
+      </connection>
+      <connection>
+        <name>Bluetooth</name>
+        <icon>/img/connector/bluetooth.gif</icon>
+        <description>Bluetooth Connector</description>
+        <resources>
+          <resource>/repository/j2se/eu.sofia.kpi.connector.bluetooth_2.0.8_20111223.jar</resource>
+          <resource>/repository/j2se/bluetooth/xalan-2.6.0.jar</resource>
+          <resource>/repository/j2se/bluetooth/bluecove-2.1.1-SNAPSHOT.jar</resource>
+          <resource>/repository/j2se/bluetooth/bluecove-bluez-2.1.1-SNAPSHOT.jar</resource>
+          <resource>/repository/j2se/bluetooth/bluecove-gpl-2.1.1-SNAPSHOT.jar</resource>
+        </resources>
+      </connection>
+      <connection>
+        <name>Zigbee</name>
+        <icon>/img/connector/zigbee.gif</icon>
+        <description>Zigbee Connector</description>
+        <resources>
+          <resource>/repository/j2se/eu.sofia.kpi.connector.zigbee_2.0.8_20111223.jar</resource>
+          <resource>/repository/j2se/zigbee/RXTXcomm.jar</resource>
+          <resource>/repository/j2se/zigbee/xbee-api-0.9.jar</resource>
+        </resources>
+      </connection>
+    </connections>
+  </platform>
+  <platform>
+    <name>Python</name>
+    <description>The Python KPIs</description>
+    <icon>/img/platform/pydev.gif</icon>
+    <descriptor>python</descriptor>
+    <resources>
+      <resource>/repository/Python/rdflib.zip</resource>
+      <resource>/repository/Python/sofia.zip</resource>
+      <resource>/repository/Python/kpis.zip</resource>
+    </resources>
+  </platform>
+  <platform>
+    <name>C# Unibo</name>
+    <description>The C# KPI by UniBo</description>
+    <icon>/img/platform/c.gif</icon>
+    <descriptor>csharp</descriptor>
+    <resources>
+      <resource>/repository/UniboCSharp/KPcore.dll</resource>
+      <resource>/repository/UniboCSharp/SIBActions.dll</resource>
+    </resources>
+  </platform>
+  <platform>
+    <name>Java Unibo</name>
+    <description>The Java KPI by UniBo</description>
+    <icon>/img/platform/java.gif</icon>
+    <descriptor>uniboJava</descriptor>
+    <resources>
+      <resource>/repository/UniboJava/sofia.actions_071210.jar</resource>
+      <resource>/repository/UniboJava/sofia_kp.jar</resource>
+      <resource>/repository/UniboJava/jdom.jar</resource>
+      <resource>/repository/UniboJava/openrdf-sesame-2.4.0-onejar.jar</resource>
+      <resource>/repository/UniboJava/slf4j-api-1.6.1.jar</resource>
+      <resource>/repository/UniboJava/slf4j-jdk14-1.6.1.jar</resource>
+    </resources>
+  </platform>
+</platforms>

@@ -1,0 +1,227 @@
+#Processed by Id: cwm.py,v 1.197 2007/12/13 15:38:39 syosi Exp 
+        #    using base file:///home/vluukkal/src/sspc/wp1.owl
+        
+#  Notation3 generation by
+#       notation3.py,v 1.200 2007/12/11 21:18:08 syosi Exp
+
+#   Base was: file:///home/vluukkal/src/sspc/wp1.owl
+     @prefix : <http://sofia.org/wp1#> .
+    @prefix dcs: <http://ontology.ist-spice.org/mobile-ontology/1/0/dcs/0/dcs.owl#> .
+    @prefix dig: <http://pervasive.semanticweb.org/ont/2004/06/digital-doc#> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#> .
+    @prefix rdf: <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix time: <http://www.w3.org/2006/time#> .
+    @prefix agt: <http://pervasive.semanticweb.org/ont/2004/06/agent#> .
+    @prefix core: <http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#>.
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+    @prefix dol: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#> .
+    @prefix edns: <http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#> .
+
+
+    :nok_nd a owl:Class;
+	rdfs:comment "Here we do this specialization to identify the device. We expect this device to have certain properties always available.";
+	owl:subClassOf edns:smart-object;
+        owl:subClassOf core:Device .
+
+    :nxp_rse a owl:Class;
+	 owl:subClassOf edns:smart-object;
+         owl:subClassOf core:Device .
+
+    :crf_car a owl:Class;
+	 owl:subClassOf edns:smart-object;
+         owl:subClassOf core:Device .
+
+
+    :VideoFile a owl:Class;
+    	       owl:subClassOf dol:data;
+    	       :title :t;
+	       :filesize :fs;
+	       :unit :u;
+	       :sourceURL :su.
+    
+    :AggregateInput     a owl:Class;
+         rdf:comment "Superclass for both joined and separate inputs.";
+         owl:subClassOf dol:abstract ;
+         owl:subClassOf owl:Thing .
+    
+    :AggregateOutput     a owl:Class;
+         rdf:comment "Superclass for both joined and separate outputs.";
+         owl:subClassOf dol:abstract ;
+         owl:subClassOf owl:Thing .
+    
+    :AudioService     a owl:Class;
+         owl:subClassOf dol:process ;
+         owl:subClassOf dcs:DcsService .
+    
+    :Comment_for_aggregate_capabilities     a owl:Class;
+         rdf:comment "There is no collection of input/output capabilities so we make up one here using the dcs ones. used to serve as domain or target" .
+    
+    :Comment_for_aggregrates     a owl:Class;
+         rdf:comment "Add the notion that input (or output) may be taken and combined from several sources." .
+    
+    :Comment_for_services     a owl:Class;
+         rdf:comment "Another alternative is to describe the service details ontologically, like above and publish that information to the information space.",
+                "By default more than one client can use the service (this could be changed) so the same service could be accessed from the rear seat as well. ",
+                "Note also that this also means that the UI of the nomadic device is not influenced by the use of this service -- it is not the case that the steering wheel controls are replicated on the phone. The UI is completely on the side of the user of the service.",
+                "The service interface (cd,ls,...) is not described here and we expect it to be available by other means. But this interface could be done as dcs:CntrolServiceSMIL (like MediaObjectControlService).",
+                "This comment relates to the services",
+                "Will the storage service be such that it exposes a set of primitives that allow a remote application to browse through the filesystem and display them independently? In here yes, we add a subclass to the dcs service taxonomy." .
+    
+    :Comment_for_usecases     a owl:Class;
+         rdf:comment "Now we can start to discuss the use case.The situation is such that the driver sits in the car and is able to operate on both the nomadic device keypad and the steering wheel buttons. The dashboard system must however enter a state where the buttons control the browsing and selecting of files from whatever fileservices are available. After this has ended the buttons have other purposes. This control can be entirely local, so there is one application on the dashboard side that controls it." .
+    
+    :Conformance     a owl:Class;
+         owl:subClassOf dol:abstract-characteristic;
+         :uri :uri;
+         rdf:comment "Describes which ontology we are using.";
+         owl:Ontology :ont;
+         owl:versionInfo :vs .
+    
+    :ControlContext     a owl:Class;
+         owl:subClassOf dol:stative; 
+         :aggregateinput :AggregateInput;
+         :aggregateoutput :AggregateOutput;
+         :used_input :InputCapability;
+         :used_output :OutputCapability;
+         rdf:comment "Is there an underlying idea that is similar in Spice or in any other exiting ontology? XXX",
+                "The notion of used_input/used_output allows binding several capabilities that are to be used. Which are necessary and which are currently being used is not considered here. XXX Maybe it should?",
+                "The notions of aggregates allow bunching together certain inputs/outputs. They are optional",
+                "What we can do is to have the notion of a Control context that encapsulates the used keypad and service. This object is abstract and independent of the underlying devices and can be published as information.";
+         owl:subClassOf owl:Thing .
+    
+    :DefaultControlContext     a owl:Class;
+         rdf:comment "Each device may have a default control to which it can return.";
+          owl:subClassOf dol:stative; 
+         owl:disjointWith :ServiceControlContext;
+         owl:subClassOf :ControlContext .
+    
+    :FileService     a owl:Class;
+         owl:subClassOf dol:process ;
+         owl:subClassOf dcs:DcsService .
+    
+    :InputCapability     a owl:Class;
+         rdf:comment "Just list everything here. This is one place where updates could be made, even dynamically at runtime. Here we count that there is a master dcs input capability class from which everything is subclassed for future-proofness. Non-dcs classes can also be here.",
+                "There is no collection of input/output capabilities so we make up one here using the dcs ones. This is used to collect all the possible ranges for inputs.";
+	owl:subClassOf dol:input-capability;
+         owl:unionOf  (
+        dcs:KeypadInputCapability
+        dcs:KeyInputCapability
+        dcs:TactileInputModalityCapability
+        dcs:TouchpadInputCapability
+        dcs:MouseInputCapability
+        dcs:MotionSensorCapability
+        dcs:AcousticInputModalityCapability
+        dcs:NonSpeechInputCapability
+        dcs:SpeechInputCapability
+        dcs:DTMFInputCapability ) .
+    
+    :MultiInput     a owl:Class;
+         :inputSource :InputCapability;
+         rdf:comment "Inputs joined together. We should have a cardinality cosntraint to require at least one";
+         owl:subClassOf :AggregateInput .
+    
+    :MultiOutput     a owl:Class;
+         :inputSource :OutputCapability;
+         rdf:comment "Outputs overlied together. We should have a cardinality cosntraint to require at least one";
+         owl:subClassOf :AggregateOutput .
+    
+    :OutputCapability     a owl:Class;
+         rdf:comment "See comment for InputCapability";
+	owl:subClassOf dol:output-capability;
+         owl:unionOf  (
+        dcs:TactileOutputModalityCapability
+        dcs:ForceFeedbackCapability
+        dcs:AcousticOutputModalityCapability
+        dcs:SpeechOutputCapability
+        dcs:NonSpeechOutputCapability
+        dcs:VisualOutputModalityCapability
+        dcs:ImageOutputCapability
+        dcs:TextOutputCapability
+        dcs:VideoOutputCapability ) .
+    
+    :Person     a owl:Class;
+         rdf:comment "Firstly we have a 'wp1:Person' whose purpose is to indicate the 'owner' of the information and the related physical resources. Currently I think this is different from foaf:Person, which includes information regarding persons names, email addresses, etc.";
+	 owl:subClassOf dol:person;
+         owl:subClassOf agt:Agent .
+    
+    :RenderContext     a owl:Class;
+         owl:subClassOf dol:stative; 
+          :content dig:DigitalDocument;
+         :timestamp :TimeStamp;
+         rdf:comment "This describes the content we are rendering and the state of the rendering." .
+    
+    :RenderControlContext     a owl:Class;
+          owl:subClassOf dol:stative; 
+         :req_input :InputCapability;
+         :req_output :OutputCapability;
+         :used_service dcs:DcsService;
+         rdf:comment "Just like ServiceControlContext, but with document added.";
+         owl:disjointWith :DefaultControlContext;
+         owl:subClassOf :ControlContext .
+    
+    :ServiceControlContext     a owl:Class;
+          owl:subClassOf dol:stative; 
+         :req_input :InputCapability;
+         :req_output :OutputCapability;
+         :used_service dcs:DcsService;
+         rdf:comment "Service control has required input and output that enable reasoning whether this context can be used or when sent to hibernation.XXX This does not feel good, maybe a cleaner solution is possible. We do have the notion of used service, but so far no notion of alternative services.";
+         owl:disjointWith :DefaultControlContext;
+         owl:subClassOf :ControlContext .
+    
+    :State     a owl:Class;
+          owl:subClassOf dol:state; 
+         :control :ControlContext;
+         rdf:comment "Spice has notion of State, but it is in the sense of statemachine state. This state is the state of this Personal Space. The wp1:control expresses which context is active.";
+         owl:subClassOf owl:Thing .
+    
+    :StorageCapability     a owl:Class;
+         rdf:comment "Note that neither SOUPA or SPICE have the notion of a storage so we make one up here and place it within dcs hierarchy. It is mostly a placeholder for later use when other things beside the phone have the same capability. See also later on about the fileservice Service; the line drawing between these two may need iteration. ";
+          owl:subClassOf dol:capability; 
+         owl:subClassOf dcs:DeviceCapability .
+    
+    :TimeStamp     a owl:Class;
+          owl:subClassOf dol:data; 
+         :timestring :ts;
+         rdf:comment "Describes a point in time. Two possible formats: either a string or the breakdown to hour, minute, second.";
+         time:hour :hr;
+         time:minute :min;
+         time:second :sec .
+    
+    :UIButton     a owl:Class;
+         :map :UserCommand;
+         :nm :nm;
+         rdf:comment "Used to represent a physical UI element that can be mapped to a command.";
+         owl:subClassOf owl:Thing .
+    
+    :UserCommand     a owl:Class;
+         owl:subClassOf dol:event;
+         :cmdnm :nm;
+         rdf:comment "Commands available to the user. May be service specific.";
+         owl:subClassOf owl:Thing .
+    
+    :VideoService     a owl:Class;
+         owl:subClassOf dol:process ;
+         owl:subClassOf dcs:DcsService .
+    
+    :conforms_to     rdf:comment "Used to express which version of ontology we are using, can be attached to anything.";
+         rdf:target :ontologystring .
+    
+    :exposes     rdf:comment "Used to state that a fileservice can expose documents";
+         rdf:domain :FileService;
+         rdf:target dig:DigitalDocument .
+    
+    :hasState     rdf:comment "Allows stating that a wp1:Person (or the personal space) in some state. We might need a cardinalty constraint, but then again, there may be several states and we could allow them, provided they are non-conflicting.";
+         rdf:domain :Person;
+         rdf:target :State .
+    
+    :selected     rdf:comment "Keeps the latest 'choice' of the person and it can be anything. XXX Is this needed?";
+         rdf:domain :Person;
+         rdf:target owl:Thing .
+    
+    :wp1_ont     a owl:Ontology;
+         rdf:comment "Here I aim to use existing ontologies as much as possible but every time when there is something not found in them, the ontological concept will be introduced here in namespace wp1.In practice, these, as well as other explicitely mentioned ontologies (the prefixes dcs,cor,owl,...) are expected  to reside in different files.",
+                "This is originally written in .N3 format which is translated to RDF/XML via cwm.";
+         rdf:label "Ontology build for WP1 use cases";
+         owl:versionInfo "$Revision: 1.1 $" .
+    
+#ENDS
