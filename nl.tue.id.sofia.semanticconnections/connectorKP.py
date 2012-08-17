@@ -155,10 +155,16 @@ def readSerial():
 
 
 #MAIN START
-    
+
+# for windows
+ser = serial.Serial('COM5:',115200)
+
+# for mac
+#ser = serial.Serial('/dev/tty.FireFly-451A-SPP',115200)
+
+# other connections
 #ser = serial.Serial('/dev/ttyUSB0',115200)
 #ser = serial.Serial('/dev/rfcomm0',115200)
-ser = serial.Serial('/dev/tty.FireFly-451A-SPP',115200)
 
 #Connects to smart space
 try:
