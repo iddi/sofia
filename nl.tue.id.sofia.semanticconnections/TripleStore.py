@@ -8,8 +8,11 @@ sc_ns = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
 semint_ns = "http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
 sofia_ns = "http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#"
 
-smartSpace = ('test', (TCPConnector, ('127.0.0.1', 23000)))
-#smartSpace = ('test', (TCPConnector, ('sofia.gotdns.com', 23000)))
+# connection to SIB running on a different computer
+smartSpace = ('marijaSIB', (TCPConnector, ('192.168.1.110', 23000)))
+
+# connection to SIB running on same computer
+#smartSpace = ('test', (TCPConnector, ('127.0.0.1', 23000)))
 node = Node.ParticipantNode("node"+str(uuid.uuid4()))
 
 class TripleStore:
