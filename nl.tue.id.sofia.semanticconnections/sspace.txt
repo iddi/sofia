@@ -1,0 +1,324 @@
+
+
+#Using TKiZ to draw FSMs
+\begin{tikzpicture}[->,>=latex,shorten >=1pt,auto,scale=1.7,
+  thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+%fill=cyan
+
+  \node[main node] (1) at (0,1) {Play};
+  \node[main node] (2) at (2,1) {Pause};
+  \node[main node] (3) at (1,0) {Alarm};
+  
+  \node[main node] (4) at (4,1) {Play};
+  \node[main node] (5) at (6,1) {Pause};
+  \node[main node] (6) at (5,0) {Alarm};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (1)edge [bend right] node[left] {Alarm} (3)
+    (2) edge [bend right] node[right] {Play} (1)
+    (3) edge [bend right] node[right] {Dismiss} (1) 
+    
+    
+    
+    (4) edge [bend right] node[left] {Alarm} (6)
+    (5) edge [bend right] node[right] {Play} (4)
+    (6) edge [bend right] node[right] {Dismiss} (5) ;
+    
+  \draw [->,thick, cyan] (0.25,0) to [out=-90,in=-135] (4.25,0) ;
+  \node[style={font=\sffamily\small}] at (0.5,-0.5) {AlarmEvent} ;
+    
+
+\end{tikzpicture}
+
+#Functionality as predicate
+CONSTRUCT {
+    ?this ?functionality ?sink .
+}
+WHERE {
+    ?this sc:canConnectTo ?sink .
+    ?this events:functionalitySource ?functionality .
+    ?sink events:functionalitySink ?functionality .
+}
+
+
+#Querying MusicBrainz/LinkedBrainz using iwb.fluidops.com:7883/sparql
+SELECT * WHERE{
+?b foaf:made ?title .
+?b rdf:type ?type .
+?title rdf:type ?titletype .
+?b foaf:name "Bittereinder" .
+ }
+ 
+# Indirect connections
+CONSTRUCT {
+    ?source sc:indirectlyConnectedTo ?this .
+    ?this sc:indirectlyConnectedTo ?sink .
+}
+WHERE {
+    ?source sc:canConnectTo ?this .
+    ?this sc:canConnectTo ?sink .
+    ?source sc:connectedTo ?sink .
+    ?source sc:canIndirectlyConnectTo ?sink .
+    FILTER NOT EXISTS  {
+        ?source sc:directlyConnectedTo ?sink .
+    } .
+}
+
+#Direct connections
+CONSTRUCT {
+    ?this sc:directlyConnectedTo ?device .
+}
+WHERE {
+    ?this sc:connectedTo ?device .
+    ?this sc:canConnectTo ?device .
+    FILTER NOT EXISTS  {
+        ?source sc:indirectlyConnectedTo ?sink .
+    } .
+}
+
+
+#Magic property events:currentDateTime
+SELECT ?x
+WHERE {
+    BIND (afn:now() AS ?x) .
+}
+
+
+# Works in squareTest.owl
+SELECT ( ex:convert(10.0, unit:Kilometer, unit:MileInternational) AS ?value)
+WHERE {}
+
+SELECT ?x
+WHERE {
+LET (?x := events:getMaxDateRsc(events:lamp1)).
+}
+
+# Generating events to test ontology
+CONSTRUCT {
+    ?event a events:SwitchOffEvent .
+	?event events:inXSDDateTime ?date .
+	?event events:generatedBy events:lamp1 .
+}
+WHERE {
+	BIND (afn:now() AS ?date) .
+	BIND (smf:generateUUID() AS ?index) .
+	BIND( spif:buildUniqueURI("events:event-{?index}") AS ?event)
+}
+
+
+*Activity diagram for connections*
+(start)->(Check for existing connections)-><d1>Connection exists->(Subscribe to source events)->|a|->(Subscribe to connection changes)->(Wait for new event/connection)-><d2>On new connection->(Subscribe to source events)->(Wait for new event/connection)
+<d2>On connection removed->(Unsubscribe source events)->(Wait for new event/connection)
+<d1>No connection->|a|
+
+
+
+
+==========
+   2011
+==========
+
+sspace create -sib -name=test
+sspace create -gw -name=testgw -type=TCP/IP -idSib=1
+sspace start -sib -id=1
+sspace start -gw -id=1
+
+FILTER (((?this != ?x2) && (?this != ?x3)) && (?x2 != ?x3)) .
+
+install file:/home/gerrit/code/adk-sib_tue0.2/eu.sofia.adk.sib_2.0.2.201012221549.jar
+
+http://sofia.gotdns.com/ontologies/SemanticConnections.owl#hasRFIDTag
+
+add_ns sc http://sofia.gotdns.com/ontologies/SemanticConnections.owl
+add_ns semint http://sofia.gotdns.com/ontologies/SemanticInteraction.owl
+add_ns bd http://sofia.gotdns.com/ontologies/BondingDevice.owl
+add_ns sofia http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl
+add_ns owl http://www.w3.org/2002/07/owl
+add_ns core http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl
+add_ns dcs http://ontology.ist-spice.org/mobile-ontology/1/0/dcs/0/dcs.owl
+add_ns wp1 http://sofia.org/wp1
+add_ns wp1p http://sofia.org/personal
+
+# Inferring indirect media paths
+CONSTRUCT {
+    ?mp a sc:MediaPath .
+    ?x4 sc:hasMediaPath ?mp .
+    ?mp bonding:mediaSourceSO ?x2 .
+    ?mp bonding:mediaOriginator ?this .
+}
+WHERE {
+    ?this sc:convertsMediaType ?x2 .
+    ?x2 sc:convertsMediaType ?x3 .
+    ?x2 sc:convertsMediaType ?x4 .
+    ?this sc:connectedTo ?x3 .
+    ?x3 sc:connectedTo ?x4 .
+    BIND (IRI(fn:concat("http://sofia.gotdns.com/ontologies/SemanticConnections.owl#indirectMediaPath_", afn:localname(?this), "_to_", afn:localname(?x4))) AS ?mp) .
+}
+
+
+# Removing old media paths
+DELETE  {     ?this sc:hasMediaPath ?mp .
+    ?mp bonding:mediaOriginator ?device2 .
+    ?mp bonding:mediaSourceSO ?mediaSource .
+
+}
+WHERE {
+    ?this sc:hasMediaPath ?mp .
+    ?mp bonding:mediaSourceSO ?mediaSource .
+    ?mp bonding:mediaOriginator ?device2 .
+    FILTER NOT EXISTS  {
+        ?this sc:connectedTo ?device2 .
+    } .
+}
+
+# Testing durationLessThan function
+CONSTRUCT {
+    ?this bonding:earlierThan ?event .
+}
+WHERE {
+    ?this semint:inXSDDateTime ?date1 .
+    bonding:event1 semint:inXSDDateTime ?date2 .
+    BIND (sifunc:durationLessThan(?date1, ?date2) AS ?event) .
+}
+
+
+#Determine the duration between two dates
+SELECT ?duration
+WHERE {
+	bonding:event1 semint:inXSDDateTime ?date1 .
+    bonding:event2 semint:inXSDDateTime ?date2 .
+   BIND(smf:duration("s",?date2, ?date1) AS ?duration).
+}
+
+CONSTRUCT {
+    ?event a sc:MediaPlayerEvent .
+}
+WHERE {
+    ?this semint:dataValue "on" .
+    BIND (IRI(fn:concat("http://sofia.gotdns.com/ontologies/SemanticConnections.owl#event-", afn:now())) AS ?event) .
+}
+
+sc:convertsMediaType(?x1, ?x2), sc:convertsMediaType(?x2, ?x3) -> mediaSourceSO(?x3, ?x2)
+
+semint:ofIDType(?x2, semint:RFID_Mifare), sofia:hasIdentification(?x1, ?x2), semint:idValue(?x2, ?x3) -> sc:hasRFIDTag(?x1, ?x3)
+
+
+PREFIX sc: <http://sofia.gotdns.com/ontologies/SemanticConnections.owl#>
+PREFIX sofia: <http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#>
+PREFIX bd: <http://sofia.gotdns.com/ontologies/BondingDevice.owl#>
+SELECT ?name ?name2
+FROM <http://sofia.gotdns.com/ontologies/BondingDevice.owl>
+WHERE {
+  ?name bd:mediaSourceSO ?name2 .
+}
+
+
+
+CONSTRUCT {
+    ?mp a sc:MediaPath .
+    ?x3 sc:hasMediaPath ?mp .
+    ?mp bonding:mediaSourceSO ?x2 .
+    ?mp bonding:mediaOriginator ?x1 .
+}
+WHERE {
+    LET (?mp := smf:buildUniqueURI("mediapath")) .
+    ?x1 sc:convertsMediaType ?x2 .
+    ?x2 sc:convertsMediaType ?x3 .
+    ?x1 sc:connectedTo ?x3 .
+}
+
+CONSTRUCT {
+    ?mp a sc:MediaPath .
+    ?x3 sc:hasMediaPath ?mp .
+    ?mp bonding:mediaSourceSO ?x2 .
+    ?mp bonding:mediaOriginator ?this .
+}
+WHERE {
+    ?this sc:convertsMediaType ?x2 .
+    ?x2 sc:convertsMediaType ?x3 .
+    ?this sc:connectedTo ?x3 .
+    LET (?uuid := smf:generateUUID()) .
+    LET (?mp := smf:buildURI("sc:mediapath_{?uuid}")) .
+}
+
+LET (?mp := smf:buildURI("sc:mediapath_{?this}_to_{?x2}")) .
+LET (?mp := smf:buildString("sc:mediapath_{?this}_to{?x2}")) .
+
+
+CONSTRUCT {?x3 :mediaSourceSO ?x2}
+WHERE
+{ ?x1 sc:convertsMediaType ?x2 .
+  ?x2 sc:convertsMediaType ?x3 .
+}
+
+
+
+participant N900
+participant "Sound/Light KP" as SL
+participant "Bonding Device" as FBD1
+participant SIB
+
+N900->SIB: Join smart space
+N900->SIB: Subscribe to new media paths
+SL->SIB: Join smart space
+#note right of SL: Listens on port 1234
+
+SIB->N900: New media path
+N900->SIB: Create NewMediaSourceEvent
+
+FBD1->SIB: Join smart space
+FBD1->SIB: Subscribe to NewMediaSourceEvents
+SIB->N900: New media path
+N900->SIB: Create NewMediaSourceEvent
+
+SIB->FBD1: NewMediaSourceEvent was generated by N900
+note right of FBD1: N900 is connected to me
+FBD1->SIB: Determine media path
+SIB->FBD1: Sound/Light KP is your new mediaSource
+note right of FBD1
+    Connects light controllers 
+    to media source
+end note
+
+
+
+#Version 0.2 13/04/2011
+participant N900
+participant "Sound/Light Transfomer KP" as SL
+participant "Bonding Device" as FBD1
+participant SIB
+
+N900->SIB: Join smart space
+SL->SIB: Join smart space
+SL->SIB: Subscribes to mediaSourceSO
+
+FBD1->SIB: Join smart space
+FBD1->SIB: Subscribe to new media paths
+
+FBD1->SIB: Connect Bonding Device to N900 
+
+note left of SIB
+    Infer new media path from N900 
+    to Bonding Device via transformer KP
+end note
+
+SIB->FBD1: New media path
+FBD1->SIB: Determine media source
+SIB->FBD1: Sound/Light KP is your new mediaSource
+note right of FBD1
+    Connects light controllers 
+    to Sound/Light KP out-of-band
+end note
+
+SIB->SL: New mediaSourceSO
+SL->SIB: Who is media originator?
+SIB->SL: Media orginator is N900
+SL->SIB: Subscribe to N900 MediaPlayerEvents
+
+N900->SIB: PlayEvent
+SIB->SL: N900 generated PlayEvent
+note right of SL
+    Convert music to RGB values 
+    and send out-of-band
+end note
+
