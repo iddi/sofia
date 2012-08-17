@@ -1,0 +1,656 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://semantic.gerritniezen.com/ontologies/UserInteractionEvents.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://semantic.gerritniezen.com/ontologies/UserInteractionEvents.owl">
+  <owl:Ontology rdf:about="">
+    <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Source">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SmartObject"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SmartObject"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="functionalitySource"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="Functionality"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="MediaPlayerEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="InteractionEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RangeMeasure">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CueEvent">
+    <rdfs:subClassOf rdf:resource="#MediaPlayerEvent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PlayEvent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StopEvent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="AlarmRemoveEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AlarmEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IDType">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TCPIPObject">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SmartObject"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <IDType rdf:ID="IPAddress"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasIDType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="communicatesByTCPIP"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasValue>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="PreviewEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InteractionEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AdjustLevelEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InteractionEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IndicatorEvent">
+    <rdfs:subClassOf rdf:resource="#PreviewEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Event">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SemanticTransformer">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SmartObject"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate>
+              <owl:IrreflexiveProperty rdf:ID="canConnectTo">
+                <owl:propertyChainAxiom rdf:parseType="Collection">
+                  <owl:ObjectProperty rdf:about="#functionalitySource"/>
+                  <owl:ObjectProperty rdf:ID="functionalitySink"/>
+                </owl:propertyChainAxiom>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+              </owl:IrreflexiveProperty>
+            </sp:predicate>
+            <sp:subject>
+              <rdf:Description rdf:nodeID="A0">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >source</sp:varName>
+              </rdf:Description>
+            </sp:subject>
+            <sp:object>
+              <rdf:Description rdf:nodeID="A1">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >sink</sp:varName>
+              </rdf:Description>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object rdf:nodeID="A1"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate rdf:resource="#canConnectTo"/>
+            <sp:subject>
+              <rdf:Description rdf:nodeID="A2">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >source</sp:varName>
+              </rdf:Description>
+            </sp:subject>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate rdf:resource="#canConnectTo"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object>
+              <rdf:Description rdf:nodeID="A3">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >sink</sp:varName>
+              </rdf:Description>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="connectedTo"/>
+            </sp:predicate>
+            <sp:subject rdf:nodeID="A2"/>
+            <sp:object rdf:nodeID="A3"/>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#connectedTo"/>
+            </sp:predicate>
+            <sp:subject rdf:nodeID="A2"/>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:about="#connectedTo"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object rdf:nodeID="A3"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SemanticTransformer"/>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="#functionalitySource"/>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#SmartObject"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="canAcceptMediaTypeFrom"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#SmartObject"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:IrreflexiveProperty rdf:ID="convertsMediaType">
+                <owl:propertyChainAxiom rdf:parseType="Collection">
+                  <owl:ObjectProperty rdf:ID="transmitsMediaType"/>
+                  <owl:ObjectProperty rdf:ID="isAcceptedMediaTypeOf"/>
+                </owl:propertyChainAxiom>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+              </owl:IrreflexiveProperty>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="MediaType">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Functionality">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SystemEvent">
+    <rdfs:subClassOf rdf:resource="#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StopEvent">
+    <rdfs:subClassOf rdf:resource="#MediaPlayerEvent"/>
+    <owl:disjointWith rdf:resource="#CueEvent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PlayEvent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#InteractionEvent">
+    <rdfs:subClassOf rdf:resource="#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Identification">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PlayEvent">
+    <rdfs:subClassOf rdf:resource="#MediaPlayerEvent"/>
+    <owl:disjointWith rdf:resource="#StopEvent"/>
+    <owl:disjointWith rdf:resource="#CueEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SmartObject">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate rdf:resource="#functionalitySource"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object>
+              <rdf:Description rdf:nodeID="A4">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >functionality</sp:varName>
+              </rdf:Description>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate rdf:resource="#functionalitySink"/>
+            <sp:subject>
+              <rdf:Description rdf:nodeID="A5">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >sink</sp:varName>
+              </rdf:Description>
+            </sp:subject>
+            <sp:object rdf:nodeID="A4"/>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:nodeID="A4"/>
+            <sp:object rdf:nodeID="A5"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable>
+              <rdf:Description rdf:nodeID="A6">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >lastEvent</sp:varName>
+              </rdf:Description>
+            </sp:variable>
+            <sp:expression>
+              <getMaxDateRsc>
+                <sp:arg1 rdf:resource="http://spinrdf.org/spin#_this"/>
+              </getMaxDateRsc>
+            </sp:expression>
+          </sp:Bind>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="hasLastEvent"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object rdf:nodeID="A6"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="ofIDType"/>
+            </sp:predicate>
+            <sp:object>
+              <IDType rdf:ID="RFID_Mifare"/>
+            </sp:object>
+            <sp:subject>
+              <rdf:Description rdf:nodeID="A7">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >id</sp:varName>
+              </rdf:Description>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate>
+              <owl:ObjectProperty rdf:ID="hasIdentification"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object rdf:nodeID="A7"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate>
+              <owl:DatatypeProperty rdf:ID="idValue"/>
+            </sp:predicate>
+            <sp:subject rdf:nodeID="A7"/>
+            <sp:object>
+              <rdf:Description rdf:nodeID="A8">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >tag</sp:varName>
+              </rdf:Description>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate>
+              <owl:DatatypeProperty rdf:ID="hasRFIDTag"/>
+            </sp:predicate>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:object rdf:nodeID="A8"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+  </owl:Class>
+  <owl:Class rdf:ID="SetEvent">
+    <rdfs:subClassOf rdf:resource="#InteractionEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AlarmEndEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AlarmEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MediaPath">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IncreaseLevelEvent">
+    <rdfs:subClassOf rdf:resource="#AdjustLevelEvent"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AdjustLevelEvent"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="duration"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeSetEvent">
+    <rdfs:subClassOf rdf:resource="#SystemEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AlarmEvent">
+    <rdfs:subClassOf rdf:resource="#InteractionEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FeedbackEvent">
+    <rdfs:subClassOf rdf:resource="#PreviewEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AlarmSetEvent">
+    <rdfs:subClassOf rdf:resource="#SetEvent"/>
+    <rdfs:subClassOf rdf:resource="#AlarmEvent"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SetEvent"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="dataValue"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#dataValue"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="AlarmAlertEvent">
+    <rdfs:subClassOf rdf:resource="#AlarmEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Bridge">
+    <rdfs:subClassOf rdf:resource="#SmartObject"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SmartObject"/>
+          <owl:Class rdf:ID="Sink"/>
+          <owl:Class rdf:about="#Source"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Sink">
+    <rdfs:subClassOf rdf:resource="#SmartObject"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SmartObject"/>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="#functionalitySink"/>
+            <owl:someValuesFrom rdf:resource="#Functionality"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="InteractionPrimitive">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Smallest addressable interaction element that has a meaningful relation to the interaction itself</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#canAcceptMediaTypeFrom">
+    <owl:inverseOf rdf:resource="#convertsMediaType"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isAcceptedMediaTypeOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="acceptsMediaType"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRangeMeasure">
+    <rdfs:range rdf:resource="#RangeMeasure"/>
+    <rdfs:domain rdf:resource="#InteractionPrimitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#ofIDType">
+    <rdfs:range rdf:resource="#IDType"/>
+    <rdfs:domain rdf:resource="#Identification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="mediaPathOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasMediaPath"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="tempConnectedTo"/>
+  <owl:ObjectProperty rdf:ID="connectedFrom">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#connectedTo"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="mediaOriginator"/>
+  <owl:ObjectProperty rdf:about="#hasIdentification">
+    <rdfs:range rdf:resource="#Identification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInteractionPrimitive"/>
+  <owl:ObjectProperty rdf:ID="mediaSourceSO"/>
+  <owl:ObjectProperty rdf:ID="isFunctionalityOfSink">
+    <owl:inverseOf rdf:resource="#functionalitySink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="identificationOf">
+    <owl:inverseOf rdf:resource="#hasIdentification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isInteractionPrimitiveOf">
+    <owl:inverseOf rdf:resource="#hasInteractionPrimitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="launchesEvent">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="generatedBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="indirectlyConnectedTo">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#connectedTo"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isFunctionalityOfSource">
+    <owl:inverseOf rdf:resource="#functionalitySource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#generatedBy">
+    <rdfs:range rdf:resource="#SmartObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#connectedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:domain rdf:resource="#Source"/>
+    <rdfs:range rdf:resource="#Sink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="canIndirectlyConnectTo">
+    <rdfs:subPropertyOf rdf:resource="#canConnectTo"/>
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:IrreflexiveProperty rdf:about="#canConnectTo"/>
+      <owl:IrreflexiveProperty rdf:about="#canConnectTo"/>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasIDType">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#hasIdentification"/>
+      <owl:ObjectProperty rdf:about="#ofIDType"/>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#dataValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anySimpleType"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cueAt">
+    <rdfs:domain rdf:resource="#CueEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cue at time (in milliseconds)</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#communicatesByTCPIP">
+    <rdfs:domain rdf:resource="#SmartObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="inXSDDateTime">
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#idValue">
+    <rdfs:domain rdf:resource="#Identification"/>
+  </owl:DatatypeProperty>
+  <RangeMeasure rdf:ID="Real">
+    <rdfs:comment>Capable of representing more than 1000 discrete values (infinite)</rdfs:comment>
+  </RangeMeasure>
+  <Functionality rdf:ID="Music"/>
+  <MediaType rdf:ID="RGBValues"/>
+  <Functionality rdf:ID="AdjustLevel"/>
+  <RangeMeasure rdf:ID="Single">
+    <rdfs:comment>Capable of representing values from 0-9 (single digits)</rdfs:comment>
+  </RangeMeasure>
+  <spin:MagicProperty rdf:ID="currentDateTime">
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#MagicProperties"/>
+    <spin:body>
+      <sp:Select>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable>
+              <rdf:Description rdf:nodeID="A9">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >datetime</sp:varName>
+              </rdf:Description>
+            </sp:variable>
+            <sp:expression>
+              <afn:now/>
+            </sp:expression>
+          </sp:Bind>
+        </sp:where>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description rdf:nodeID="A9"/>
+        </sp:resultVariables>
+      </sp:Select>
+    </spin:body>
+  </spin:MagicProperty>
+  <RangeMeasure rdf:ID="Double">
+    <rdfs:comment>Capable of representing values from 0-99 (double digits)</rdfs:comment>
+  </RangeMeasure>
+  <RangeMeasure rdf:ID="Triple">
+    <rdfs:comment>Capable of representing values from 0-999 (triple digits)</rdfs:comment>
+  </RangeMeasure>
+  <MediaType rdf:ID="Audio"/>
+  <RangeMeasure rdf:ID="Binary">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True/False, 0 or 1</rdfs:comment>
+  </RangeMeasure>
+  <Functionality rdf:ID="Alarm"/>
+  <spin:Function rdf:ID="getMaxDateRsc">
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+    <spin:body>
+      <sp:Select>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:predicate rdf:resource="#generatedBy"/>
+            <sp:subject>
+              <rdf:Description rdf:nodeID="A10">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >lastEvent</sp:varName>
+              </rdf:Description>
+            </sp:subject>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_arg1"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:predicate rdf:resource="#inXSDDateTime"/>
+            <sp:subject rdf:nodeID="A10"/>
+            <sp:object>
+              <rdf:Description rdf:nodeID="A11">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >last</sp:varName>
+              </rdf:Description>
+            </sp:object>
+          </rdf:Description>
+        </sp:where>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description rdf:nodeID="A10"/>
+        </sp:resultVariables>
+        <sp:limit rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+        >1</sp:limit>
+        <sp:orderBy rdf:parseType="Collection">
+          <sp:Desc>
+            <sp:expression rdf:nodeID="A11"/>
+          </sp:Desc>
+        </sp:orderBy>
+      </sp:Select>
+    </spin:body>
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg1"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Smart object that generated the interaction event</rdfs:comment>
+      </spl:Argument>
+    </spin:constraint>
+  </spin:Function>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

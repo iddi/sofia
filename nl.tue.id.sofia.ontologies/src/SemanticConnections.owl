@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:semint="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:sofia="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#"
+  xml:base="http://sofia.gotdns.com/ontologies/SemanticConnections.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.3</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >As used by Semantic Connections demonstrator in the SOFIA Project (http://www.sofia-project.eu/) 
+First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v.d.vlist@tue.nl).</rdfs:comment>
+    <owl:imports rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl"/>
+    <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#SmartObject"/>
+  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:Class rdf:ID="CueEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MediaPlayerEvent"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PlayEvent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StopEvent"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#IDType"/>
+  <owl:Class rdf:about="#MediaPlayerEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MediaPath">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StopEvent">
+    <rdfs:subClassOf rdf:resource="#MediaPlayerEvent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MediaType"/>
+  <owl:Class rdf:about="#PlayEvent">
+    <rdfs:subClassOf rdf:resource="#MediaPlayerEvent"/>
+    <owl:disjointWith rdf:resource="#StopEvent"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Identification"/>
+  <owl:ObjectProperty rdf:ID="convertsMediaType">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:ID="transmitsMediaType"/>
+      <owl:ObjectProperty rdf:ID="isAcceptedMediaTypeOf"/>
+    </owl:propertyChainAxiom>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMediaPath"/>
+  <owl:ObjectProperty rdf:ID="generatedBy"/>
+  <owl:ObjectProperty rdf:ID="acceptsMediaType">
+    <owl:inverseOf rdf:resource="#isAcceptedMediaTypeOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#ofIDType"/>
+  <owl:ObjectProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#hasInteractionPrimitive"/>
+  <owl:ObjectProperty rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#hasIdentification"/>
+  <owl:DatatypeProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#idValue"/>
+  <owl:DatatypeProperty rdf:ID="renderMediaAs">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This specifies how the media is rendered to the user, e.g. ambient lighting may render an audio stream as coloured lighting</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#SmartObject"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRFIDTag"/>
+  <owl:DatatypeProperty rdf:ID="hasMedia">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specifies the actual media resource e.g. local file (file://) or media stream (rtsp://)</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cueAt">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cue at time (in Milliseconds)</rdfs:comment>
+    <rdfs:domain rdf:resource="#CueEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:IrreflexiveProperty rdf:ID="connectedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:IrreflexiveProperty>
+  <owl:NamedIndividual rdf:ID="id44d640d1-7877-4505-854e-4f30fc03afe3">
+    <semint:ofIDType>
+      <owl:NamedIndividual rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#RFID_Mifare"/>
+    </semint:ofIDType>
+    <semint:idValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >04AF7151962280</semint:idValue>
+    <rdf:type rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Identification"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="RGBValues">
+    <rdf:type rdf:resource="#MediaType"/>
+  </owl:NamedIndividual>
+  <sofia:State rdf:ID="Stopped"/>
+  <owl:NamedIndividual rdf:ID="surroundSoundSystem">
+    <sofia:hasIdentification>
+      <owl:NamedIndividual rdf:ID="ida03b2c42-ff0f-4d94-99b6-51e1a9a9c3c1">
+        <semint:idValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0401C4D9A12581</semint:idValue>
+        <semint:ofIDType rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#RFID_Mifare"/>
+        <rdf:type rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Identification"/>
+      </owl:NamedIndividual>
+    </sofia:hasIdentification>
+    <rdf:type rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#SmartObject"/>
+  </owl:NamedIndividual>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+  <sofia:State rdf:ID="Playing"/>
+  <owl:NamedIndividual rdf:ID="interactionTile">
+    <rdf:type rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#SmartObject"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Audio">
+    <rdf:type rdf:resource="#MediaType"/>
+  </owl:NamedIndividual>
+  <owl:Thing rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#woopwoop">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </owl:Thing>
+  <owl:NamedIndividual rdf:ID="N900PlayButton"/>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

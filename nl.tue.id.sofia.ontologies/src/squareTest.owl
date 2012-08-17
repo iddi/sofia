@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:ex="http://example.org/squareTest#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:spinx="http://spinrdf.org/spinx#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:spl="http://spinrdf.org/spl#"
+  xml:base="http://example.org/squareTest">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://qudt.org/1.1/vocab/unit"/>
+    <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spinx"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Number">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <sp:Bind>
+            <sp:variable>
+              <rdf:Description rdf:nodeID="A0">
+                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >nr</sp:varName>
+              </rdf:Description>
+            </sp:variable>
+            <sp:expression>
+              <ex:square>
+                <sp:arg1 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >3</sp:arg1>
+              </ex:square>
+            </sp:expression>
+          </sp:Bind>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate>
+              <rdf:Property rdf:ID="hasValue"/>
+            </sp:predicate>
+            <sp:object rdf:nodeID="A0"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
+  </owl:Class>
+  <spin:Function rdf:ID="convert">
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg3"/>
+      </spl:Argument>
+    </spin:constraint>
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg2"/>
+      </spl:Argument>
+    </spin:constraint>
+    <spin:body>
+      <sp:Select>
+        <sp:resultVariables rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:expression>
+              <sp:divide>
+                <sp:arg2>
+                  <rdf:Description rdf:nodeID="A1">
+                    <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >M2</sp:varName>
+                  </rdf:Description>
+                </sp:arg2>
+                <sp:arg1>
+                  <sp:sub>
+                    <sp:arg2>
+                      <rdf:Description rdf:nodeID="A2">
+                        <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >O2</sp:varName>
+                      </rdf:Description>
+                    </sp:arg2>
+                    <sp:arg1>
+                      <sp:add>
+                        <sp:arg2>
+                          <rdf:Description rdf:nodeID="A3">
+                            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >O1</sp:varName>
+                          </rdf:Description>
+                        </sp:arg2>
+                        <sp:arg1>
+                          <sp:mul>
+                            <sp:arg2>
+                              <rdf:Description rdf:nodeID="A4">
+                                <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >M1</sp:varName>
+                              </rdf:Description>
+                            </sp:arg2>
+                            <sp:arg1 rdf:resource="http://spinrdf.org/spin#_arg1"/>
+                          </sp:mul>
+                        </sp:arg1>
+                      </sp:add>
+                    </sp:arg1>
+                  </sp:sub>
+                </sp:arg1>
+              </sp:divide>
+            </sp:expression>
+            <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >value</sp:varName>
+          </rdf:Description>
+        </sp:resultVariables>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:nodeID="A4"/>
+            <sp:predicate rdf:resource="http://qudt.org/schema/qudt#conversionMultiplier"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_arg2"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:nodeID="A3"/>
+            <sp:predicate rdf:resource="http://qudt.org/schema/qudt#conversionOffset"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_arg2"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:nodeID="A1"/>
+            <sp:predicate rdf:resource="http://qudt.org/schema/qudt#conversionMultiplier"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_arg3"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:nodeID="A2"/>
+            <sp:predicate rdf:resource="http://qudt.org/schema/qudt#conversionOffset"/>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_arg3"/>
+          </rdf:Description>
+        </sp:where>
+      </sp:Select>
+    </spin:body>
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg1"/>
+      </spl:Argument>
+    </spin:constraint>
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+  </spin:Function>
+  <ex:Number rdf:ID="testNum"/>
+  <spin:Function rdf:ID="square">
+    <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#Functions"/>
+    <spin:returnType rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <spin:constraint>
+      <spl:Argument>
+        <spl:predicate rdf:resource="http://spinrdf.org/sp#arg1"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >return the square</rdfs:comment>
+      </spl:Argument>
+    </spin:constraint>
+    <spinx:javaScriptCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >return arg1 * arg1;</spinx:javaScriptCode>
+  </spin:Function>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

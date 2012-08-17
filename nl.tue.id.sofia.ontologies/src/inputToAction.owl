@@ -1,0 +1,1163 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns="http://sofia.gotdns.com/ontologies/test.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:j.0="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://sofia.gotdns.com/ontologies/test.owl">
+  <owl:Ontology rdf:about="">
+    <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="RealAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ActionWithRes"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Resolution rdf:ID="Real">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Resolution>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="requiresResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Action"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1000</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="State"/>
+  <owl:Class rdf:ID="IDontCare">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasSelf>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="canBeConnectedTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleInputDevice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="InputDeviceWithRes"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Resolution rdf:ID="Single">
+            <isResolutionOf>
+              <owl:NamedIndividual rdf:ID="Mouse">
+                <hasManipulationOperator>
+                  <DOF rdf:ID="Py">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </DOF>
+                </hasManipulationOperator>
+                <hasManipulationOperator>
+                  <DOF rdf:ID="Px">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </DOF>
+                </hasManipulationOperator>
+                <hasState>
+                  <DiscreteState rdf:ID="Down">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </DiscreteState>
+                </hasState>
+                <catString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >super</catString>
+                <numberOfStates rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >6</numberOfStates>
+              </owl:NamedIndividual>
+            </isResolutionOf>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Resolution>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="InputDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >3</xsd:minInclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >10</xsd:maxExclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DiscreteState">
+    <rdfs:subClassOf rdf:resource="#State"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ActionWithRes"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Action"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >3</xsd:minInclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >10</xsd:maxExclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#Single"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#requiresResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="BinaryAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ActionWithRes"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Action"/>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >2</owl:hasValue>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Resolution rdf:ID="Binary">
+            <catString rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >wtf</catString>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Resolution>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#requiresResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DOF"/>
+  <owl:Class rdf:ID="GenericButton">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GenericSlider"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#GenericSlider"/>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="#State"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:ID="hasState"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:someValuesFrom>
+                  <rdfs:Datatype>
+                    <owl:withRestrictions rdf:parseType="Collection">
+                      <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                        >2</xsd:minInclusive>
+                      </rdf:Description>
+                    </owl:withRestrictions>
+                    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                  </rdfs:Datatype>
+                </owl:someValuesFrom>
+                <owl:onProperty>
+                  <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+                </owl:onProperty>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="GenericBoundedKnob">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="GenericKnob"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasMaximum"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="hasMinimum"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#ActionWithRes">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#InputDeviceWithRes">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InputDevice"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#GenericSlider">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#InputDevice"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:hasValue rdf:resource="#Px"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:ID="hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue rdf:resource="#Py"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue>
+                  <DOF rdf:ID="Pz">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </DOF>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+          <owl:Restriction>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="#DOF"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="RealInputDevice">
+    <rdfs:subClassOf rdf:resource="#InputDeviceWithRes"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#Real"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#InputDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1000</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="mapXY">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MappingFunction"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="mapX"/>
+          <owl:Class rdf:ID="mapY"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="mapXYZ">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#mapX"/>
+          <owl:Class rdf:about="#mapY"/>
+          <owl:Class rdf:ID="mapZ"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#mapY">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Py"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:ID="requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Py"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue>
+                      <DOF rdf:ID="Ry">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                      </DOF>
+                    </owl:hasValue>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Ry"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#mapZ">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Pz"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Pz"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue>
+                      <DOF rdf:ID="Rz">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                      </DOF>
+                    </owl:hasValue>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Rz"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Generic2DTablet">
+    <rdfs:subClassOf rdf:resource="#GenericSlider"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#GenericSlider"/>
+          <owl:Restriction>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >2</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="#DOF"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleAction">
+    <rdfs:subClassOf rdf:resource="#ActionWithRes"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Action"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >100</xsd:maxExclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >10</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleInputDevice">
+    <rdfs:subClassOf rdf:resource="#InputDeviceWithRes"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#InputDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >100</xsd:maxExclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >10</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Resolution rdf:ID="Double">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Resolution>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="TripleInputDevice">
+    <rdfs:subClassOf rdf:resource="#InputDeviceWithRes"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Resolution rdf:ID="Triple">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Resolution>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#InputDevice"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1000</xsd:maxExclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >100</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="map0to100">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >100</owl:hasValue>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasMaximum"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0</owl:hasValue>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#hasMinimum"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Resolution"/>
+  <owl:Class rdf:ID="TripleAction">
+    <rdfs:subClassOf rdf:resource="#ActionWithRes"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#Triple"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#requiresResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Action"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <rdfs:Datatype>
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >1000</xsd:maxExclusive>
+                  </rdf:Description>
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                    >100</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              </rdfs:Datatype>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#InputDevice">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasSelf>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isInputDevice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:Class rdf:ID="mapYZ">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#mapY"/>
+          <owl:Class rdf:about="#mapZ"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Action">
+    <owl:disjointWith rdf:resource="#InputDevice"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</owl:hasSelf>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isAction"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="BinaryInputDevice">
+    <rdfs:subClassOf rdf:resource="#InputDeviceWithRes"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#Binary"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasResolution"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#InputDevice"/>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >2</owl:hasValue>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#numberOfStates"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#GenericKnob">
+    <rdfs:subClassOf rdf:resource="#InputDevice"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:hasValue>
+                  <DOF rdf:ID="Rx">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </DOF>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue rdf:resource="#Ry"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue rdf:resource="#Rz"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                </owl:onProperty>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+          <owl:Restriction>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="#DOF"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#mapX">
+    <rdfs:subClassOf rdf:resource="#MappingFunction"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Px"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Px"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Action"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Rx"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#requiresManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#InputDevice"/>
+                  <owl:Restriction>
+                    <owl:hasValue rdf:resource="#Rx"/>
+                    <owl:onProperty>
+                      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+                    </owl:onProperty>
+                  </owl:Restriction>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="invMatchesDOF">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="matchesDOF"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requiresManipulationOperator">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isStateOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasState"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isManipulationOperatorOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requiresResolution">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="invMatchesRes">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="matchesResolution"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasState">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:range rdf:resource="#State"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isRequiredResolutionOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf rdf:resource="#requiresResolution"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isRequiredMPOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf rdf:resource="#requiresManipulationOperator"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#canBeConnectedTo">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="fuckYeah">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasManipulationOperator">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#matchesDOF">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#hasManipulationOperator"/>
+      <owl:ObjectProperty rdf:about="#isRequiredMPOf"/>
+    </owl:propertyChainAxiom>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#matchesResolution">
+    <owl:propertyChainAxiom rdf:parseType="Collection">
+      <owl:ObjectProperty rdf:about="#hasResolution"/>
+      <owl:ObjectProperty rdf:about="#isRequiredResolutionOf"/>
+    </owl:propertyChainAxiom>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasResolution">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:range rdf:resource="#Resolution"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isResolutionOf">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasResolution"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumRZ">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="hasMaximumZ"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumPZ">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMaximumZ"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumY">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMinimum"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasMaximumZ">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMaximum"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumZ">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMinimum"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasBoundary">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasMinimum">
+    <rdfs:subPropertyOf rdf:resource="#hasBoundary"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumX">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimum"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="catString">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumRY">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="hasMaximumY"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumRX">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="hasMaximumX"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumPX">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMaximumX"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasMaximumY">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasMaximum"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasMaximum">
+    <rdfs:subPropertyOf rdf:resource="#hasBoundary"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#numberOfStates">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumRY">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumY"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasMaximumX">
+    <rdfs:subPropertyOf rdf:resource="#hasMaximum"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaximumPY">
+    <rdfs:subPropertyOf rdf:resource="#hasMaximumY"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumPZ">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumZ"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumRX">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumX"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumPY">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumY"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumRZ">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumZ"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinimumPX">
+    <rdfs:subPropertyOf rdf:resource="#hasMinimumX"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="#isAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isInputDevice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:NamedIndividual rdf:ID="Gyroscope">
+    <hasManipulationOperator rdf:resource="#Rz"/>
+    <hasManipulationOperator rdf:resource="#Ry"/>
+    <hasManipulationOperator rdf:resource="#Rx"/>
+  </owl:NamedIndividual>
+  <j.0:Imp>
+    <j.0:body>
+      <j.0:AtomList>
+        <rdf:first>
+          <j.0:IndividualPropertyAtom>
+            <j.0:argument2>
+              <j.0:Variable rdf:about="urn:swrl#x2"/>
+            </j.0:argument2>
+            <j.0:argument1>
+              <j.0:Variable rdf:about="urn:swrl#x1"/>
+            </j.0:argument1>
+            <j.0:propertyPredicate rdf:resource="#matchesDOF"/>
+          </j.0:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest>
+          <j.0:AtomList>
+            <rdf:first>
+              <j.0:IndividualPropertyAtom>
+                <j.0:argument2 rdf:resource="urn:swrl#x2"/>
+                <j.0:argument1 rdf:resource="urn:swrl#x1"/>
+                <j.0:propertyPredicate rdf:resource="#matchesResolution"/>
+              </j.0:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </j.0:AtomList>
+        </rdf:rest>
+      </j.0:AtomList>
+    </j.0:body>
+    <j.0:head>
+      <j.0:AtomList>
+        <rdf:first>
+          <j.0:IndividualPropertyAtom>
+            <j.0:argument2 rdf:resource="urn:swrl#x2"/>
+            <j.0:argument1 rdf:resource="urn:swrl#x1"/>
+            <j.0:propertyPredicate rdf:resource="#canBeConnectedTo"/>
+          </j.0:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </j.0:AtomList>
+    </j.0:head>
+  </j.0:Imp>
+  <owl:NamedIndividual rdf:ID="Slider">
+    <hasManipulationOperator rdf:resource="#Px"/>
+    <numberOfStates rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >100</numberOfStates>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="VolumeKnob">
+    <hasManipulationOperator rdf:resource="#Ry"/>
+    <hasMaximumY rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >100</hasMaximumY>
+    <hasMinimumY rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0</hasMinimumY>
+  </owl:NamedIndividual>
+  <Action rdf:ID="MusicPlayerForwardSong">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Action>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <DiscreteState rdf:about="#Down"/>
+      <DiscreteState rdf:ID="Pause">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </DiscreteState>
+      <DiscreteState rdf:ID="Play">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </DiscreteState>
+      <DiscreteState rdf:ID="Up">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </DiscreteState>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <DOF rdf:about="#Px"/>
+      <DOF rdf:about="#Py"/>
+      <DOF rdf:about="#Pz"/>
+      <DOF rdf:about="#Rx"/>
+      <DOF rdf:about="#Ry"/>
+      <DOF rdf:about="#Rz"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/owlapi#nodeID"/>
+  <owl:NamedIndividual rdf:ID="PushButton">
+    <hasState rdf:resource="#Up"/>
+    <hasManipulationOperator rdf:resource="#Pz"/>
+    <hasState rdf:resource="#Down"/>
+    <numberOfStates rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberOfStates>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Tablet">
+    <hasManipulationOperator rdf:resource="#Py"/>
+    <hasManipulationOperator rdf:resource="#Px"/>
+    <hasMaximumY rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >640</hasMaximumY>
+    <hasMinimumY rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0</hasMinimumY>
+  </owl:NamedIndividual>
+  <Action rdf:ID="MusicPlayerPlayPause">
+    <requiresManipulationOperator rdf:resource="#Px"/>
+    <hasState rdf:resource="#Play"/>
+    <hasState rdf:resource="#Pause"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Action>
+  <owl:NamedIndividual rdf:ID="Trackball">
+    <hasManipulationOperator rdf:resource="#Ry"/>
+    <hasManipulationOperator rdf:resource="#Rx"/>
+  </owl:NamedIndividual>
+  <Action rdf:ID="MusicPlayerVolumeControl">
+    <requiresManipulationOperator rdf:resource="#Pz"/>
+    <requiresManipulationOperator rdf:resource="#Py"/>
+    <requiresManipulationOperator rdf:resource="#Px"/>
+    <numberOfStates rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >9</numberOfStates>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Action>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
