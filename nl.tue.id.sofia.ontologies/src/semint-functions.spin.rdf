@@ -2,21 +2,21 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:spin="http://spinrdf.org/spin#"
-    xmlns="http://sofia.gotdns.com/ontologies/semint-functions#"
+    xmlns="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/semint-functions#"
     xmlns:sp="http://spinrdf.org/sp#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:sc="http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
+    xmlns:sc="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:semint="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
+    xmlns:semint="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:spl="http://spinrdf.org/spl#"
-  xml:base="http://sofia.gotdns.com/ontologies/semint-functions">
+  xml:base="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/semint-functions">
   <owl:Ontology rdf:about="">
     <owl:imports rdf:resource="http://spinrdf.org/spin"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
-    <owl:imports rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl"/>
-    <owl:imports rdf:resource="http://sofia.gotdns.com/ontologies/SemanticConnections.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl"/>
   </owl:Ontology>
   <spin:MagicProperty rdf:ID="hasLastEvent">
     <rdfs:subClassOf rdf:resource="http://spinrdf.org/spin#MagicProperties"/>
@@ -58,12 +58,12 @@
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:resource="http://spinrdf.org/spin#_arg1"/>
-            <sp:predicate rdf:resource="http://sofia.gotdns.com/ontologies/SemanticConnections.owl#generatedBy"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#generatedBy"/>
             <sp:subject rdf:nodeID="A1"/>
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:nodeID="A0"/>
-            <sp:predicate rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#inXSDDateTime"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#inXSDDateTime"/>
             <sp:subject rdf:nodeID="A1"/>
           </rdf:Description>
         </sp:where>

@@ -5,13 +5,13 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
-    xmlns="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
+    xmlns="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:sofia="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#"
-  xml:base="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl">
+  xml:base="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl">
   <owl:Ontology rdf:about="">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Supporting semantic interaction in the SOFIA project (http://www.sofia-project.eu/). </rdfs:comment>

@@ -3,19 +3,19 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns="http://sofia.gotdns.com/ontologies/SemanticConnections.owl#"
+    xmlns="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:semint="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#"
+    xmlns:semint="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:sofia="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#"
-  xml:base="http://sofia.gotdns.com/ontologies/SemanticConnections.owl">
+  xml:base="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl">
   <owl:Ontology rdf:about="">
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >0.3</owl:versionInfo>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >As used by Semantic Connections demonstrator in the SOFIA Project (http://www.sofia-project.eu/) 
 First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v.d.vlist@tue.nl).</rdfs:comment>
-    <owl:imports rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl"/>
     <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#SmartObject"/>
@@ -31,7 +31,7 @@ First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v
       <owl:Class rdf:ID="StopEvent"/>
     </owl:disjointWith>
   </owl:Class>
-  <owl:Class rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#IDType"/>
+  <owl:Class rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#IDType"/>
   <owl:Class rdf:about="#MediaPlayerEvent">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Event"/>
@@ -61,10 +61,10 @@ First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v
   <owl:ObjectProperty rdf:ID="acceptsMediaType">
     <owl:inverseOf rdf:resource="#isAcceptedMediaTypeOf"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#ofIDType"/>
-  <owl:ObjectProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#hasInteractionPrimitive"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#ofIDType"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#hasInteractionPrimitive"/>
   <owl:ObjectProperty rdf:about="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#hasIdentification"/>
-  <owl:DatatypeProperty rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#idValue"/>
+  <owl:DatatypeProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#idValue"/>
   <owl:DatatypeProperty rdf:ID="renderMediaAs">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >This specifies how the media is rendered to the user, e.g. ambient lighting may render an audio stream as coloured lighting</rdfs:comment>
@@ -88,7 +88,7 @@ First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v
   </owl:IrreflexiveProperty>
   <owl:NamedIndividual rdf:ID="id44d640d1-7877-4505-854e-4f30fc03afe3">
     <semint:ofIDType>
-      <owl:NamedIndividual rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#RFID_Mifare"/>
+      <owl:NamedIndividual rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#RFID_Mifare"/>
     </semint:ofIDType>
     <semint:idValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >04AF7151962280</semint:idValue>
@@ -103,7 +103,7 @@ First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v
       <owl:NamedIndividual rdf:ID="ida03b2c42-ff0f-4d94-99b6-51e1a9a9c3c1">
         <semint:idValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >0401C4D9A12581</semint:idValue>
-        <semint:ofIDType rdf:resource="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#RFID_Mifare"/>
+        <semint:ofIDType rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#RFID_Mifare"/>
         <rdf:type rdf:resource="http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#Identification"/>
       </owl:NamedIndividual>
     </sofia:hasIdentification>
@@ -117,7 +117,7 @@ First version by Gerrit Niezen (g.niezen@tue.nl) and Bram van der Vlist (b.j.j.v
   <owl:NamedIndividual rdf:ID="Audio">
     <rdf:type rdf:resource="#MediaType"/>
   </owl:NamedIndividual>
-  <owl:Thing rdf:about="http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#woopwoop">
+  <owl:Thing rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#woopwoop">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </owl:Thing>
   <owl:NamedIndividual rdf:ID="N900PlayButton"/>
