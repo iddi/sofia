@@ -28,8 +28,12 @@ alarms = {}
 
 currentTitle = ""
 
-alarmSong = "file:///home/gerrit/Music/Bittereinder/10%20Penworstel.mp3"
-previewSong = "file:///home/gerrit/Music/Bittereinder/03%20Almanak.mp3"
+# configure your specific alarm and preview files with their full path:
+# alarmSong = "file:///home/userName/Music/Album/Track.mp3"
+alarmSong = ""
+# previewSong = "file:///home/userName/Music/Album/Track.mp3"
+previewSong = ""
+
 #TODO: Fix timezone problem with pytz (see wakeup KP)
 
 class SBMsgHandler:
@@ -192,7 +196,9 @@ class eventHandler:
                 if(eventType == ie_ns + "IndicatorEvent"): 
                     print "Showing indicator."
                     indicatorSong = sq.get_track_path()
-                    sq.playlist_play("file:///home/gerrit/Music/communicator.mp3")
+                    # configure file to play for an indicator event (with full path)
+                    #sq.playlist_play("file:///home/username/Music/indicator.mp3")
+                    sq.playlist_play("")
                     sq.play()
                     #TODO: Wait and restore title
                 
