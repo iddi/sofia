@@ -1,5 +1,6 @@
 package com.tue.scservice;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -146,6 +147,7 @@ extends ALongRunningNonStickyBroadcastService //implements iKPIC_subscribeHandle
 	    if(!ack){Log.d(tag,"ERROR: Can not insert data into the SIB");}
 	}
 	
+	@TargetApi(9)
 	private void addEvent(String eventType, String dataValue) {
 	    Vector<Vector<String>> triples = null;
 		triples = new Vector<Vector<String>>();
@@ -173,6 +175,7 @@ extends ALongRunningNonStickyBroadcastService //implements iKPIC_subscribeHandle
 	 * Perform long running operations in this method.
 	 * This is executed in a separate thread. 
 	 */
+	@TargetApi(9)
 	@Override
 	protected void handleBroadcastIntent(Intent broadcastIntent) 
 	{
