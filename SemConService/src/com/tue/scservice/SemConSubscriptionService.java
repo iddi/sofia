@@ -45,9 +45,9 @@ public static String tag = "SemConSubscriptionService";
 	static String PORT = "23000"; 
 	static String SSNM = "test"; 
 	
-	static final String ns = "http://sofia.gotdns.com/ontologies/InteractionEvents.owl#";
-	static final String sc = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#";
-	static final String semint = "http://sofia.gotdns.com/ontologies/SemanticInteraction.owl#";
+	static final String ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#";
+	static final String sc = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#";
+	static final String semint = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#";
 	static final String sofia = "http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl#";
 	
 	

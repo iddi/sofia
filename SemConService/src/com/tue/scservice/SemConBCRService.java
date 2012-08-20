@@ -53,8 +53,8 @@ extends ALongRunningNonStickyBroadcastService //implements iKPIC_subscribeHandle
 	static String PORT = "23000"; 
 	static String SSNM = "test"; 
 	
-	static String ns = "http://sofia.gotdns.com/ontologies/InteractionEvents.owl#";
-	static String sc = "http://sofia.gotdns.com/ontologies/SemanticConnections.owl#";  
+	static String ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#";
+	static String sc = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#";  
 	
 	int prev_volume = 50;
 	
