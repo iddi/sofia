@@ -21,8 +21,8 @@ subscriptions = {}
 
 lightLevel = 0
 
-ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
-sc_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+ie_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+sc_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
 
 class newConnectionHandler:
     def handle(self, added, removed):

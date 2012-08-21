@@ -5,19 +5,19 @@
     xmlns:afn="http://jena.hpl.hp.com/ARQ/function#"
     xmlns:spin="http://spinrdf.org/spin#"
     xmlns:sp="http://spinrdf.org/sp#"
-    xmlns:events="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+    xmlns:events="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
     xmlns:smf="http://topbraid.org/sparqlmotionfunctions#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:spif="http://spinrdf.org/spif#"
-    xmlns:sc="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
-    xmlns:semint="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
+    xmlns:sc="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+    xmlns:semint="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:spl="http://spinrdf.org/spl#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl">
+  xml:base="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl"/>
-    <owl:imports rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl"/>
+    <owl:imports rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl"/>
     <spin:imports rdf:resource="http://topbraid.org/spin/owlrl-all"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
@@ -165,14 +165,14 @@
           <rdf:Description>
             <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
             <sp:predicate>
-              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
             </sp:predicate>
             <sp:subject rdf:nodeID="A5"/>
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:nodeID="A4"/>
             <sp:predicate>
-              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
             </sp:predicate>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
@@ -199,14 +199,14 @@
               </rdf:Description>
             </sp:subject>
             <sp:predicate>
-              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
             </sp:predicate>
             <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
           <rdf:Description>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
             <sp:predicate>
-              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+              <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
             </sp:predicate>
             <sp:object>
               <rdf:Description rdf:nodeID="A7">
@@ -217,19 +217,19 @@
           </rdf:Description>
           <rdf:Description>
             <sp:subject rdf:nodeID="A6"/>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
             <sp:object rdf:nodeID="A7"/>
           </rdf:Description>
         </sp:where>
         <sp:templates rdf:parseType="Collection">
           <rdf:Description>
             <sp:subject rdf:nodeID="A6"/>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
             <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
           <rdf:Description>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
             <sp:object rdf:nodeID="A7"/>
           </rdf:Description>
         </sp:templates>
@@ -577,34 +577,34 @@
   <owl:ObjectProperty rdf:ID="isFunctionalityofSource">
     <owl:inverseOf rdf:resource="#functionalitySource"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#indirectlyConnectedTo">
-    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#indirectlyConnectedTo">
+    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="isFunctionalityOfSink">
     <owl:inverseOf rdf:resource="#functionalitySink"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo">
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo">
     <owl:propertyChainAxiom rdf:parseType="Collection">
       <owl:ObjectProperty rdf:about="#functionalitySource"/>
       <owl:ObjectProperty rdf:about="#isFunctionalityOfSink"/>
     </owl:propertyChainAxiom>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canIndirectlyConnectTo">
-    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canIndirectlyConnectTo">
+    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
     <owl:propertyChainAxiom rdf:parseType="Collection">
-      <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
-      <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+      <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
+      <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#canConnectTo"/>
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#tempConnectedTo">
-    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#tempConnectedTo">
+    <rdfs:subPropertyOf rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#directlyConnectedTo">
-    <owl:propertyDisjointWith rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#indirectlyConnectedTo"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#directlyConnectedTo">
+    <owl:propertyDisjointWith rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#indirectlyConnectedTo"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedFrom">
-    <owl:inverseOf rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
+  <owl:ObjectProperty rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedFrom">
+    <owl:inverseOf rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#connectedTo"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="generatedBy">
     <rdfs:range rdf:resource="#SmartObject"/>
@@ -645,7 +645,7 @@
           <semint:InteractionPrimitive rdf:ID="dimmableLight1">
             <semint:dataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
             >50</semint:dataValue>
-            <semint:hasRangeMeasure rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#Triple"/>
+            <semint:hasRangeMeasure rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#Triple"/>
           </semint:InteractionPrimitive>
         </semint:hasInteractionPrimitive>
       </events:SmartObject>
@@ -736,14 +736,14 @@
                 >tag</sp:varName>
               </rdf:Description>
             </sp:object>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#hasRFIDTag"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#hasRFIDTag"/>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
         </sp:templates>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
-            <sp:object rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#RFID_Mifare"/>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#ofIDType"/>
+            <sp:object rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#RFID_Mifare"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#ofIDType"/>
             <sp:subject>
               <rdf:Description rdf:nodeID="A13">
                 <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -758,7 +758,7 @@
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:nodeID="A12"/>
-            <sp:predicate rdf:resource="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#idValue"/>
+            <sp:predicate rdf:resource="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#idValue"/>
             <sp:subject rdf:nodeID="A13"/>
           </rdf:Description>
         </sp:where>
@@ -827,7 +827,7 @@
       </sp:Select>
     </spin:body>
   </spin:Function>
-  <rdf:Description rdf:about="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#InteractionEvent">
+  <rdf:Description rdf:about="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#InteractionEvent">
     <owl:equivalentClass rdf:resource="#InteractionEvent"/>
   </rdf:Description>
 </rdf:RDF>

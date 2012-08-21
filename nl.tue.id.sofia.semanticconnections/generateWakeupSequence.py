@@ -18,8 +18,8 @@ from RDFTransactionList import * #helper functions for working with triples
 deviceID = "wakeup1"
 wakeupPeriod = 10
 
-ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
-sc_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+ie_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+sc_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
 
 def addEvent(eventType, dataValue=None):
     """Adds new event with metadata (generatedBy, datetime) to smart space"""

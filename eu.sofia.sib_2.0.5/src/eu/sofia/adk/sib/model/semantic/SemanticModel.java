@@ -140,10 +140,10 @@ public class SemanticModel {
 		
 		// Load domain model with imports
 		logger.debug("Loading domain ontology...");
-		model = loadModelWithImports("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl");
-		//model = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/InteractionEvents.owl","https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl");
-		//model = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/BondingDevice5.owl","https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
-		//model = loadModelWithImports("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
+		model = loadModelWithImports("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl");
+		//model = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/InteractionEvents.owl","https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl");
+		//model = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/BondingDevice5.owl","https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
+		//model = loadModelWithImports("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
 		
 		
 		//Load Pellet reasoner (Gerrit)
@@ -151,9 +151,9 @@ public class SemanticModel {
 		//org.mindswap.pellet.PelletOptions.USE_CONTINUOUS_RULES=true;
 		
 		//Load SemCon ontology into model (Gerrit)
-		//model.read("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl");
-		//model.read("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl");
-		//model.read("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
+		//model.read("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl");
+		//model.read("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl");
+		//model.read("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/BondingDevice.owl");
 				
 		// Load OWL RL library from the web
 		logger.debug("Loading OWL RL ontology...");		
@@ -161,7 +161,7 @@ public class SemanticModel {
 		
 		logger.debug("Loading our SPIN functions..");	
 		//SIB crashes with java.net.ConnectException (Connection refused) if the server is offline	
-		OntModel sifuncModel = loadModelWithImports("https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/semint-functions.spin.rdf");
+		OntModel sifuncModel = loadModelWithImports("https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/semint-functions.spin.rdf");
 		
 		SPINModuleRegistry.get().init(); // Initialize system functions and templates
 		//SPINFunctions.init(); //Registers the spif functions in spin.functions.jar
@@ -176,7 +176,7 @@ public class SemanticModel {
 		/*
 		//Create cleanup model and load newTriples into it too
 		logger.debug("Loading cleanup ontology..");		
-		cleanupModel = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/cleanup.owl","https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/cleanup.owl");
+		cleanupModel = loadModelWithImports("/home/gerrit/code/TBCFreeWorkspace/ontologies/cleanup.owl","https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/cleanup.owl");
 		cleanupModel.addSubModel(newTriples);
 		SPINModuleRegistry.get().registerAll(cleanupModel, null);
 		*/

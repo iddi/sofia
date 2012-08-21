@@ -46,7 +46,7 @@ node.CloseRemoveTransaction(ds)
 '''
 
 
-semint="https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
+semint="https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticInteraction.owl#"
 qs = node.CreateQueryTransaction(smartSpace)
 #result = qs.rdf_query([((None, ns + "inXSDDateTime", None ),"literal")])
 #result = qs.rdf_query([((None, ns + "inXSDDateTime", None ),"literal")])

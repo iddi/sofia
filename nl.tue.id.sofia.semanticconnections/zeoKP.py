@@ -19,7 +19,7 @@ from RDFTransactionList import * #helper functions for working with triples
 connected = False
 deviceID = "zeo"
 
-ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+ie_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
 
 def addEvent(eventType):
 	"""Adds new event with metadata (generatedBy, datetime) to smart space"""

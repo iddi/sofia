@@ -7,7 +7,7 @@ add or remove semantic connections in the smart space?
 
 The latest version of the ontology used is available at:
 
-`https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl <https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl>`_.
+`https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl <https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl>`_.
 
 The ontology is best viewed using `Protegé 4 <http://protege.stanford.edu/download/download.html>`_.
 
@@ -15,7 +15,7 @@ The ontology is best viewed using `Protegé 4 <http://protege.stanford.edu/downl
 
 A **connectedTo** relationship can be added or removed between two existing **SmartObjects**. To determine whether a **connectedTo** relationship exists between two smart objects, you can do the following (in Python using the Smart-M3 libraries)::
     
-    ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+    ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
     qs = node.CreateQueryTransaction(smartSpace)
     
     result = qs2.rdf_query([((device, ns+"connectedTo", None),"uri")])

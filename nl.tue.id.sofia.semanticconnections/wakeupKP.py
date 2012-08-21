@@ -27,8 +27,8 @@ alarms = {} # alarms[sleepSeconds, [alarmXSD, thread] ]
 #timezone = pytz.timezone("UTC")
 timezone = pytz.timezone('Europe/Amsterdam')
 
-ie_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
-sc_ns = "https://raw.github.com/iddi/nl.tue.id.sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
+ie_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/InteractionEvents.owl#"
+sc_ns = "https://raw.github.com/iddi/sofia/master/nl.tue.id.sofia.ontologies/src/SemanticConnections.owl#"
 
 class Alarm(threading.Thread):
     def __init__(self, zzz):
