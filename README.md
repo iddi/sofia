@@ -6,6 +6,8 @@ http://www.eclipse.org/downloads/packages/eclipse-rcp-and-rap-developers/helioss
 
 **It is important to get this version of Eclipse, because we need its support on OSGi and certain plugins for OSGi.**
 
+**ToDo** Try out the newer versions of Eclipse.
+
 # Install Git
 
 In eclipse,
@@ -49,18 +51,25 @@ eu.sofia.sib.osgi -> Run.. -> OSGi Framework
 
 just to get some help on the commands: 
 
-    sspace
+    osgi> sspace
 
 create sib
 
-    sspace create -sib -name=test
+    osgi> sspace create -sib -name=test
 
 create the gateway
 
-    sspace create -gw -name=testgw -type=TCP/IP -idSib=1
+    osgi> sspace create -gw -name=testgw -type=TCP/IP -idSib=1
 
 start the services
 
+    osgi> sspace start -sib -id=1
+    osgi> sspace start -gw -id=1
+
+To try out the above commands all together, copy and paste to `osgi>` command line:
+
+    sspace create -sib -name=test
+    sspace create -gw -name=testgw -type=TCP/IP -idSib=1
     sspace start -sib -id=1
     sspace start -gw -id=1
 
@@ -77,6 +86,8 @@ To install a module for python, just execute the easy_install.exe followed by th
     easy_install iso8601
     easy_install pyserial
     easy_install datetime
+
+To edit/run python code within Eclipse, pydev might be handy: http://pydev.org/
 
 # Install Smart-M3 Python KPI
 ---------------------------
@@ -112,21 +123,27 @@ to see all the smart objects
 # Scenario 'semantic connections'
 -----------------------------------------------------------
 
-download the semantic connections KP stuff from: https://github.com/iddi/nl.tue.id.sofia/tree/master/nl.tue.id.sofia.semanticconnections
+download the semantic connections KP stuff from: https://github.com/iddi/sofia/tree/master/nl.tue.id.sofia.semanticconnections
 
 1) In the file TripleStore.py change line 12
-"smartSpace = ('<SIB NAME>', (TCPConnector, ('<IP ADDRESS OF COMPUTER WITH RUNNING SIB>', <PORT>)))"
+
+    smartSpace = ('<SIB NAME>', (TCPConnector, ('<IP ADDRESS OF COMPUTER WITH RUNNING SIB>', <PORT>)))
+
 with your specifics.
 
 2) In the file "lightKP.py" change the line 
-"    lightPort = serial.Serial("COM3:",115200)"
 
-with the serial port of the light Bluetooth device (ArduinoBT). On Windows this is probably "COMn:" (DON'T FORGET THE : !!), and on Mac this is something like "/dev/tty/<???>".
+    lightPort = serial.Serial("COM3:",115200)
+
+with the serial port of the light Bluetooth device (ArduinoBT). On Windows this is probably `COMn:` (DON'T FORGET THE : !!), and on Mac this is something like `/dev/tty/<???>`.
 
 3) In the file "connectorKP.py" change the line
-"ser = serial.Serial('COM5:',115200)"
+    
+    ser = serial.Serial('COM5:',115200)
 
-with the serial port of the FireFly device. On Windows this is probably "COMn:" (DON'T FORGET THE : !!), and on Mac this is something like "/dev/tty.FireFly-451A-SPP".
+with the serial port of the FireFly device. On Windows this is probably `COMn:` (DON'T FORGET THE : !!), and on Mac this is something like "/dev/tty.FireFly-451A-SPP".
 
 4) Logitech Media Server
+
 To install the Logitech Media Server go to: http://wiki.slimdevices.com/index.php/Windows_Installation_Guide
+
