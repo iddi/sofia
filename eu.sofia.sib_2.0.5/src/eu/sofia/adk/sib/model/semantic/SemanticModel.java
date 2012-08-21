@@ -664,7 +664,10 @@ public class SemanticModel {
 		
 		try{
 			
-			 String timestamp = new Date().toString();
+			 //String timestamp = new Date().toString();
+			 /* Changed by Jun */
+			 String timestamp = new Date().toString().replace(':', '-');
+			 
 			 FileOutputStream fout=new FileOutputStream("logs/inferred_" + timestamp + ".rdf");
 			 //newTriples.write(fout, "N-TRIPLE");
 			 newTriples.write(fout);
