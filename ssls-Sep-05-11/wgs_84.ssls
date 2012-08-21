@@ -1,0 +1,75 @@
+ssls $Revision: 1.24 $
+b---
+0:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/1999/02/22-rdf-syntax-ns#type,http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+1:a: update
+2:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642910298
+3:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171009008
+4:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642855816
+5:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171059299
+6:a: update
+7:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171059299
+8:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642855816
+9:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642813906
+10:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171384517
+11:a: update
+12:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171384517
+13:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642813906
+14:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642676443
+15:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171447381
+16:a: update
+17:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171447381
+18:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642676443
+19:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9170894176
+20:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642305125
+21:a: update
+22:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642305125
+23:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9170894176
+24:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642238908
+25:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9170830473
+26:a: update
+27:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9170830473
+28:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642238908
+29:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642193645
+30:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171051756
+31:a: update
+32:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9171051756
+33:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642193645
+34:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.917120263
+35:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642466895
+36:a: update
+37:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1642466895
+38:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.917120263
+39:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1643467695
+40:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172206782
+41:a: update
+42:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172206782
+43:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1643467695
+44:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1643748488
+45:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172188342
+46:a: update
+47:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172188342
+48:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1643748488
+49:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645112224
+50:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.91723652
+51:a: update
+52:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.91723652
+53:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645112224
+54:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172108714
+55:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645071991
+56:a: update
+57:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645071991
+58:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172108714
+59:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645042654
+60:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172005616
+61:a: update
+62:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172005616
+63:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645042654
+64:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645403914
+65:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172329158
+66:a: update
+67:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172329158
+68:a: d moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645403914
+69:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#long,24.9172594864
+70:a: i moo_c094e767-c0fe-4de8-8c22-a5e049364820,http://www.w3.org/2003/01/geo/wgs84_pos#lat,60.1645618491
+71:a: update
+e---

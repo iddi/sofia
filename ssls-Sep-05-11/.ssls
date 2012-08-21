@@ -1,0 +1,14 @@
+ssls $Revision: 1.1 $
+
+b---
+0:a: add_ns sc http://sofia.gotdns.com/ontologies/SemanticConnections.owl
+1:a: add_ns semint http://sofia.gotdns.com/ontologies/SemanticInteraction.owl
+2:a: add_ns bonding http://sofia.gotdns.com/ontologies/BondingDevice.owl
+3:a: add_ns sofia http://www.sofia-project.eu/ontologies/core/2010/01/19/sofia.owl
+4:a: add_ns owl http://www.w3.org/2002/07/owl
+5:a: add_ns core http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl
+6:a: add_ns dcs http://ontology.ist-spice.org/mobile-ontology/1/0/dcs/0/dcs.owl
+7:a: add_ns wp1 http://sofia.org/wp1
+8:a: add_ns wp1p http://sofia.org/personal
+9:a: add_ns sifunc http://sofia.gotdns.com/ontologies/semint-functions
+e---
