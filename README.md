@@ -1,12 +1,17 @@
 ---
 
-**ToDo** Check the source files for `/home/gerrit/code/`
+For more about the SOFIA project and the theoretical background, you may want to read Gerrit Niezen's PhD thesis: 
+
+* http://www.drhu.eu/reports/2012-GerritNiezen_OntologiesForInteraction.pdf
+
 
 # Install Eclipse for RCP and RAP Developers (Helios) 
 
 http://www.eclipse.org/downloads/packages/eclipse-rcp-and-rap-developers/heliossr2
 
 **It is important to get this version of Eclipse, because we need its support on OSGi and certain plugins for OSGi.**
+
+Eclipse 32/64 bit version should match your JRE.
 
 **ToDo** Try out the newer versions of Eclipse.
 
@@ -33,6 +38,7 @@ In eclipse,
 * Select "Import Existing Projects", Next
 * "Select All" the projects, Finish
 
+If ontologies need to be edited, TopBraid Composer might be handy: http://www.topquadrant.com/products/TB_Composer.html
 
 # Run SIB
 
@@ -143,8 +149,23 @@ with the serial port of the light Bluetooth device (ArduinoBT). On Windows this 
     
     ser = serial.Serial('COM5:',115200)
 
-with the serial port of the FireFly device. On Windows this is probably `COMn:` (DON'T FORGET THE : !!), and on Mac this is something like "/dev/tty.FireFly-451A-SPP".
+with the serial port of the FireFly device. On Windows this is probably `COMn:` (DON'T FORGET THE : !!), and on Mac this is something like `/dev/tty.FireFly-451A-SPP`.
 
 4) Logitech Media Server
 
 To install the Logitech Media Server go to: http://wiki.slimdevices.com/index.php/Windows_Installation_Guide
+
+5) Android app: nl.tue.id.sofia.androidKP
+* Check: all external jars should be in the libs (not lib!).
+* SIB IP/Port/Sib name need to be changed in SemConBCRService.java
+
+For the scenario 'wake up experience', the following KPs should be on:
+* ConnectorKP
+* LightKP
+* AndroidKP
+* SqueezeboxKP
+* WakeupKP
+
+Things still need to be checked:
+* Preview event still not working;
+* LightKP still having problem reaction to the events from SIB - it ould be because of a slow SIB; try to run SIB on a faster computer. The subscription process does not seem to work well -- it could be the pyserial not working well on Windows -- may try to run it on Linux.
